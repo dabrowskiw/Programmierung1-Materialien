@@ -1,0 +1,99 @@
+/* @theme HTW */
+
+@import 'gaia';
+
+@font-face {
+  font-family: 'HTWBerlinOffice';
+  font-style: normal;
+  font-weight: normal;
+  src: URL('Bilder/HTWBerlinOffice-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HTWBerlinOffice';
+  font-style: normal;
+  font-weight: bold;
+  src: URL('Bilder/HTWBerlinOffice-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HTWBerlinOffice';
+  font-weight: normal;
+  font-style: italic;
+  src: URL('Bilder/HTWBerlinOffice-Italic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'HTWBerlinOffice';
+  font-weight: bold;
+  font-style: italic;
+  src: URL('Bilder/HTWBerlinOffice-BoldItalic.ttf') format('truetype');
+}
+
+pre {
+  margin-top: 5px;  
+}
+
+table {
+  margin-top: 5px;
+}
+
+h1 {
+  color: #000000;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+text {
+  color: #000000;
+}
+
+section {
+  font-family: HTWBerlinOffice;
+  background-color: white;
+  color: black;
+}
+
+/* Styling page number */
+section::after {
+  position: absolute;
+  left: 1200px;
+  top: 10px;
+  width: 100px;
+  color: black;
+  background-color: white;
+}
+
+footer {
+  bottom: 0px;
+  left: 120px;
+  background-color: #76B900;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15pt;
+  padding-top: 0px;
+  width: 1000px;
+  height: 50px;
+  background-image: url("Bilder/HTW.png");
+  background-repeat: no-repeat;
+  background-position-x: 910px;
+  background-position-y: 12px;
+  background-size: 80px;
+}
+
+ul {
+  margin-top: 0px;
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: #76B900;
+  font-family: 'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  font-size: 0.8em;
+  margin-left: -40px;
+  display: inline-block;
+  width: 30px;
+}
