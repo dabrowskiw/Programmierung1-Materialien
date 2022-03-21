@@ -77,8 +77,6 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
   * `stop all`: Programm beenden
 * Eleganter mit
   * `repeat until Bedingung`: Dinge tun, bis `Bedingung` erfüllt ist
-  * `script variables Name`: Variable `Name` anlegen
-  * `set Name to Wert`: `Wert` in `Variable` merken
 
 ---
 
@@ -97,5 +95,3 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 * Aufhübschung von [Beispiel 3](https://snap.berkeley.edu/project?user=piotrdabrowski&project=Prog1-Beispiel3): 
     * Argument in Funktion nehmen - `check for door Richtung` überprüft Tür in `Richtung` anstatt nur links (siehe `turn`)
     * Funktion `is Richtung of door` mit Rückgabewert (`true` oder `false`): Kann in `if` verwendet werden (siehe `in front of Farbe`)
-
----
