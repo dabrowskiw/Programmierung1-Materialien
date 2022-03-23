@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="60.121159mm"
-   height="60.121155mm"
-   viewBox="0 0 60.121159 60.121155"
+   width="7.7466555mm"
+   height="7.7466555mm"
+   viewBox="0 0 7.7466555 7.7466555"
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="map2.3.svg"
-   inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map2.3.png"
+   sodipodi:docname="map3.1.svg"
+   inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map3-1.png"
    inkscape:export-xdpi="101.39526"
    inkscape:export-ydpi="101.39526"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -27,12 +27,12 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="3.174838"
-     inkscape:cx="90.870778"
-     inkscape:cy="117.6438"
+     inkscape:cx="62.207898"
+     inkscape:cy="-63.467805"
      inkscape:window-width="1920"
      inkscape:window-height="1007"
      inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-y="360"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      fit-margin-top="0"
@@ -45,7 +45,7 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-14.593593,-24.373907)">
+     transform="translate(-22.075663,-69.266329)">
     <rect
        style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
        id="rect31"
@@ -53,7 +53,7 @@
        height="7.4820724"
        x="22.207956"
        y="31.988272"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -63,7 +63,7 @@
        height="7.4820724"
        x="22.207956"
        y="24.506201"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -73,7 +73,7 @@
        height="7.4820724"
        x="29.690029"
        y="24.506201"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -83,7 +83,7 @@
        height="7.4820724"
        x="37.1721"
        y="24.506203"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -93,7 +93,7 @@
        height="7.4820724"
        x="44.654171"
        y="24.506201"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -103,7 +103,7 @@
        height="7.4820724"
        x="52.136242"
        y="24.506201"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -113,7 +113,7 @@
        height="7.4820724"
        x="59.618317"
        y="24.506201"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -123,7 +123,7 @@
        height="7.4820724"
        x="67.100388"
        y="24.506201"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -133,7 +133,7 @@
        height="7.4820724"
        x="67.100388"
        y="31.988272"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -143,7 +143,7 @@
        height="7.4820724"
        x="67.100388"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -151,9 +151,9 @@
        id="rect31-93-67-8"
        width="7.4820724"
        height="7.4820724"
-       x="67.100388"
-       y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       x="37.1721"
+       y="76.880699"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -163,7 +163,7 @@
        height="7.4820724"
        x="67.100388"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -173,7 +173,7 @@
        height="7.4820724"
        x="67.100388"
        y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -183,7 +183,7 @@
        height="7.4820724"
        x="67.100388"
        y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -193,7 +193,7 @@
        height="7.4820724"
        x="67.100388"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -203,7 +203,7 @@
        height="7.4820724"
        x="14.725885"
        y="24.506199"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -213,7 +213,7 @@
        height="7.4820724"
        x="14.725885"
        y="31.98827"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -223,7 +223,7 @@
        height="7.4820724"
        x="14.725885"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -233,7 +233,7 @@
        height="7.4820724"
        x="14.725884"
        y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -243,7 +243,7 @@
        height="7.4820724"
        x="14.725885"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -253,7 +253,7 @@
        height="7.4820724"
        x="14.725885"
        y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -263,7 +263,7 @@
        height="7.4820724"
        x="14.725885"
        y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -273,7 +273,7 @@
        height="7.4820724"
        x="14.725885"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -283,7 +283,7 @@
        height="7.4820724"
        x="22.207954"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -293,7 +293,7 @@
        height="7.4820724"
        x="29.690029"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -301,9 +301,9 @@
        id="rect31-93-56-0"
        width="7.4820724"
        height="7.4820724"
-       x="37.1721"
+       x="52.136242"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -313,17 +313,7 @@
        height="7.4820724"
        x="44.654171"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
-       inkscape:export-xdpi="101.39526"
-       inkscape:export-ydpi="101.39526" />
-    <rect
-       style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-93-3-7"
-       width="7.4820724"
-       height="7.4820724"
-       x="52.136242"
-       y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -333,7 +323,7 @@
        height="7.4820724"
        x="59.618313"
        y="76.880699"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -343,7 +333,7 @@
        height="7.4820724"
        x="29.690029"
        y="31.988274"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -353,7 +343,7 @@
        height="7.4820724"
        x="37.1721"
        y="31.988274"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -363,7 +353,7 @@
        height="7.4820724"
        x="44.654171"
        y="31.988274"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -373,7 +363,7 @@
        height="7.4820724"
        x="52.136242"
        y="31.988274"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -382,8 +372,8 @@
        width="7.4820724"
        height="7.4820724"
        x="59.618313"
-       y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       y="31.988274"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -393,7 +383,7 @@
        height="7.4820724"
        x="22.207958"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -403,7 +393,7 @@
        height="7.4820724"
        x="29.690029"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -413,7 +403,7 @@
        height="7.4820724"
        x="37.1721"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -423,7 +413,7 @@
        height="7.4820724"
        x="44.654171"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -433,7 +423,7 @@
        height="7.4820724"
        x="52.136242"
        y="39.470345"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -442,18 +432,8 @@
        width="7.4820724"
        height="7.4820724"
        x="59.618313"
-       y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
-       inkscape:export-xdpi="101.39526"
-       inkscape:export-ydpi="101.39526" />
-    <rect
-       style="fill:#d9ff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-68"
-       width="7.4820724"
-       height="7.4820724"
-       x="59.618313"
-       y="31.988274"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       y="39.470345"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -463,7 +443,7 @@
        height="7.4820724"
        x="29.690029"
        y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -473,7 +453,7 @@
        height="7.4820724"
        x="37.1721"
        y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -483,7 +463,7 @@
        height="7.4820724"
        x="44.654171"
        y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -491,9 +471,19 @@
        id="rect31-9-6-06"
        width="7.4820724"
        height="7.4820724"
+       x="59.618317"
+       y="46.952415"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
+       inkscape:export-xdpi="101.39526"
+       inkscape:export-ydpi="101.39526" />
+    <rect
+       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-9-6-06-5"
+       width="7.4820724"
+       height="7.4820724"
        x="52.136242"
        y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -503,17 +493,7 @@
        height="7.4820724"
        x="22.207958"
        y="46.952415"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
-       inkscape:export-xdpi="101.39526"
-       inkscape:export-ydpi="101.39526" />
-    <rect
-       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-61"
-       width="7.4820724"
-       height="7.4820724"
-       x="22.207956"
-       y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -523,27 +503,7 @@
        height="7.4820724"
        x="29.690029"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
-       inkscape:export-xdpi="101.39526"
-       inkscape:export-ydpi="101.39526" />
-    <rect
-       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-5-1-3"
-       width="7.4820724"
-       height="7.4820724"
-       x="29.690023"
-       y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
-       inkscape:export-xdpi="101.39526"
-       inkscape:export-ydpi="101.39526" />
-    <rect
-       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-5-1-5"
-       width="7.4820724"
-       height="7.4820724"
-       x="22.207958"
-       y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -553,7 +513,7 @@
        height="7.4820724"
        x="37.1721"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -563,7 +523,37 @@
        height="7.4820724"
        x="44.654171"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
+       inkscape:export-xdpi="101.39526"
+       inkscape:export-ydpi="101.39526" />
+    <rect
+       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-9-7-5"
+       width="7.4820724"
+       height="7.4820724"
+       x="22.207956"
+       y="54.434486"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
+       inkscape:export-xdpi="101.39526"
+       inkscape:export-ydpi="101.39526" />
+    <rect
+       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-9-7-9"
+       width="7.4820724"
+       height="7.4820724"
+       x="22.207954"
+       y="61.91655"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
+       inkscape:export-xdpi="101.39526"
+       inkscape:export-ydpi="101.39526" />
+    <rect
+       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-9-7-1"
+       width="7.4820724"
+       height="7.4820724"
+       x="52.136242"
+       y="69.398628"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -573,7 +563,7 @@
        height="7.4820724"
        x="52.136242"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -581,9 +571,29 @@
        id="rect31-9-9-6"
        width="7.4820724"
        height="7.4820724"
-       x="59.618313"
+       x="59.618317"
        y="54.434486"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
+       inkscape:export-xdpi="101.39526"
+       inkscape:export-ydpi="101.39526" />
+    <rect
+       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-5-83"
+       width="7.4820724"
+       height="7.4820724"
+       x="29.690029"
+       y="61.916557"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
+       inkscape:export-xdpi="101.39526"
+       inkscape:export-ydpi="101.39526" />
+    <rect
+       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-6-8"
+       width="7.4820724"
+       height="7.4820724"
+       x="37.1721"
+       y="61.916557"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -593,7 +603,7 @@
        height="7.4820724"
        x="44.654171"
        y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -603,7 +613,7 @@
        height="7.4820724"
        x="52.136242"
        y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -613,17 +623,17 @@
        height="7.4820724"
        x="59.618313"
        y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
-       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       style="fill:#28ff33;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
        id="rect31-08"
        width="7.4820724"
        height="7.4820724"
        x="22.207954"
        y="69.398621"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -633,7 +643,7 @@
        height="7.4820724"
        x="29.690029"
        y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -643,7 +653,7 @@
        height="7.4820724"
        x="37.1721"
        y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -653,17 +663,7 @@
        height="7.4820724"
        x="44.654171"
        y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
-       inkscape:export-xdpi="101.39526"
-       inkscape:export-ydpi="101.39526" />
-    <rect
-       style="fill:#acacac;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-9-6-2"
-       width="7.4820724"
-       height="7.4820724"
-       x="52.136242"
-       y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
@@ -673,17 +673,17 @@
        height="7.4820724"
        x="59.618313"
        y="69.398628"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
     <rect
-       style="fill:#28ff33;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
-       id="rect31-61-3"
+       style="fill:#d9ff00;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
+       id="rect31-68"
        width="7.4820724"
        height="7.4820724"
-       x="37.172096"
-       y="61.916557"
-       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Programmierung1-Materialien/Folien/Bilder/Snap/map1.png"
+       x="67.100388"
+       y="46.952415"
+       inkscape:export-filename="/home/wojtek/Documents/HTW/Vorlesungen/Prog1/Snap/map3.1.png"
        inkscape:export-xdpi="101.39526"
        inkscape:export-ydpi="101.39526" />
   </g>
