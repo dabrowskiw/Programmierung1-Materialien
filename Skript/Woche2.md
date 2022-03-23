@@ -52,3 +52,43 @@ Das sieht schon übersichtlicher aus. Das gleiche könnte man auch für die Übe
 ![Script zur Türensuche mit zwei neuen Blocks](Bilder/Snap-script3.png)
 
 Hier ist schon eher auf Anhieb erkennbar, was das Skript tun soll.
+
+
+## Programme mit Erinnerungsvermögen: Variablen
+
+Ein Nachteil dieses Skriptes ist, dass es, falls gar keine Tür vorhanden ist, den Pfeil sich endlos im Kreis drehen lässt (bzw. bis Sie den roten "Stop"-Button oben rechts anklicken). Sie können das gerne mit dem Hintergrund "map3-3" ausprobieren, in dem es keine Tür gibt.
+
+Um das zu vermeiden, müsste das Skript in der Lage sein, mitzuzählen, wie häufig es schon an einer Wand nach links abgebogen ist. Für solche Erinnerungs- und Zählaufgaben werden in Programmen Variablen verwendet: Speicherplätze, an denen man einen Wert abspeichern kann, und die einen Namen bekommen. Über diesen Namen kann man dann auf den gespeicherten Wert zugreifen und ihn verändern. 
+
+Eine neue Variable kann man in Snap! mit dem Block `script variables` aus der Kategorie "Variables" anlegen, den Namen vergibt man indem man auf das orange hinterlegte "a" klickt und einen eigenen Namen vergibt. Den Wert einer Variable kann man mit dem Block `set to` setzen, wobei der Name einer vorher mittels `script variables` definierten Variable in dem drop-down ausgewählt werden kann.
+
+Zudem ist es auch nützlich, ab und zu zu sehen, was der in einer Variable gespeicherte Wert ist. Dafür kann der Block `say` in der Kategorie "Looks" verwendet werden: Der Name der Variable kann einfach aus dem `script variables`-Block in das "Hello"-Feld des `say`-Blocks gezogen werden, und dann zeigt der Pfeil den entsprechenden Wert an.
+
+Mit diesem Wissen bewaffnet ist es schon mal möglich, den ersten Schritt zum Zählen der Ecken zu machen: Eine neue Variable `numberOfCorners` anlegen (diese Schreibweise, in der bei langen Variablennamen der Anfangsbuschtabe von jedem Wort groß geschrieben wird, wird übrigens als "camel case" bezeichnet, da die Großschreibung an die Höker eines Kamels erinnert), den Anfangswert auf 0 setzen, und dann in jedem Schritt eine Sekunde lang den Wert der Variable ausgeben lassen:
+
+![Erste Variable](Bilder/Snap-17.png)
+
+Das allein ist allerdings noch wenig hilfreich. Wir müssen, falls der Pfeil vor einer Wand ist, den Wert der Variable um 1 erhöhen. Das lässt sich wieder mit dem Block `set to` in Kombination mit dem `+`-Block aus der "Operators"-Kategorie lösen:
+
+![Mitzählen von Ecken](Bilder/Snap-18.png)
+
+## Funktionen mit Rückgabewert
+
+Unschön ist an dieser Stelle, dass wir 2 Mal überprüfen müssen, ob der Pfeil vor der Wand steht oder nicht: Ein Mal, um die Variable `numberOfCorners` hochzuzählen, und ein Mal in der Funktion `turn left in front of wall`. Eine naheliegende Idee könnte sein, einfach innerhalb von `turn left in front of wall` den Wert der Variable zu erhöhen. Das geht allerdings nicht, da auf eine Variable grundsätzlich nur innerhalb der Funktion zugrgriffen werden kann, in der sie definiert wurde (das wird als scope, also "Gültigkeitsbereich", einer Variable bezeichnet - auf die technischen Hintergründe gehen wir in späteren Wochen ein).
+
+Stattdessen gibt es zwei andere Lösungen. Die erste ist, die Funktion `turn left in front of wall` so zu verändern, dass wir sie in einem `if` verwenden können, um zu sagen: "Wenn du vor einer Wand stehst, dann drehe dich links und erhöhe den Wert von `numberOfCorners` um 1". 
+
+Dafür muss die Funktion aber in der Lage sein, einen Wert - in diesem Fall `true` oder `false` - zurückzuliefern. Dieses Konzept wird als Rückgabewert einer Funktion bezeichnet: Die Funktion führt irgendwelche Berechnungen durch und gibt das Ergebnis zur weiteren Verwendung an das sie aufrufende Programm zurück.
+
+Eine solche Funktion kann in Snap! ebenfalls mit "Make a block" erstellt werden, nur dass hier als Block-Typ statt "Command" der Typ "Predicate" ausgewählt werden muss (oder "Reporter" - Unterschied ist, dass ein "Predicate" auf jeden Fall `true` oder `false` zurückgibt, ein "Reporter" kann einen beliebigen Wert zurückliefern). Zum Umschreiben des Skriptes erstellen wir nun einen neuen "Predicate"-Block `in front of wall` in der Kategorie "Sensing" (achten Sie darauf, diesmal als Block-Typ "Predicate" und nicht "Command" auszuwählen!):
+
+![Ein neuer Predicate-Block mit report-Anweisung](Bilder/Snap-19.png)
+
+
+
+ oder den aktuellen wert von `numberOfCorners` an `turn left in front of wall` übergeben und uns den neuen 
+
+
+
+Hier ist 
+
