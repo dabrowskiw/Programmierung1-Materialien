@@ -84,9 +84,25 @@ Eine solche Funktion kann in Snap! ebenfalls mit "Make a block" erstellt werden,
 
 ![Ein neuer Predicate-Block mit report-Anweisung](Bilder/Snap-19.png)
 
+Hier fällt direkt der neue Block `report` auf. Wird dieser ausgeführt, so wird der dort stehende Wert zurückgegeben - also in dem aufrufenden Skript dort eingefügt, wo `in front of wall` aufgerufen wurde. Ziel des Blocks `in front of wall` ist es, `true` zurückzugeben, falls der Pfeil vor einer Wand steht, und sonst `false`. In Snap! aufgeschrieben könnte das beispielsweise so aussehen:
 
+![Predicate-Block zum überprüfen, ob der Pfeil vor einer Wand steht](Bilder/Snap-script5.png)
 
- oder den aktuellen wert von `numberOfCorners` an `turn left in front of wall` übergeben und uns den neuen 
+Es gibt allerdings auch eine einfachere Lösung: Da `in front of` selber einen Wahrheitswert - also `true` oder `false` - zurückgibt, wäre dieses kürzere Skript äquivalent:
+
+![Einfacherer Predicate-Block zum überprüfen, ob der Pfeil vor einer Wand steht](Bilder/Snap-script6.png)
+
+Unter Verwendung dieses Blocks wird das gesamte Skript nun etwas verständlicher:
+
+![Skript mit Zählen der Ecken und neuem Block](Bilder/Snap-script7.png)
+
+Der letzte Schritt, der hier noch fehlt, um nicht mehr ewig im Kreis zu laufen, ist eine Anpassung der Bedingung in der Schleife `repeat until`. Dafür kann der Block `=` in der Kategorie "Operators" verwendet werden, um zu überprüfen, ob schon 4 Kanten gezählt wurden (alternativ könnten auch die Blöcke `>` oder `<` verwendet werden - der Wert, mit dem `numberOfCorners` verglichen wird, müsste natürlich angepasst werden, probieren Sie es mal aus):
+
+![Fertiges Skript mit Abbruch nach 4 Kanten](Bilder/Snap-20.png)
+
+Eine Alternative Herangehensweise wäre, den aktuellen wert von `numberOfCorners` an `turn left in front of wall` zu übergeben, den neuen Wert darin zu berechnen und zurückzugeben, und `numberOfCorners` auf diesen Rückgabewert zu setzen. Dafür müsste ein neuer Block erstellt werden, beispielsweise mit dem Namen `turn left in front of wall and calculate new corners from` (der Name ist eigentlich viel zu lang, aber der Lesbarkeit halber mache ich die Namen hier sehr ausführlich) und vom Typ "Reporter" erstellt werden. Im Typ Reporter kann nicht nur `true` oder `false`, sondern irgendein Wert, also auch der neue Wert für `numberOfCorners` zurückgegeben werden. Allerdings muss für diese Berechnung der aktuelle Wert von `numberOfCorners` übergeben werden - wir erinnern uns, von dem neuen Block aus können wir nicht einfach auf den Wert einer Variable in einem anderen Block oder im Hauptskript zugreifen. Einen solchen Übergabewert, in der Programmierung als "Argument" bezeichnet, kann man hinzufügen, indem man im Block Editor in dem Namen des Blocks auf ein "+" klickt, in dem aufpoppenden Fenster den Namen der neuen Variable in der der übergebene Wert gespeichert werden soll (beispielsweise `currentNumberOfCorners`) einträgt und als Typ "Input name" auswählt:
+
+![Erstellen eines Inputs](Bilder/Snap-21.png)
 
 
 
