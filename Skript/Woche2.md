@@ -104,7 +104,12 @@ Eine Alternative Herangehensweise wäre, den aktuellen wert von `numberOfCorners
 
 ![Erstellen eines Inputs](Bilder/Snap-21.png)
 
+Nun steht in dem Startblock die neue Variable `currentNumberOfCorners` zur Verfügung und kann innerhalb der Funktion verwendet werden. In der Funktion sollte jetzt genau das passieren, was im Namen steht: Falls der Pfeil vor einer Wand steht, sollte er sich nach links drehen. Zudem sollte als neue Anzahl der bisher gesehenen Ecken `currentNumberOfCorners`+1 zurückgegeben werden: Es wurde ja gerade eine neue Ecke gesehen. Sonst kann einfach wieder der Wert von `currentNumberOfCorners` zurückgegeben werden: Es wurde ja keine neue Ecke gesehen, also braucht nichts weiter in der Funktion passieren:
 
+![Block zum Berechnen der neuen Anzahl von Ecken](Bilder/Snap-script8.png)
 
-Hier ist 
+Diese Funktion kann nun verwendet werden, um die Lösung wieder genau so aufzubauen, wie weiter oben mit `turn left in front of wall` - aber es gibt nun auch einen Rückgabewert, der genutzt werden kann, um `currentNumberOfCorners` zu aktualisieren:
+
+![Block zum Berechnen der neuen Anzahl von Ecken](Bilder/Snap-script9.png)
+
 
