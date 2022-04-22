@@ -26,7 +26,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
   * Wöchentliche Hausaufgaben - Prüfungszulassung ab 75% der Punkte
   * Skript bitte **lesen**, Fragen stellen (Forum, SL)! 
 * Prüfungsleistung: Wie Hausaufgabe, aber größer (2 Wochen)
-* Bonuspunkte für Verbesserungsvorschläge:
+* Bonuspunkte für Verbesserungsvorschläge (siehe [git-repo](https://github.com/dabrowskiw/Programmierung1-Materialien)):
   * 2.5% für Vorschlag, 5% für Code (mail, pull request)
   * Max. 2 Boni pro Semester
 
