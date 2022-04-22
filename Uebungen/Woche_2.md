@@ -40,6 +40,8 @@ Das Skript am Ende sollte also so aussehen:
 
 Mit dem Block `stamp` (zu finden in der Kategorie `Pen`) können Sie einen Stempel des Sprites auf dem aktuellen Feld hinterlassen.
 
+Verwenden Sie für die nächsten Aufgaben [diesen Link](https://snap.berkeley.edu/project?user=piotrdabrowski&project=Prog1-Uebung3), wo die entsprechenden Blöcke freigeschaltet sind.
+
 Schreiben Sie ein Skript, welches das folgende Muster erzeugt:
 
 ![Muster für Aufgabe 5](Bilder/uebung5.png)
