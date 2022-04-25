@@ -5,6 +5,18 @@ paginate: true
 footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 ---
 
+# Erinnerung!
+
+Die Vorlesung besteht aus mehreren Teilen!
+* Vorlesung: Theoretische Hintergrundinformationen
+* Übung: Praktische Umsetzung - und häufig mehr Details zu den theoretischen Hintergrundinformationen!
+* Skript: Theorie **und praktische Tips** in Textform
+* Folien: Enthalten auch **Code-Beispiele**
+
+Bitte **alles** nutzen! Insbesondere vor "Wie mache ich XXX" Materialien lesen, es gibt einen Grund, warum es die gibt!
+
+---
+
 # Programmiersprachen
 
 * Neben Snap!-Blöcken gibt es viele andere Programmiersprachen
