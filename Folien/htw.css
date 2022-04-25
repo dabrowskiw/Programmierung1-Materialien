@@ -50,6 +50,44 @@ text {
   color: #000000;
 }
 
+pre > code {
+  background: #e0e0e0;
+  color: #202020;
+  border: 1px solid #808080;
+  margin: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+span.hljs-number {
+  color: #0000b0;
+}
+
+span.hljs-keyword {
+  color: #b00000;
+}
+
+span.hljs-built_in {
+  color: #202020;
+}
+
+span.hljs-string {
+  color: #008000;
+}
+
+span.hljs-title {
+  color: #b000b0;
+}
+
+span.hljs-params {
+  color: #202020;
+}
+
+span.hljs-comment {
+  color: #707070;
+}
+
+
 section {
   font-family: HTWBerlinOffice;
   background-color: white;
