@@ -7,7 +7,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 # Programmiersprachen
 
-* Reden mit dem Computer ist wie reden mit einem poylgloten Alfred
+* Neben Snap!-Blöcken gibt es viele andere Programmiersprachen
 
 ```python
 vals = [1, 6, 5, 3]
