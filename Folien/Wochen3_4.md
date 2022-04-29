@@ -17,6 +17,21 @@ Bitte **alles** nutzen! Insbesondere vor "Wie mache ich XXX" Materialien lesen, 
 
 ---
 
+# Party!
+
+IKG Get Together
+
+* Mittwoch, 18.05.2022, ab 15:50
+* Zwischen H-Gebäude und Mensa "an der Spree"
+* Würstchen, Grillkäse, Getränke
+
+Fragen (für die Einkaufsplanung): 
+
+* Wer kommt?
+* Wer möchte (kein) Fleisch?
+
+---
+
 # Programmiersprachen
 
 * Neben Snap!-Blöcken gibt es viele andere Programmiersprachen
