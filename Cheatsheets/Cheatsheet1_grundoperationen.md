@@ -215,10 +215,10 @@ System.out.println("Fertig.");
 
 ## Definieren von Funktionen
 
-Funktionen werden definiert, indem ein Zugriffsmodifikator (zunächst einfach immer `public`), ein Datentyp, ein Name und optional die Argumente mit Datentypen und Namen angegeben werden. Das wird als Signatur der Funktion bezeichnet. Ein Wert wird mittels `return` zurückgegeben:
+Funktionen werden definiert, indem ein Zugriffsmodifikator (zunächst einfach immer `public static`), ein Datentyp, ein Name und optional die Argumente mit Datentypen und Namen angegeben werden. Das wird als Signatur der Funktion bezeichnet. Ein Wert wird mittels `return` zurückgegeben:
 
 ```java
-public int add(int x, int y) { // Das ist die Signatur
+public static int add(int x, int y) { // Das ist die Signatur
     int result = x + y;
     return result;
 }
@@ -227,7 +227,7 @@ public int add(int x, int y) { // Das ist die Signatur
 Wenn eine Funktion nichts zurückgibt, ist ihr Datentyp `void`:
 
 ```java
-public void gibWertAus(int wert) {
+public static void gibWertAus(int wert) {
     System.out.println("Der Wert ist: " + wert);
 }
 ```
@@ -235,7 +235,7 @@ public void gibWertAus(int wert) {
 Wenn eine Funktion einen Wert zurückgibt, kann sie im Programm wie eine Variable verwendet werden (ihr Rückgabewert kann anderen Variablen zugewiesen werden):
 
 ```java
-public int add(int x, int y) {
+public static int add(int x, int y) {
     int result = x + y;
     return result;
 }
