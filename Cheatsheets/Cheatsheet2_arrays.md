@@ -49,7 +49,7 @@ Natürlich lässt sich einfach durch Mitzählen des Index über ein Array iterie
 char[] word = {'J', 'a', 'v', 'a'};
 // In einer Schleife alle Werte des Arrays ausgeben:
 for(int pos = 0; pos < word.length; pos++) {
-    System.out.print(word[x]); 
+    System.out.print(word[pos]); 
 }
 ```
 
