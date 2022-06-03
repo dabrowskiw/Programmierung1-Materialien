@@ -51,7 +51,7 @@ Auf allem, was einen primitiven Datentyp hat, lassen sich bestimmte Operationen 
 * **a / b**: Teilt a durch b
 * **a % b**: Berechnet den Rest beim Teilen von a durch b (Modulo)
 * **a && b**: Logisches und: Ist true exakt dann wenn a true ist und b true ist, sonst false
-* **a | b**: Logisches oder: Ist false exakt dann wenn a false ist und b false ist, sonst true
+* **a || b**: Logisches oder: Ist false exakt dann wenn a false ist und b false ist, sonst true
 * **a > b**: Ist true, wenn a größer als b ist, sonst false
 * **a >= b**: Ist true, wenn a größer oder gleich b ist, sonst false
 * **a < b**: Ist true, wenn a kleiner als b ist, sonst false
