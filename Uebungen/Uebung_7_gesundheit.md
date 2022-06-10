@@ -8,7 +8,7 @@ Aufgrund der Funktionalität, mit der die Überprüfung der Klassen stattfindet,
 
 Definieren Sie zunächst in `Patient.java` eine Klasse Patient (Zugriff: public, genauso wie Aufgabe7Gesundheit). Diese soll einen Constructor `public Patient(char status, double age)` besitzen, der den Status des Patienten als char und das Alter des Patienten als double nimmt und in zwei Klassenattributen speichert: `public char status` und `public double age`.
 
-\subsection{Kennzahlen}
+# Aufgabe 2: Kennzahlen
 
 Implementieren Sie in `Aufgabe7Gesundheit` eine Methode `public static double[] ageMetrics(Patient[] patients)`, die ein Array der Länge 3 mit den folgenden drei Werten (beginnend bei Index 0) zurückgibt:
 
@@ -16,15 +16,15 @@ Implementieren Sie in `Aufgabe7Gesundheit` eine Methode `public static double[] 
 * Das Alter des ältesten Patienten
 * Den Mittelwert der Alter aller Patienten
 
-# Aufgabe 2: Filter
+# Aufgabe 3: Filter
 
 Implementieren Sie in `Aufgabe7Gesundheit` eine Methode `public static Patient[] filterByStatus(Patient[] patients, char status)`, die ein neues Array von `Patient` zurückgibt. Dieses Array soll diejenigen Patienten enthalten, die den angegebenen Status haben.
 
-## Aufgabe 3: Patienten erstellen
+# Aufgabe 4: Patienten erstellen
 
 Implementieren Sie in `Aufgabe7Gesundheit` eine Methode `public static Patient[] createPatients(char[] stati, double[] ages)`, die aus dem Status und dem Alter jeweils an der gleichen Position in den übergebenen Arrays ein neues Patient-Objekt erstellt und ein neues Array mit den erstellten Patient-Objekten zurückgibt.
 
-## Aufgabe 4: Risikofaktor Alter
+# Aufgabe 5: Risikofaktor Alter
 
 Implementieren Sie in `Aufgabe7Gesundheit` eine Methode `public static String[] showMetrics(Patient[] patients)`, die das Mindest-, Maximal und Durchschnittsalter jeweils für die verstorbenen und genesenen Patienten als Strings zurückgibt.
 
