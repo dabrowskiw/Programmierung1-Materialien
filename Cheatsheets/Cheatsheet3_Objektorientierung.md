@@ -99,7 +99,7 @@ public class UseClass {
 	public static void main(String[] args) {
 		KlassenName myObj = new KlassenName("your friend");
 		myObj.sayHi(); 
-		myObj.name = "the enemy"
+		myObj.name = "the enemy";
 		myObj.sayHi(); 
 	}
 }
