@@ -121,11 +121,11 @@ public void replaceMob(Mob mob, int x, int y) {
     mob = new Mob(x, y);
 }
 Mob mob1 = new Mob(12, 15);
-System.out.println(mob1); // "Mob at 12, 15"
+System.out.println(mob1.x + ", " + mob1.y); // "12, 15"
 changeX(mob1, 7);
-System.out.println(mob1); // "Mob at ?, ?"
+System.out.println(mob1.x + ", " + mob1.y); // "Mob at ?, ?"
 replaceMob(mob1, 8, 9);
-System.out.println(mob1); // "Mob at ?, ?"
+System.out.println(mob1.x + ", " + mob1.y); // "Mob at ?, ?"
 ```
 
 ---
@@ -257,7 +257,7 @@ public class Mob {
 ```java
 public class Mob { /* [...] */ }
 
-Mob[] mobs = new Mob[2] {new Mob(12, 5), new Mob(7, 13) };
+Mob[] mobs = new Mob {new Mob(12, 5), new Mob(7, 13) };
 for(int i=0; i<mobs.length; i++) {
     System.out.println("Before move: " + mobs[i]);
     mobs[i].move('Q');

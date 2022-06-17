@@ -5,19 +5,6 @@ paginate: true
 footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 ---
-
-# Nochmal Allgemeines
-
-* Skript bitte *wirklich* lesen
-    * Kein Vorlesen von allen Syntax-Feinheiten in der SL
-    * Weder Skript, noch SL, noch UE alleine reichen
-* Feedback: Zu schneller Schritt zu komplexeren Algorithmen
-    * Heute nochmal: Herangehensweise beim Programmieren
-    * Zusätzlich: Arrays (für nächste Woche), Quality of Life
-* Aktuelle Corona-Situation und Ausblick
-
----
-
 # Arrays
 
 * Speichern mehrerer zusammehängender Werte oft nötig
@@ -34,7 +21,6 @@ charMatrix[5][2] = (char)intArray[0]; //Zugriff auf Werte im Array über Index
 ```
 
 ---
-
 # Arrays im Speicher
 
 ```java
@@ -120,6 +106,7 @@ public static void main(String[] args) {
 
 Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, was übergeben wird!
 
+<!--
 ---
 
 # Quality of Life: break
@@ -264,3 +251,5 @@ public static void showSmallestDivisor(int from, int to, int d1, int d2, int d3)
 * Funktion gibt zurück:
     * Anzahl der Schritte, bis ein Glied 1 ist
     * Falls diese Anzahl größer `maxsteps` ist, `-1`
+
+-->
