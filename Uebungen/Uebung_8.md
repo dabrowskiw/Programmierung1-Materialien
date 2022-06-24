@@ -37,7 +37,7 @@ Hinweis: Sie brauchen kein Array mit allen Werten zu speichern, nur die Metriken
 
 ## Kennzahlen berechnen
 
-Implementieren Sie in ``PatientList'' eine Methode ``public AgeMetrics getAgeMetrics()'', die die Metriken zu allen in der Liste gespeicherten Patienten als AgeMetrics-Objekt zurückliefert.
+Implementieren Sie in `PatientList` eine Methode `public AgeMetrics getAgeMetrics()`, die die Metriken zu allen in der Liste gespeicherten Patienten als AgeMetrics-Objekt zurückliefert.
 
 ## Filter
 
