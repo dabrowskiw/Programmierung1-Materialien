@@ -82,11 +82,11 @@ Implementieren Sie in "PatientList.java" eine Klasse `PatientList`, die die List
 *`int getNumPatients()`: Gibt die Anzahl der Patienten in der Liste zurück
 * Einige Filter-Methoden, die jeweils wieder eine PatientList zurückgeben:
 
-    * `PatientList filerByFromAge(int minfromage, int maxfromage)`: Gibt nur die Patienten zurück, deren fromAge zwischen minfromage und maxfromage liegt
-    * `PatientList filerByToAge(int mintoage, int maxtoage)`: Gibt nur die Patienten zurück, deren toAge zwischen mintoage und maxtoage liegt
-    * `PatientList filerBySex(String sex)`: Gibt nur die Patienten zurück, deren Geschlecht sex ist
-    * `PatientList filerByYear(int year)`: Gibt nur die Patienten zurück, deren Diagnose im Jahr year liegt
-    * `PatientList filerByMonth(int month)`: Gibt nur die Patienten zurück, deren Diagnose im Monath month liegt (unabhängig vom Jahr, `filterByMonth(2)` würde also sowohl einen Patienten, der im Februar 2019 als auch einen Patienten, der im Februar 2020 diagnostiziert wurde, zurückgeben)
+    * `PatientList filterByFromAge(int minfromage, int maxfromage)`: Gibt nur die Patienten zurück, deren fromAge zwischen minfromage und maxfromage liegt
+    * `PatientList filterByToAge(int mintoage, int maxtoage)`: Gibt nur die Patienten zurück, deren toAge zwischen mintoage und maxtoage liegt
+    * `PatientList filterBySex(String sex)`: Gibt nur die Patienten zurück, deren Geschlecht sex ist
+    * `PatientList filterByYear(int year)`: Gibt nur die Patienten zurück, deren Diagnose im Jahr year liegt
+    * `PatientList filterByMonth(int month)`: Gibt nur die Patienten zurück, deren Diagnose im Monath month liegt (unabhängig vom Jahr, `filterByMonth(2)` würde also sowohl einen Patienten, der im Februar 2019 als auch einen Patienten, der im Februar 2020 diagnostiziert wurde, zurückgeben)
 
 Nutzen Sie zur internen Speicherung der Patienten eine ArrayList oder eine LinkedList (denken Sie an die Angabe des Datentyps bei der Deklaration und Instanziierung des Listen-Objektes - Sie sollen Patient-Objekte speichern).
 
