@@ -5,38 +5,17 @@ In dieser Übung verwenden Sie einen realen (wenn auch von mir etwas aufgeräumt
 Implementieren Sie in `Patient.java` eine Klasse `Patient` die folgende Methoden besitzt:
 
 * Einen leeren private-Constructor
-* Eine statische Methode `static Patient parseCSVLine(String line)`, die eine Zeile aus einer Patienten beschreibenden csv-Datei nimmt und ein Patient-Objekt zurückliefert - Details siehe unten
+* Eine statische Methode `public static Patient parseCSVLine(String line)`, die eine Zeile aus einer Patienten beschreibenden csv-Datei nimmt und ein Patient-Objekt zurückliefert - Details siehe unten
 * Folgende getter:
 
-  * getFromAge()
-  * getToAge()
-  * getSex()
-  * getDay()
-  * getMonth()
-  * getYear()
+  * `public int getFromAge()`
+  * `public int getToAge()`
+  * `public String getSex()`
+  * `public int getDay()`
+  * `public int getMonth()`
+  * `public int getYear()`
 
-Was Sie hier in `parseCSVLine(String line)` implementieren ist eine sogenannte "static factory method" (englisch so viel wie "statische Fabrik-Methode") und ein kleiner Vorgeschmack auf die design-Pattern, mit denen Sie sich in den nächsten Semestern auseinandersetzen werden. Die Idee ist, dass die Klasse nicht durch Aufruf des Constructors instanziiert werden kann, sondern nur durch Aufruf der factory method (da der constructor private ist, kann er nicht von außerhalb der Klasse aufgerufen werden, darf aber in der Methode `parseCSVLine` selber, die ja Teil der gleichen Klasse ist, genutzt werden, um ein neues Patient-Objekt zu erstellen). Einer der Vorteile ist, dass damit auf einfach lesbare Art unterschiedliche Formate unterstützt werden können - während es nur einen Constructor `public Patient(String data)` geben kann, könnten Sie, wenn Sie neben CSV-Dateien zum Einlesen auch z.B. TSV-Dateien unterstützen wollten, einfach eine zweite Methode `static Patient parseTSVLine(String line)` implementieren, die zum Erstellen von Patienten aus Zeilen im TSV-Format verwendet werden kann.
-
-\begin{figure}
-  \begin{subfigure}[t]{0.45\textwidth}
-    \begin{lstlisting}
-<Alter>,<Geschlecht>,<Datum>
-    \end{lstlisting}
-    \caption{Formatdefinition. }
-    \label{fig1_1}
-  \end{subfigure}\hspace{2em}
-  \begin{subfigure}[t]{0.45\textwidth}
-    \begin{lstlisting}
-N/A,male,01-03-2020
-12,N/A,02-05-2020
-50-60,female,30-12-2019
-    \end{lstlisting}
-    \caption{Zeilenbeispiele}
-    \label{fig1_2}
-  \end{subfigure}
-    \caption{Format der CSV-Datei, die die Patienten beschreibt.}
-    \label{fig1}
-\end{figure}
+Was Sie hier in `parseCSVLine(String line)` implementieren ist eine sogenannte "static factory method" (englisch so viel wie "statische Fabrik-Methode") und ein kleiner Vorgeschmack auf die design-Pattern, mit denen Sie sich in den nächsten Semestern auseinandersetzen werden. Die Idee ist, dass die Klasse nicht durch Aufruf des Constructors instanziiert werden kann, sondern nur durch Aufruf der factory method (da der constructor private ist, kann er nicht von außerhalb der Klasse aufgerufen werden, darf aber in der Methode `parseCSVLine` selber, die ja Teil der gleichen Klasse ist, genutzt werden, um ein neues Patient-Objekt zu erstellen). Einer der Vorteile ist, dass damit auf einfach lesbare Art unterschiedliche Formate unterstützt werden können - während es nur einen Constructor `public Patient(String data)` geben kann, könnten Sie, wenn Sie neben CSV-Dateien zum Einlesen auch z.B. TSV-Dateien unterstützen wollten, einfach eine zweite Methode `public static Patient parseTSVLine(String line)` implementieren, die zum Erstellen von Patienten aus Zeilen im TSV-Format verwendet werden kann.
 
 Das Format der Zeile für `parseCSVLine(String line)` ist "<Alter>,<Geschlecht>,<Datum>", beispielsweise also könnte eine Datei wie folgt aussehen:
 
@@ -77,22 +56,22 @@ System.out.println(subs[0].equals(subs[1])); // Gibt "true" aus
 Implementieren Sie in "PatientList.java" eine Klasse `PatientList`, die die Liste von Patienten verwalten soll. Diese soll folgende Methoden besitzen:
 
 * Einen Constructor, der keine Argumente nimmt
-*`void addPatient(Patient p)`: Fügt einen Patienten zur internen Liste von Patienten hinzu
-*`void addFromCSVFile(String filepath)`: Fügt die Patienten aus der angegebenen Datei zur Liste hinzu. Wenn Sie im VPL testen wollen, können Sie als `filepath` "Berlin.csv" verwenden, diese Datei ist direkt im Ausführungspfad vorhanden und sie finden Sie hier im repository im Order "Beispieldaten"
-*`int getNumPatients()`: Gibt die Anzahl der Patienten in der Liste zurück
+* `public void addPatient(Patient p)`: Fügt einen Patienten zur internen Liste von Patienten hinzu
+* `public void addFromCSVFile(String filepath)`: Fügt die Patienten aus der angegebenen Datei zur Liste hinzu. Wenn Sie im VPL testen wollen, können Sie als `filepath` "Berlin.csv" verwenden, diese Datei ist direkt im Ausführungspfad vorhanden und sie finden Sie hier im repository im Order "Beispieldaten"
+* `public int getNumPatients()`: Gibt die Anzahl der Patienten in der Liste zurück
 * Einige Filter-Methoden, die jeweils wieder eine PatientList zurückgeben:
 
-    * `PatientList filerByFromAge(int minfromage, int maxfromage)`: Gibt nur die Patienten zurück, deren fromAge zwischen minfromage und maxfromage liegt
-    * `PatientList filerByToAge(int mintoage, int maxtoage)`: Gibt nur die Patienten zurück, deren toAge zwischen mintoage und maxtoage liegt
-    * `PatientList filerBySex(String sex)`: Gibt nur die Patienten zurück, deren Geschlecht sex ist
-    * `PatientList filerByYear(int year)`: Gibt nur die Patienten zurück, deren Diagnose im Jahr year liegt
-    * `PatientList filerByMonth(int month)`: Gibt nur die Patienten zurück, deren Diagnose im Monath month liegt (unabhängig vom Jahr, `filterByMonth(2)` würde also sowohl einen Patienten, der im Februar 2019 als auch einen Patienten, der im Februar 2020 diagnostiziert wurde, zurückgeben)
+    * `public PatientList filerByFromAge(int minfromage, int maxfromage)`: Gibt nur die Patienten zurück, deren fromAge zwischen minfromage und maxfromage liegt
+    * `public PatientList filerByToAge(int mintoage, int maxtoage)`: Gibt nur die Patienten zurück, deren toAge zwischen mintoage und maxtoage liegt
+    * `public PatientList filerBySex(String sex)`: Gibt nur die Patienten zurück, deren Geschlecht sex ist
+    * `public PatientList filerByYear(int year)`: Gibt nur die Patienten zurück, deren Diagnose im Jahr year liegt
+    * `public PatientList filerByMonth(int month)`: Gibt nur die Patienten zurück, deren Diagnose im Monath month liegt (unabhängig vom Jahr, `filterByMonth(2)` würde also sowohl einen Patienten, der im Februar 2019 als auch einen Patienten, der im Februar 2020 diagnostiziert wurde, zurückgeben)
 
 Nutzen Sie zur internen Speicherung der Patienten eine ArrayList oder eine LinkedList (denken Sie an die Angabe des Datentyps bei der Deklaration und Instanziierung des Listen-Objektes - Sie sollen Patient-Objekte speichern).
 
 ## Monatliche Infektionszahlen
 
-Implementieren Sie in `Loesung.java` eine statische Methode `static int[] monthlyInfections(PatientList pl, int fromYear, int toYear, int fromMonth, int toMonth)`, die ein int-Array mit den monatlichen Infektionszahlen zurückgibt. Dabei soll der erste Wert im Array die Anzahl der Infektionen im Monat fromMonth im Jahr fromYear sein, der nächste Wert die Anzahl der Infektionen im darauffolgenden Monat etc., bis zum Monat toMonth im Jahr toYear.
+Implementieren Sie in `Loesung.java` eine statische Methode `public static int[] monthlyInfections(PatientList pl, int fromYear, int toYear, int fromMonth, int toMonth)`, die ein int-Array mit den monatlichen Infektionszahlen zurückgibt. Dabei soll der erste Wert im Array die Anzahl der Infektionen im Monat fromMonth im Jahr fromYear sein, der nächste Wert die Anzahl der Infektionen im darauffolgenden Monat etc., bis zum Monat toMonth im Jahr toYear.
 
 Bedenken Sie, dass Sie im Jahr fromYear nur die Daten aus den Monaten fromMonth-12, im Jahr toYear nur die Daten aus den Monaten 1-toMonth, und in den Jahren dazwischen die Daten aus allen 12 Monaten benötigen (es sei denn, fromYear ist gleich toYear). Bedenken Sie zudem, dass die filterBy-Methoden aus PatientList jeweils wieder eine PatientList zurückgeben, Sie also einfach Aufrufe verketten können, z.B. `PatientList male2020 = pl.filterBySex("male").filterByYear(2020);`.
 
