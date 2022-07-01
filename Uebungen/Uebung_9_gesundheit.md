@@ -61,11 +61,11 @@ Implementieren Sie in "PatientList.java" eine Klasse `PatientList`, die die List
 * `public int getNumPatients()`: Gibt die Anzahl der Patienten in der Liste zurück
 * Einige Filter-Methoden, die jeweils wieder eine PatientList zurückgeben:
 
-    * `public PatientList filerByFromAge(int minfromage, int maxfromage)`: Gibt nur die Patienten zurück, deren fromAge zwischen minfromage und maxfromage liegt
-    * `public PatientList filerByToAge(int mintoage, int maxtoage)`: Gibt nur die Patienten zurück, deren toAge zwischen mintoage und maxtoage liegt
-    * `public PatientList filerBySex(String sex)`: Gibt nur die Patienten zurück, deren Geschlecht sex ist
-    * `public PatientList filerByYear(int year)`: Gibt nur die Patienten zurück, deren Diagnose im Jahr year liegt
-    * `public PatientList filerByMonth(int month)`: Gibt nur die Patienten zurück, deren Diagnose im Monath month liegt (unabhängig vom Jahr, `filterByMonth(2)` würde also sowohl einen Patienten, der im Februar 2019 als auch einen Patienten, der im Februar 2020 diagnostiziert wurde, zurückgeben)
+    * `public PatientList filterByFromAge(int minfromage, int maxfromage)`: Gibt nur die Patienten zurück, deren fromAge zwischen minfromage und maxfromage liegt
+    * `public PatientList filterByToAge(int mintoage, int maxtoage)`: Gibt nur die Patienten zurück, deren toAge zwischen mintoage und maxtoage liegt
+    * `public PatientList filterBySex(String sex)`: Gibt nur die Patienten zurück, deren Geschlecht sex ist
+    * `public PatientList filterByYear(int year)`: Gibt nur die Patienten zurück, deren Diagnose im Jahr year liegt
+    * `public PatientList filterByMonth(int month)`: Gibt nur die Patienten zurück, deren Diagnose im Monath month liegt (unabhängig vom Jahr, `filterByMonth(2)` würde also sowohl einen Patienten, der im Februar 2019 als auch einen Patienten, der im Februar 2020 diagnostiziert wurde, zurückgeben)
 
 Nutzen Sie zur internen Speicherung der Patienten eine ArrayList oder eine LinkedList (denken Sie an die Angabe des Datentyps bei der Deklaration und Instanziierung des Listen-Objektes - Sie sollen Patient-Objekte speichern).
 
