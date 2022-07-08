@@ -9,8 +9,8 @@ In dieser Aufgabe benötigen Sie als Ausgangspunkt funktionierende PatientList- 
 Implementieren Sie in der Klasse `DateUtilities` die folgenden Methoden:
 
 * `public static boolean isLeapYear(int year)`: Gibt true zurück, wenn das Jahr ein Schaltjahr ist, sonst false. Ein Schaltjahr ist jedes Jahr, das nicht durch 100 teilbar ist, aber durch 4 (Ausnahme: Durch 400 teilbare Jahre sind auch Schaltjahre). Also: 1900 war kein Schaltjahr (durch 100 teilbar), 1904 war eins (durch 4 teilbar). 2000 war auch ein Schaltjahr (da zwar durch 100 teilbar, aber auch durch 400).
-* `public static int daysInYear(int year)`: Gibt die Anzahl der Jahre in dem Jahr zurück.
-* `public static int daysInMonth(int month, int year)`: Gibt die Anzahl der Tage in dem Jahr zurück. Hinweis: Anstatt 12 if-Abfragen zu machen, können Sie die Tage pro Monat z.B. in einem Array als statisches Klassenattribut speichern. Aber: Beachten Sie, dass es Schaltjahre gibt!
+* `public static int daysInYear(int year)`: Gibt die Anzahl der Tage in dem Jahr zurück.
+* `public static int daysInMonth(int month, int year)`: Gibt die Anzahl der Tage in dem Monat zurück. Hinweis: Anstatt 12 if-Abfragen zu machen, können Sie die Tage pro Monat z.B. in einem Array als statisches Klassenattribut speichern. Aber: Beachten Sie, dass es Schaltjahre gibt!
 
 
 ## Patient
