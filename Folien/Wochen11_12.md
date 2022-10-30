@@ -45,5 +45,5 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 * Jetzt Möglichkeit, noch offene Fragen vor der Prüfung zu klären!
 * Ansonsten Programm für restliche Zeit:
-    * Live gemeinsam Arbei mit XChart anschauen
+    * Live gemeinsam Arbeit mit XChart anschauen
     * Durch Aufgabe von letzter Woche gehen
