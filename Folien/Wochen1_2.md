@@ -15,6 +15,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
   * Programmieren lernen ist zeitaufwendig!
   * Ich kann es Ihnen nicht beibringen!
 * Wichtig: Ab anfang konsequent mitmachen
+* Gerne Laptop in die VL mitbringen
 
 ---
 
@@ -42,7 +43,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
   * Arrays
   * Grundlagen der Objektorientierung
   * Externe Bibliotheken am Beispiel von Plots
-* Puffer (1 Woche)
+* Puffer (z.B. Gastvortrag)
 
 ---
 
@@ -85,7 +86,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 * [Beispiel 3](https://snap.berkeley.edu/project?user=piotrdabrowski&project=Prog1-Beispiel3): Tür finden
     * `forever`: "Endlosschleife", tut Dinge bis sie explizit unterbrochen wird
 * Das dauernde Wiederholen von "umdrehen, gucken, umdrehen" ist nicht elegant
-* Schöner: `Build a block`: Eigene Funktion `check for door left` definieren, die wiederverwendet werden kann
+* Schöner: `Build a block`: Eigene Funktion `check for door right` definieren, die wiederverwendet werden kann
 * Ausprobieren mit background "map3.1"
 
 ---
