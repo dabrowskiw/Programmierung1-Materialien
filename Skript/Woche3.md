@@ -113,7 +113,7 @@ System.out.print("+");
 Alternativ können Sie das auch mit nur einer Zeile Code probieren:
 
 ```java
-System.out.print("***\n+++")
+System.out.print("***\n+++");
 ```
 
 Vielleicht fragen Sie sich an diesem Zeitpunkt, wieso Sie nicht einfach nur diesen Code in Ihr Programm schreiben können, sondern die Zeilen drumherum auch behalten müssen. Die Antwort darauf ist leider zunächst: Nehmen Sie da bitte vorerst einfach so hin. In den nächsten Kapiteln werden die einzelnen Begriffe und Zeilen zunehmend klar, aber dafür ist noch einiges an Grundlagen notwendig, die sich nicht mit einem Nebensatz abhandeln lassen. Eine sehr grobe Zusammenfassung der Bedeutung der einzelnen Zeilen ist aber:
@@ -132,7 +132,7 @@ Beispielsweise könnte man das 4x4-Muster aus der Snap!-Aufgabe in Java mit eine
 ```java
 int rows=0;
 while(rows<4) {
-  System.out.print("****\n")
+  System.out.print("****\n");
   rows=rows+1;
 }
 ```
@@ -141,7 +141,7 @@ oder auch äquivalent mit einer ``for``-Schleife, die das Anlegen der Variable `
 
 ```java
 for(int rows=0; rows<4; rows=rows+1) {
-  System.out.print("****\n")
+  System.out.print("****\n");
 }
 ```
 
@@ -151,10 +151,10 @@ Selbstverständlich gibt es in Java auch ein ``if``. Probieren Sie aus, was der 
 int rows=0;
 while(rows<5) {
   if(rows == 2) {
-    System.out.print(".....\n")
+    System.out.print(".....\n");
   }
   if(rows != 2) {
-    System.out.print("*****\n")
+    System.out.print("*****\n");
   }
   rows=rows+1;
 }
@@ -165,10 +165,10 @@ Und als ``for``-Variante:
 ```java
 for(int rows=0; rows<5; rows=rows+1) {
   if(rows == 2) {
-    System.out.print(".....\n")
+    System.out.print(".....\n");
   }
   if(rows != 2) {
-    System.out.print("*****\n")
+    System.out.print("*****\n");
   }
 }
 ```
