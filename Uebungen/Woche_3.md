@@ -68,13 +68,13 @@ Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgende
 
 ```text
 *.*.*.*.*
-.*.*.*.*.      
+.*.*.*.*.
 *.*.*.*.*
-.*.*.*.*.      
+.*.*.*.*.
 *.*.*.*.*
-.*.*.*.*.      
+.*.*.*.*.
 *.*.*.*.*
-.*.*.*.*.      
+.*.*.*.*.
 *.*.*.*.*
 
 ```
