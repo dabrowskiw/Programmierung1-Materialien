@@ -42,4 +42,4 @@ result[0]="Verstorben - Min: 12, Max: 80, Mean: 40.5"
 result[1]="Genesen - Min: 8, Max: 89, Mean: 45.31"
 ```
 
-Hinweis: Sie können einen neuen String ähnlich erstellen, wie Sie Informationen ausgeben. Wenn Sie z.B. eine Zeile mittels `System.out.println("Der Wert von x ist: " + x + "!");` ausgeben, können Sie stattdessen einen neuen String mit diesem Text wie folgt erstellen: `String ausgabe = new String("Der Wert von x ist" + x + "!");`.
+Hinweis: Sie können einen neuen String ähnlich erstellen, wie Sie Informationen ausgeben. Wenn Sie z.B. eine Zeile mittels `System.out.println("Der Wert von x ist: " + x + "!");` ausgeben, können Sie stattdessen einen neuen String mit diesem Text wie folgt erstellen: `String ausgabe = "Der Wert von x ist" + x + "!";`.
