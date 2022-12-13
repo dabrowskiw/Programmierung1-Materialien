@@ -2,6 +2,8 @@
 
 Hier finden Sie einige Fingerübungen, um die Grundlagen der Definition von Methoden und der Arbeit mit Arrays zu üben.
 
+Implementieren Sie Ihre Lösungen bitte in der Klasse `public class Zusatz1Loesung`.
+
 ## Basen finden
 
 Implementieren Sie eine Methode `public static int countBases(char[] sequence, char toFind)`, die die Anzahl der Vorkommnisse der Base `toFind` in der Sequenz `sequence` zurückgibt.
