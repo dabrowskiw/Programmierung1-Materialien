@@ -264,3 +264,31 @@ for(int i=0; i<mobs.length; i++) {
     System.out.println("After move: " + mobs[i]);
 }
 ```
+
+---
+
+## Live-Beispiel: Rezeptverwaltung
+
+* Idee: Liste von Rezepten. Jedes Rezept hat:
+    * Name
+    * Kochzeit
+    * Liste an Zutaten
+* Jede Zutat hat:
+    * Name
+    * Menge
+    * Einheit
+* Modellierung mit Arrays? Oder lieber doch Klassen?
+
+---
+
+## Live-Beispiel: Rezeptverwaltung++
+
+* Kalorienverwaltung hinzufügen?
+* Idee: Zutat erweitern:
+    * Menge
+    * Zutaten-Typ:
+        * Name
+        * Einheit
+        * kcal/1xMenge
+        
+-> Refactoring

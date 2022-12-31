@@ -6,7 +6,7 @@ Achten Sie beim Schreiben darauf, wie sich der Code im Vergleich zu den letzten 
 
 Implementieren Sie in `Patient.java` eine Klasse `Patient` die folgende Methoden besitzt:
 
-* Einen Constructor `Patient(char status, double age)`, der inten Status und Alter des Patienten setzt
+* Einen Constructor `Patient(char status, double age)`, der inten Status ('r': recovered, genesen; 'd': deceased, verstorben) und Alter des Patienten setzt
 * `public double getAge()`:  Gibt das Alter des Patienten zurück
 * `public char getStatus()`:  Gibt den Status des Patienten zurück
 
@@ -33,7 +33,7 @@ Implementieren Sie in `AgeMetrics.java` eine Klasse `AgeMetrics`, die folgende M
 * `public double getAverageAge()`:  Gibt das durchschnittliche Alter zurück
 * `public boolean isEmpty()`:  Gibt `true` zurück, falls noch kein Alter zu den Metriken hinzugefügt wurde, sonst `false`
 
-Hinweis: Sie brauchen kein Array mit allen Werten zu speichern, nur die Metriken - orientieren Sie sich an der Berechnung in der letzten Aufgabe: Mindest- und Maximalalter können Sie direkt beim Hinzufügen eines neuen Alters aktualisieren, für getAverageAge müssen Sie sich sowohl die Summe aller bisher hinzugefügten Alter, als auch die Anzahl der hinzugefügten Alter merken.
+Hinweis: Sie brauchen keine Liste mit allen Werten zu speichern, nur die Metriken - orientieren Sie sich an der Berechnung in der letzten Aufgabe: Mindest- und Maximalalter können Sie direkt beim Hinzufügen eines neuen Alters aktualisieren, für getAverageAge müssen Sie sich sowohl die Summe aller bisher hinzugefügten Alter, als auch die Anzahl der hinzugefügten Alter merken.
 
 ## Kennzahlen berechnen
 
@@ -57,7 +57,7 @@ Das ist wichtig für die automatische Überprüfung. Beachten Sie bitte, dass hi
 
 ## Risikofakter Alter
 
-Implementieren Sie in `Aufgabe8Gesundheit` eine Methode `public static String[] showMetrics(PatientList patients)`, die in dem folgenden Format in Abbildung die Alter der verstorbenen und genesenen Patienten aus der übergebenen Liste zurückgibt:
+Implementieren Sie in `Aufgabe8Gesundheit` eine Methode `public static String[] showMetrics(PatientList patients)`, die in dem folgenden Format die Alter der verstorbenen und genesenen Patienten aus der übergebenen Liste zurückgibt:
 
 ```java
 result[0]="Verstorben - Min: <Min-alter>, Max: <Max-alter>, Mean: <MW>"
