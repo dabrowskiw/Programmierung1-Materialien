@@ -7,8 +7,9 @@ Achten Sie beim Schreiben darauf, wie sich der Code im Vergleich zu den letzten 
 Implementieren Sie in `ArtObject.java` eine Klasse `ArtObject` die folgende Methoden besitzt:
 
 * Einen Constructor `ArtObject(char status, double price)`, der inten Status ('s': sold, verkauft; 'u': unsold, nicht verkauft) und Preis des Kunstobjekts setzt
-* `public double getPrice()`:  Gibt den Preis des Kunstobjekts zurück
-* `public char getStatus()`:  Gibt den Status des Kunstobjekts zurück
+* `public double getPrice()`: Gibt den Preis des Kunstobjekts zurück
+* `public char getStatus()`: Gibt den Status des Kunstobjekts zurück
+* `public String toString()`: Gibt einen String zurück, der das Kunstobjekt beschreibt. Format: `Kunstobjekt, Preis: <Preis>, Status: <Status>`
 
 Machen Sie bitte die Attribute price und status selber `private`, damit auf diese nur noch per getter-Methoden zugegriffen werden kann, sie aber nach Erstellung eines Kunstobjekts nicht mehr verändert werden können.
 
