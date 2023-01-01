@@ -189,6 +189,34 @@ Standard-`toString()`: Speicheradresse (wie bei Array)
 
 ---
 
+## Live-Beispiel: Rezeptverwaltung
+
+* Idee: Liste von Rezepten. Jedes Rezept hat:
+    * Name
+    * Kochzeit
+    * Liste an Zutaten
+* Jede Zutat hat:
+    * Name
+    * Menge
+    * Einheit
+* Modellierung mit Arrays? Oder lieber doch Klassen?
+
+---
+
+## Live-Beispiel: Rezeptverwaltung++
+
+* Kalorienverwaltung hinzufügen?
+* Idee: Zutat erweitern:
+    * Menge
+    * Zutaten-Typ:
+        * Name
+        * Einheit
+        * kcal/1xMenge
+        
+-> Refactoring
+
+---
+
 ## Zugriff: Access modifiers
 
 * public: Alle können lesen/schreiben
@@ -267,28 +295,104 @@ for(int i=0; i<mobs.length; i++) {
 
 ---
 
-## Live-Beispiel: Rezeptverwaltung
+## Besondere Klassen: String
 
-* Idee: Liste von Rezepten. Jedes Rezept hat:
-    * Name
-    * Kochzeit
-    * Liste an Zutaten
-* Jede Zutat hat:
-    * Name
-    * Menge
-    * Einheit
-* Modellierung mit Arrays? Oder lieber doch Klassen?
+* Speichert Text
+* Bietet convenience-Funktionen wie `.toLowerCase()`
+* Vorsicht, Objekt! `==` -> Adressvergleich, `.equals` für Inhalt!
+
+```java
+String text = "Te";
+text += "xt";
+System.out.println(text == "Text"); // false! Warum?
+System.out.println(text.equals("Text")); // true
+```
 
 ---
 
-## Live-Beispiel: Rezeptverwaltung++
+## Besondere Klassen: StringBuilder
 
-* Kalorienverwaltung hinzufügen?
-* Idee: Zutat erweitern:
-    * Menge
-    * Zutaten-Typ:
-        * Name
-        * Einheit
-        * kcal/1xMenge
-        
--> Refactoring
+* String hält intern ein `char[]`
+    * immutable!
+    * Scheinbare Veränderung = Inhalt kopieren + neuer String
+* Effizienter Aufbau: `StringBuilder`
+    * Erlaubt Hinzufügen von Textteilen
+    * Werden am Ende mit `toString()` zusammengefügt
+    * -> nur 1 Kopiervorgang
+
+---
+
+# Zeiteffekt von StringBuilder
+
+```java
+double startTime = System.currentTimeMillis();
+String text = "";
+for(int i=0; i<100000; i++) {
+    text += i + ",";
+}
+System.out.println(text.substring(0, 10));
+System.out.println(System.currentTimeMillis() - startTime); // 4291 ms
+startTime = System.currentTimeMillis();
+StringBuilder textBuilder = new StringBuilder();
+for(int i=0; i<100000; i++) {
+    textBuilder.append(i + ",");
+}
+System.out.println(textBuilder.toString().substring(0, 10));
+System.out.println(System.currentTimeMillis() - startTime); // 8 ms
+```
+
+---
+
+## Besondere Klassen: LinkedList/ArrayList
+
+* Nachteil von Arrays: Feste Länge
+* Alternative: Dynamisch verwaltete Listen von Objekten (->typisiert)
+* Hinzufügen (`.add(V value)`) und Entfernen (`.remove(int index)`)
+* `LinkedList<V>`: Jedes Element enthält Adressen der Nachbarelemente
+    * Hinzufügen/Entfernen sehr schnell
+    * Random access langsam ("Durchhangeln" durch alle Elemente)
+* `ArrayList<V>`: Intern Array, wächst bei Bedarf
+    * Entfernen sehr langsam, Hinzufügen meist schnell (Reserve-Platz)
+    * Random access sehr schnell (wie bei Array)
+
+---
+
+## LinkedList vs. ArrayList
+
+* Theorie: LinkedList oder ArrayList je nach Verwendung
+    * LinkedList wenn viel Veränderung und meist Iterieren ohne random access
+    * ArrayList wenn wenig Veränderung und meist random access
+* Praxis: ArrayList meist effizienter
+    * Array-Verwaltung in modernen Architekturen hochoptimiert
+    * Overhead durch Speicheradressen in LinkedList
+* Aber: ArrayList braucht zusammenhängenden Speicher -> eventuell unvorhersagbares Verhalten bei hoher Speicherauslastung
+
+---
+
+## Besondere Klassen: HashMap
+
+* Array und ArrayList/LinkedList: Nur Adressierung über Position
+* Adressierung über Key-Wert: `HashMap<K, V>`, Zuordnung Key->Value
+    * Intern Array von Values
+    * Position im Array wird aus Hash des Keys berechnet
+ 
+```java
+HashMap<String, String> blumenFarben = new HashMap<>();
+blumenFarben.put("Rose", "rot");
+blumenFarben.put("Veilchen", "blau");
+String keyValue = "Rose";
+if(blumenFarben.containsKey(keyValue)) {
+    System.out.println("Farbe von " + keyValue + blumenFarben.get(keyValue));
+}
+```
+---
+
+## Live-Beispiel: Refactoring Rezeptverwaltung
+
+* `ZutatenListe`: `HashMap<String, ZutatenTyp>` statt neuer Variablen für jeden `ZutatenTyp`
+* `Zutat`, `ZutatenTyp`: Alles `private`, mit gettern
+* `Zutat`: `getKcal` (statt Berechnung in `Rezept`)
+* `Rezept`: `LinkedList<Zutat>` statt `Zutat[]`
+    * `Zutat[]` in Constructor optional (2 Constructoren)
+    * `addZutat(Zutat)` zum Hinzufügen
+    * `removeZutat(String name)` zum Entfernen
