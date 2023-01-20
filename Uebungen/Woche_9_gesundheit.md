@@ -5,7 +5,7 @@ In dieser Übung verwenden Sie einen realen (wenn auch von mir etwas aufgeräumt
 Implementieren Sie in `Patient.java` eine Klasse `Patient` die folgende Methoden besitzt:
 
 * Einen leeren private-Constructor
-* Eine statische Methode `public static Patient parseCSVLine(String line)`, die eine Zeile aus einer Patienten beschreibenden csv-Datei nimmt und ein Patient-Objekt zurückliefert - Details siehe unten
+* Eine statische Methode `public static Patient parseCSVLine(String line)`, die eine Zeile aus einer Patienten beschreibenden csv-Datei übergeben bekommt und ein Patient-Objekt zurückliefert - Details siehe unten
 * Folgende getter:
 
   * `public int getFromAge()`
