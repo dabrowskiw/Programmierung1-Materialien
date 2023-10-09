@@ -54,7 +54,7 @@ Sie müssen also mindestens die zwei Blöcke `walk until wall or end` (läuft, 
 
 Sie dürfen nun zusätzlich die folgenden Blöcke verwenden, welche zwei Bedingungen miteinander verknüpfen bzw. die Bedingung verneinen:
 
-![Karte 2](Bilder/uebung1_script.jpg)
+![Script 1](Bilder/uebung1_script.jpg)
 
 * `and`
 * `or`
