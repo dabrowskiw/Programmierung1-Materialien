@@ -39,6 +39,6 @@ Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-
 
 ## Aufgabe 5
 
-Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-Blöcke, verwenden Sie die beiden neuen Blöcke aus Aufgabe 5 weiter):
+Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-Blöcke, verwenden Sie die beiden neuen Blöcke aus Aufgabe 3 weiter):
 
 ![Muster für Aufgabe 7](Bilder/uebung7.png)
