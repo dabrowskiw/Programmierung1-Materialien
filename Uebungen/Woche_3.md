@@ -24,7 +24,7 @@ Geben Sie das Programm als VPL-Hausaufgabe 2 ab.
 
 ## Aufgabe 3
 
-Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgenden vier Zeilen in ausgibt (beachten Sie, dass nach der letzten Zeile *eine neue Zeile beginnt, in der aber nichts mehr steht*):
+Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgenden sieben Zeilen in ausgibt (beachten Sie, dass nach der letzten Zeile *eine neue Zeile beginnt, in der aber nichts mehr steht*):
 
 ```text
 *******
@@ -43,7 +43,7 @@ Geben Sie das Programm als VPL-Hausaufgabe 3 ab.
 
 ## Aufgabe 4
 
-Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgenden vier Zeilen in ausgibt (beachten Sie, dass nach der letzten Zeile *eine neue Zeile beginnt, in der aber nichts mehr steht*):
+Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgenden neun Zeilen in ausgibt (beachten Sie, dass nach der letzten Zeile *eine neue Zeile beginnt, in der aber nichts mehr steht*):
 
 ```text
 *
@@ -64,7 +64,7 @@ Geben Sie das Programm als VPL-Hausaufgabe 4 ab.
 
 ## Aufgabe 5
 
-Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgenden vier Zeilen in ausgibt (beachten Sie, dass nach der letzten Zeile *eine neue Zeile beginnt, in der aber nichts mehr steht*):
+Schreiben Sie in Java ein Programm, das auf der Kommandozeile exakt die folgenden neun Zeilen in ausgibt (beachten Sie, dass nach der letzten Zeile *eine neue Zeile beginnt, in der aber nichts mehr steht*):
 
 ```text
 *.*.*.*.*
