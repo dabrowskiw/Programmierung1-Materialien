@@ -32,13 +32,13 @@ Erstellen Sie dafür zwei neue Blöcke: `draw line of x stamps`, welcher `x` Ste
 
 ## Aufgabe 4
 
-Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-Blöcke, verwenden Sie die beiden neuen Blöcke aus Aufgabe 5 weiter):
+Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-Blöcke, verwenden Sie die beiden neuen Blöcke aus Aufgabe 3 weiter):
 
 ![Muster für Aufgabe 6](Bilder/uebung6.png)
 
 
 ## Aufgabe 5
 
-Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-Blöcke, verwenden Sie die beiden neuen Blöcke aus Aufgabe 5 weiter):
+Erzeugen Sie nun das folgende Muster (Sie brauchen dafür keine weiteren Custom-Blöcke, verwenden Sie die beiden neuen Blöcke aus Aufgabe 3 weiter):
 
 ![Muster für Aufgabe 7](Bilder/uebung7.png)
