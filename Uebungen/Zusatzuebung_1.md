@@ -10,7 +10,7 @@ Implementieren Sie eine Methode `public static int countBases(char[] sequence, c
 
 Beispiel:
 ```text
-char[] sequence = {'G, 'A', 'T', 'T', 'A', 'C', A'};
+char[] sequence = {'G', 'A', 'T', 'T', 'A', 'C', 'A'};
 char toFind = 'T';
 int numT = countBases(sequence, toFind);
 // numT sollte jetzt den Wert 2 haben
