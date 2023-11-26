@@ -28,7 +28,7 @@ Diese Methoden sollen jeweils die Anzahl der Purine bzw. Pyrimidine in der über
 
 Beispiel:
 ```text
-char[] sequence = {'G, 'A', 'T', 'T', 'A', 'C', A'};
+char[] sequence = {'G', 'A', 'T', 'T', 'A', 'C', 'A'};
 int numPur = countPurines(sequence);
 int numPyr = countPyrimidines(sequence);
 // numPur sollte jetzt den Wert 4 haben
@@ -41,7 +41,7 @@ Implementieren Sie eine Methode `public static int[] countBases(char[] sequence)
 
 Beispiel:
 ```text
-char[] sequence = {'G, 'A', 'T', 'T', 'A', 'C', A'};
+char[] sequence = {'G', 'A', 'T', 'T', 'A', 'C', 'A'};
 int[] numBases = countBases(sequence);
 // numBases sollte jetzt den Wert {3, 1, 1, 2} haben
 ```
@@ -56,7 +56,7 @@ Implementieren Sie eine Methode `public static char[] complementSequence(char[] 
 
 Beispiel:
 ```text
-char[] sequence = {'G, 'A', 'T', 'T', 'A', 'C', A'};
+char[] sequence = {'G', 'A', 'T', 'T', 'A', 'C', 'A'};
 char[] compl = complementSequence(sequence);
 // compl sollte jetzt den Wert {'C', 'T', 'A', 'A', 'T', 'G', 'T'} haben
 ```
@@ -69,7 +69,7 @@ Implementieren Sie eine Methode `public static char[] reverseSequence(char[] seq
 
 Beispiel:
 ```text
-char[] sequence = {'G, 'A', 'T', 'T', 'A', 'C', A'};
+char[] sequence = {'G', 'A', 'T', 'T', 'A', 'C', 'A'};
 char[] rev = reverseSequence(sequence);
 // rev sollte jetzt den Wert {'A', 'C', 'A', 'T', 'T', 'A', 'G'} haben
 ```
@@ -80,7 +80,7 @@ Implementieren Sie unter Verwendung der zwei vorher implementierten Methoden ein
 
 Beispiel:
 ```text
-char[] sequence = {'G, 'A', 'T', 'T', 'A', 'C', A'};
+char[] sequence = {'G', 'A', 'T', 'T', 'A', 'C', 'A'};
 char[] revcomp = reverseComplementSequence(sequence);
 // revcomp sollte jetzt den Wert {'T', 'G', 'T', 'A', 'A', 'T', 'C'} haben
 ```
