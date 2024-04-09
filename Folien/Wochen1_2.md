@@ -1,10 +1,14 @@
 ---
 marp: true
-theme: HTW
+theme: gaia
 paginate: true
 footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 ---
-
+<style>
+ol {
+    line-height: 0.3;
+}
+</style>
 # Frage!
 
 * Dreier-Gruppen, 10 Minuten
@@ -19,15 +23,13 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 # Programmierung 1 - Was tun wir hier?
 
-* Ziele: 
-  * Grundlagen des Programmierens (in Java) beherrschen
-  * Einfache Algorithmen selber ausdenken und implementieren
-  * Grundbegiffe der (objektorientierten) Programmierung beherrschen
+* Grundlagen des Programmierens (in Java) beherrschen
+* Einfache Algorithmen selber ausdenken und implementieren
+* Grundbegiffe der (objektorientierten) Programmierung beherrschen
 * Desillusionierung:
   * Programmieren lernen ist zeitaufwendig!
   * Ich kann es Ihnen nicht beibringen!
-* Wichtig: Ab Anfang konsequent mitmachen
-* Gerne Laptop in die VL mitbringen
+* Wichtig: Ab Anfang konsequent mitmachen, gerne Laptop in die VL mitbringen
 
 ---
 
@@ -35,13 +37,11 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 * Selber programmieren wichtig -> 1 SWS VL, 3 SWS PCÜ
 * Präsenzzeit reicht **nicht**!
-  * Zusatzaufgaben zum selber üben, Tutorium (wird bekannt gegeben) 
-  * Hausaufgaben - Prüfungszulassung ab 75% Abgaben, 50% Punkte
-  * Skript bitte **lesen**, Fragen stellen (Forum, SL)! 
+  * Zusatzaufgaben zum selber üben, Tutorium 
+  * Hausaufgaben - Prüfung ab 75% Abgaben, 50% Punkte
+  * Fragen stellen (Forum, SL)! 
 * Prüfungsleistung: Wie Hausaufgabe, aber größer (2 Wochen)
-* Bonuspunkte für Verbesserungsvorschläge (siehe [git-repo](https://github.com/dabrowskiw/Programmierung1-Materialien)):
-  * 2.5% für Vorschlag, 5% für Code (mail, pull request)
-  * Max. 2 Boni pro Semester
+* Bonuspunkte für Verbesserungsvorschläge (siehe [git-repo](https://github.com/dabrowskiw/Programmierung1-Materialien)): 2.5% für Vorschlag, 5% für Code (mail, pull request), max. 2/Semester
 
 
 ---
@@ -49,7 +49,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 # Fahrplan
 
 * Was ist allgemein Programmierung?
-* Visuelle Übungen mit "Snap!" (diese Woche)
+* Visuelle Übungen mit "Snap!" + Flussdiagrammen (2 Wochen)
 * "Fingerübungen" mit Java (ca. 4 Wochen)
 * Anwendungsaufgaben (ca. 6-8 Wochen):
   * Arrays
@@ -67,13 +67,14 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
   * Problem selber lösen
   * Sich selber dabei beobachten ("warum tue ich das gerade?")
   * Beobachtungen idiotensicher zum Nachkochen aufschreiben
+-> Algorithmus: Finite Abfolge von ausführbaren Anweisungen
 
 ---
 
-# Beispiel Programmierung
+# Beispiel-Algorithmus
 
 * Schreiben Sie ein Programm, das mich zur Tür bringt
-* Erlaubte Befehle:
+* Erlaubte Anweisungen:
   * "Schritt": Ich mache einen Schritt
   * "Drehen": Ich drehe mich um 90 Grad nach links
 * Freiwillige/r an der Tafel
@@ -81,7 +82,24 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 ---
 
-# Snap! - erste Beispiele
+# Wie schreibt man das auf?
+
+![height: 100%](Bilder/flow.png)
+
+---
+
+![bg left:60%](Bilder/flow_xkcd.png)
+
+# Beispiele
+
+* Caesar-Chiffre
+* Quersumme
+    * Schleife
+    * Rekursiv
+
+---
+
+# Snap! - erste interaktive Beispiele
 
 * [Beispiel 1](https://snap.berkeley.edu/project?user=piotrdabrowski&project=Prog1-Beispiel1): Die Übung eben in Snap!
 * Aber: Das funktioniert nur in diesem einen Fall!
