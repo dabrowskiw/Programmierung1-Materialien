@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: HTW
+theme: gaia
 paginate: true
 footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 ---
@@ -14,21 +14,6 @@ Die Vorlesung besteht aus mehreren Teilen!
 * Folien: Enthalten auch **Code-Beispiele**
 
 Bitte **alles** nutzen! Insbesondere vor "Wie mache ich XXX" Materialien lesen, es gibt einen Grund, warum es die gibt!
-
----
-
-# Party!
-
-IKG Get Together
-
-* Mittwoch, 18.05.2022, ab 15:50
-* Zwischen H-Gebäude und Mensa "an der Spree"
-* Würstchen, Grillkäse, Getränke
-
-Fragen (für die Einkaufsplanung): 
-
-* Wer kommt?
-* Wer möchte (kein) Fleisch?
 
 ---
 
@@ -54,36 +39,71 @@ for(int i=0; i<sizeof(vals)/sizeof(int); i+=1) {
 
 # Java
 
-```java
-int[] vals = {1, 6, 5, 3};
-for(int i=0; i<vals.length; i++) {
-  System.out.print(vals[i]);
-  System.out.print("\n");
-}
-```
-
 * Weit eingesetzte Programmiersprache
 * Kümmert sich um Speicherverwaltung (anders als bspw. C)
 * Besitzt viele Komfort-Features
+* Beliebt auf dem Markt
 
 ---
 
-# Java
-
-Programmcode sollte einfach zu lesen sein -> In Gruppen, 10 Minuten:
-* Was tut dieser Code? **Vorsicht**: Wir fangen bei 0 an zu zählen!
-* Was müsste man tun, um das letzte "-" weg zu bekommen?
+# Erstes Java-Programm
 
 ```java
-String[] words = {"Python", "Java", "blöd", "schreiben", "nicht", "ist", "einfach", "simpel", "programmieren"};
-int[] order = {6,1,3,3,10,5,4,6,8};
-for(int i=1; i<order.length; i+=2) {
-  int position = order[i];
-  System.out.print(words[position]);
-  System.out.print("-");
+// Jede Klasse muss in gleichnamiger Datei stehen (hier: HelloWorld.java)
+// Jeder Java-Code muss in einem Klassen-Block stehen (Begrenzung: {})
+public class HelloWorld {
+  // Code ist in Methoden unterteilt. Konkrete Anweisungen stehen in 
+  // Methoden-Blöcken
+  // Spezielle Methode main: Startpunkt eines Programms
+  public static void main(String[] args) {
+    // System.out.println: Methode, die als Argument das nimmt, was auf dem
+    // Bildschirm ausgegeben werden soll
+    System.out.println("Hello, world!");
+    // Jede Zeile muss mit einem       ; enden
+  }
+  // Jede geöffnete Klammer muss wieder geschlossen werden
 }
-
 ```
+
+---
+
+# Variablen in Java
+
+```java
+public class HelloWorld {
+  public static void main(String[] args) {
+    // Variablen (hier: Zahlen) deklarieren und initialisieren
+    int i = 0;
+    int k = 3;
+    // Wert von i um 1 erhöhen
+    i ++;
+    // Mathematische Operationen (hier: +, * und Modulo)
+    i = (k + 3*i) % 2;
+    System.out.print(i);
+  }
+}
+```
+
+---
+
+# Funktionen in Java
+
+```java
+public class HelloWorld {
+  // Definition einer eigenen Funktion mit 2 Argumenten
+  public void printNumbers(from, to, by) {
+    for(int i=from; i<to; i+=by) {
+      System.out.println(i);
+    }
+  }
+
+  public static void main(String[] args) {
+    // Aufruf der Funktion (Ausführung des Codes darin)
+    printNumbers(1, 12, 2);
+  }
+}
+```
+
 
 ---
 
@@ -123,7 +143,7 @@ for(int i=0; i<10; i++) {
 
 ---
 
-# Verständnisübung (Gruppen, 15 Minuten)
+# Verständnisübung 
 
 | Befehl | Wert | Argumente | Kommentar |
 |---|---|---|---|
@@ -152,33 +172,32 @@ for(int i=0; i<10; i++) {
 
 ---
 
-# Funktionen in Java
+<!--
+_footer: ""
+-->
 
-```java
-void printNumbers(from, to, by) {}
-  for(int i=from; i<to; i+=by) {
-    System.out.println(i);
-  }
+<style scoped>
+table {
+  font-size: 20px;
 }
-//...
-printNumbers(0, 100, 2);
-```
-
-
----
+</style>
 
 # Speicherorganisation: Stack
 
-* Eigener Speicherbereich für jede Funktion, wird beim Aufruf vergeben
+* Eigener Speicherbereich für jede Funktion, pro Aufruf neu
 * Variablen der Funktion werden dort angelegt/übergeben
 * `printNumbers(0, 100, 2)` könnte ergeben:
 
-| Adresse | Wert | Kommentar | Adresse | Wert | Kommentar |
-|---|---|---|---|---|---| 
-| ... | ... | Nächste Funktionen |  68 | 2 | by (Arg. 3) |
-| ... | ... | Nächste Werte | 69 | 100 | to (Arg. 2) | 
-| 66 | 0 | i | 70 | 0 | from (Arg. 1) | 
-| 67 | ... | Rücksprung-Adresse | ... | ... | Programmcode| 
+| Adresse | Wert | Kommentar | 
+|---|---|---|
+| 12 | ... | Nächster Befehl |  
+| ... | ... | Anderer Code etc.| 
+| 67 | 12 | Rücksprung-Adresse | 
+| 68 | 2 | by (Arg. 3) |
+| 69 | 100 | to (Arg. 2) | 
+| 70 | 0 | from (Arg. 1) | 
+| 71 |... |Rücksprung-Adresse vorherige Funktion |
+| ... | ... | Restlicher Stack | 
 
 ---
 

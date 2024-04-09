@@ -387,6 +387,18 @@ if(blumenFarben.containsKey(keyValue)) {
 ```
 ---
 
+
+<!--
+_class: lead
+-->
+
+# Exkurs: Evaluation
+
+TL;DR: Bitte ausfüllen, vor allem für SL, damit es genug Antworten gibt
+
+---
+
+
 ## Live-Beispiel: Refactoring Rezeptverwaltung
 
 * `ZutatenListe`: `HashMap<String, ZutatenTyp>` statt neuer Variablen für jeden `ZutatenTyp`

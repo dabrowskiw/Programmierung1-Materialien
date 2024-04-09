@@ -5,6 +5,18 @@ paginate: true
 footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 ---
 
+# Frage!
+
+* Dreier-Gruppen, 10 Minuten
+* Danach: Zufallsauswahl, Antwort von jemandem anders erzählen
+* Vorteile: 
+    * Kennenlernen
+    * Bezug zum Thema verstehen (für mich und für die anderen)
+* Experiment - Kein Bock = auch OK :)
+* Frage: "Was wollen Sie mit dem hier gelernten erreichen, was motiviert Sie?"
+
+---
+
 # Programmierung 1 - Was tun wir hier?
 
 * Ziele: 
@@ -14,7 +26,7 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 * Desillusionierung:
   * Programmieren lernen ist zeitaufwendig!
   * Ich kann es Ihnen nicht beibringen!
-* Wichtig: Ab anfang konsequent mitmachen
+* Wichtig: Ab Anfang konsequent mitmachen
 * Gerne Laptop in die VL mitbringen
 
 ---
@@ -23,8 +35,8 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 * Selber programmieren wichtig -> 1 SWS VL, 3 SWS PCÜ
 * Präsenzzeit reicht **nicht**!
-  * Zusatzaufgaben zum selber üben
-  * Wöchentliche Hausaufgaben - Prüfungszulassung ab 75% der Punkte
+  * Zusatzaufgaben zum selber üben, Tutorium (wird bekannt gegeben) 
+  * Hausaufgaben - Prüfungszulassung ab 75% Abgaben, 50% Punkte
   * Skript bitte **lesen**, Fragen stellen (Forum, SL)! 
 * Prüfungsleistung: Wie Hausaufgabe, aber größer (2 Wochen)
 * Bonuspunkte für Verbesserungsvorschläge (siehe [git-repo](https://github.com/dabrowskiw/Programmierung1-Materialien)):
@@ -37,13 +49,13 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 # Fahrplan
 
 * Was ist allgemein Programmierung?
-* Visuelle Übungen mit "Snap!" (2 Wochen)
-* "Fingerübungen" mit Java (4 Wochen)
-* Anwendungsaufgaben (6 Wochen):
+* Visuelle Übungen mit "Snap!" (diese Woche)
+* "Fingerübungen" mit Java (ca. 4 Wochen)
+* Anwendungsaufgaben (ca. 6-8 Wochen):
   * Arrays
   * Grundlagen der Objektorientierung
   * Externe Bibliotheken am Beispiel von Plots
-* Puffer (z.B. Gastvortrag)
+* Puffer
 
 ---
 
@@ -94,5 +106,5 @@ footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 # Snap! - weitere Konzepte
 
 * Aufhübschung von [Beispiel 3](https://snap.berkeley.edu/project?user=piotrdabrowski&project=Prog1-Beispiel3): 
-    * Argument in Funktion nehmen - `check for door Richtung` überprüft Tür in `Richtung` anstatt nur links (siehe `turn`)
+    * Argument in Funktion nehmen - `check for door Richtung` überprüft Tür in `Richtung` anstatt nur rechts (siehe `turn`)
     * Funktion `is Richtung of door` mit Rückgabewert `true` oder `false` kann in `if` verwendet werden (siehe `in front of Farbe`)
