@@ -4,22 +4,6 @@ theme: gaia
 paginate: true
 footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 ---
-<style>
-ol {
-    line-height: 0.3;
-}
-</style>
-# Frage!
-
-* Dreier-Gruppen, 10 Minuten
-* Danach: Zufallsauswahl, Antwort von jemandem anders erzählen
-* Vorteile: 
-    * Kennenlernen
-    * Bezug zum Thema verstehen (für mich und für die anderen)
-* Experiment - Kein Bock = auch OK :)
-* Frage: "Was wollen Sie mit dem hier gelernten erreichen, was motiviert Sie?"
-
----
 
 # Programmierung 1 - Was tun wir hier?
 
@@ -82,6 +66,7 @@ ol {
 
 ---
 
+
 # Wie schreibt man das auf?
 
 ![height: 100%](Bilder/flow.png)
@@ -96,6 +81,18 @@ ol {
 * Quersumme
     * Schleife
     * Rekursiv
+
+---
+
+# Frage!
+
+* Dreier-Gruppen, 10 Minuten
+* Danach: Zufallsauswahl, Antwort von jemandem anders erzählen
+* Vorteile: 
+    * Kennenlernen
+    * Bezug zum Thema verstehen (für mich und für die anderen)
+* Experiment - Kein Bock = auch OK :)
+* Frage: "Was wollen Sie mit dem hier gelernten erreichen, was motiviert Sie?"
 
 ---
 
