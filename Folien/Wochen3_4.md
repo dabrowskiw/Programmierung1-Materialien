@@ -2,7 +2,7 @@
 marp: true
 theme: gaia
 paginate: true
-footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
+#footer: "Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin"
 ---
 
 # Erinnerung!
@@ -143,35 +143,6 @@ for(int i=0; i<10; i++) {
 
 ---
 
-# Verständnisübung 
-
-| Befehl | Wert | Argumente | Kommentar |
-|---|---|---|---|
-| print | 1 | 1 | Auszugebende Adresse |
-| jeq | 2 | 3 | 2 Adressen verlgeichen, 3: Sprungziel |
-| add | 3 | 2 | 1: Adresse, 2: Zu addierender Wert |
-| jmp | 4 | 1 | Sprung-Adresse |
-| put | 5 | 2 | 1: Adresse, 2: Wert |
-
-`90: 5 60 0 5 59 2 5 58 100 2 60 58 120 1 60 5 57 0 2 57 59 99 3 60 1 3 57 1 4 108 0`
-
-
-<!--
-90: put 60 0 # i
-93: put 59 2 # diff
-96: put 58 100 # max
-99: jeq 60 58 120
-103: print 60
-105: put 57 0
-108: jeq 57 59 99
-112: add 60 1
-115: add 57 1
-118: jmp 108
-120: Programmende
--->
-
----
-
 <!--
 _footer: ""
 -->
@@ -230,7 +201,7 @@ System.out.println("From: " + from); // Gibt das 0 oder 100 aus?
   * Zahlen größer 255 zu speichern?
   * Gelitkommazahlen zu speichern?
   * Buchstaben zu speichern?
-* 10 Minuten, Gruppen (quadrantweise ein Thema)
+* 10 Minuten, Gruppen (durchzählen für Themen)
 ---
 
 # Negative Zahlen: Zweierkomplement 
@@ -288,3 +259,93 @@ Was bedeutet `01001000 01101001`?
 * Zwei `char`: "H", "i"?
 
 -> Datentypen müssen in Java deklariert werden und **ändern die Bedeutung** von Variablen - z. B. `00110111` kann die Zahl 55 oder das Zeichen "7" sein (aber niemals die Zahl 7)! 
+
+---
+
+
+![bg left:44%  h:700](Bilder/versioncontrol.png)
+
+# Versionskontrolle
+
+* Ziel: Kontrolle!
+    * 1972: [SCCS](https://en.wikipedia.org/wiki/Source_Code_Control_System), single user
+* Bonus: Zusammenarbeit
+    * 1986: [CVS](https://en.wikipedia.org/wiki/Concurrent_Versions_System) (central)
+    * 2005: [git](https://en.wikipedia.org/wiki/Git) (distributed)
+    * In the meantime: [SVN](https://en.wikipedia.org/wiki/Apache_Subversion), [TFVC](https://en.wikipedia.org/wiki/Azure_DevOps_Server#TFVC), [BitKeeper](https://en.wikipedia.org/wiki/BitKeeper), [Mercurial](https://en.wikipedia.org/wiki/Mercurial) etc.
+* Alles, was textbasiert ist (code, LaTeX, Markdown etc.)
+
+---
+
+# Grundidee von git
+
+![w:1000 center](Bilder/gitdiagram.png)
+
+---
+
+# Dateien im repo im Zeitverlauf
+
+![w:1000 center](Bilder/gitdiagram2.png)
+
+---
+
+# Wichtige Befehle
+
+![bg right:39% h:700](Bilder/xkcd_git1.png)
+
+* Überblick: [NeSI reference sheet](https://support.nesi.org.nz/hc/en-gb/articles/360001508515-Git-Reference-Sheet)
+* Erst `git clone https://repo.git`
+* Typischer Workflow danach:
+    * `git add file1 file2 ...`
+    * `git status`
+    * `git commit -m "Habe fertig!"`
+    * `git push`
+* In case of fire: [Oh Shit, Git!?!](https://ohshitgit.com/)
+
+---
+
+# Frisches Repository
+
+![h:400 background:blue](Bilder/head-to-master-1.png)
+
+---
+
+# Repository nach einem commit
+
+![h:400 background:blue](Bilder/head-to-master-2.png)
+
+---
+
+# Repository nach zwei commits
+
+![h:400 background:blue](Bilder/head-to-master.png)
+
+---
+
+# Verständnisübung 
+
+| Befehl | Wert | Argumente | Kommentar |
+|---|---|---|---|
+| print | 1 | 1 | Auszugebende Adresse |
+| jeq | 2 | 3 | 2 Adressen verlgeichen, 3: Sprungziel |
+| add | 3 | 2 | 1: Adresse, 2: Zu addierender Wert |
+| jmp | 4 | 1 | Sprung-Adresse |
+| put | 5 | 2 | 1: Adresse, 2: Wert |
+
+`90: 5 60 0 5 59 2 5 58 100 2 60 58 120 1 60 5 57 0 2 57 59 99 3 60 1 3 57 1 4 108 0`
+
+
+<!--
+90: put 60 0 # i
+93: put 59 2 # diff
+96: put 58 100 # max
+99: jeq 60 58 120
+103: print 60
+105: put 57 0
+108: jeq 57 59 99
+112: add 60 1
+115: add 57 1
+118: jmp 108
+120: Programmende
+-->
+
