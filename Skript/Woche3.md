@@ -57,7 +57,7 @@ So sehr die Verwendung von höheren Programmiersprachen das Leben erleichtert, s
 
 Java ist eine höhere Programmiersprache, die noch eine Abstraktionsebene mehr einführt: Anstatt den Programmcode direkt in Maschinencode zu übersetzen, übersetzt der Java-Compiler das Programm zunächst in Bytecode. Dieser ist im Endeffekt genau so aufgebaut, wie Maschinencode. Es gibt aber einen ausschlaggebenden Unterschied: Maschinencode wird direkt von der CPU eines Computers ausgeführt. Unterschiedliche CPUs von unterschiedlichen Herstellern nutzen dabei unterschiedliche Befehlssätze: Der gleichen Anweisung kann auf unterschiedlichen CPUs ein anderer Opcode zugewiesen sein (beispielsweise könnte der Opcode 1 auf einer Intel-CPU ``Subtrahiere`` heißen, während auf einer AMD-CPU der gleiche Opcode 1 ``Addiere`` bedeutet und ``Subtrahiere`` den Opcode 7 haben könnte), und es gibt Anweisungen, die nicht alle CPUs beherrschen[^6]. Das bedeutet, dass der gleiche Maschinencode nicht auf sehr unterschiedlichen CPUs verwendet werden kann. Java umgeht das, indem der vom Compiler generierte Bytecode nicht direkt auf der CPU ausgeführt wird. Stattdessen gibt es für unterschiedliche Systeme und unterschiedliche CPUs jeweils eine eigene Java Virtual Machine (JVM), die dann, wenn das Programm ausgeführt wird, direkt in Echtzeit den Bytecode in den für die jeweilige CPU richtigen Maschinencode übersetzt.
 
-### IDEs und Eclipse
+### IDEs und IDEA
 
 All dies ist zum Verständnis dessen, was mit Ihrem Programm - wenn Sie es denn geschrieben haben - eigentlich im Computer passiert, sehr nützlich. Es hilft Ihnen aber nicht dabei, tatsächlich endlich Ihr erstes Programm zu schreiben. Die einfachste Methode dafür ist das Verwenden einer Integrated Development Environment (IDE). Eine IDE für eine Programmiersprache enthält Werkzeuge, die das Programmieren erleichtern, dabei insbesondere:
 
@@ -66,39 +66,38 @@ All dies ist zum Verständnis dessen, was mit Ihrem Programm - wenn Sie es denn 
 * Einen direkt integrierten Compiler, so dass Sie zum Compilieren und Ausführen des Programms nur eine ``Play''-Button drücken müssen
 
 
-Eine beliebte IDE für Java ist Eclipse. Es ist zwar weder überhaupt die Verwendung einer IDE, noch die Verwendung von Eclipse als IDE (es gibt mehrere Alternativen), für das Nachvollziehen der folgenden Beispiele notwendig, aber der Einheitlichkeit halber werde ich konkrete Anleitungen auf Eclipse beziehen. Wenn Sie Eclipse verwenden wollen, laden Sie es also von [https://www.eclipse.org](https://www.eclipse.org) runter und installieren Sie es auf Ihrem Computer. Beim Start werden Sie zunächst nach dem Workspace-Verzeichnis gefragt - das ist der Ort auf Ihrem Computer, an dem Ihre in Eclipse geschriebenen Programme gespeichert werden. Wählen Sie irgendwas aus oder akzeptieren Sie den Standardwert und bestätigen Sie. Sie werden von dem Eclipse-Startbildschirm begrüßt:
+Eine beliebte IDE für Java ist IDEA von IntelliJ. Es ist zwar weder überhaupt die Verwendung einer IDE, noch die Verwendung von IDEA als IDE (es gibt mehrere Alternativen), für das Nachvollziehen der folgenden Beispiele notwendig, aber der Einheitlichkeit halber werde ich konkrete Anleitungen auf IDEA beziehen. Wenn Sie IDEA verwenden wollen, laden Sie es also von [https://www.jetbrains.com/idea/](https://www.jetbrains.com/idea/) runter und installieren Sie es auf Ihrem Computer. Es reicht die community-edition, wenn Sie sich mit Ihrer HTW-Adresse registrieren bekommen Sie allerdings solange Sie studieren kostenfrei die ultimate edition. Sie werden von dem IDEA-Startbildschirm begrüßt:
 
-![Eclipse Startbildschirm](Bilder/eclipse_1.png)
+![IDEA Startbildschirm](Bilder/idea1.png)
 
-Erstellen Sie mittels ``File->New->Java Project`` ein neues Java-Projekt. Es werden zunächst einige Details abgefragt. Tragen Sie nur einen Namen für das Projekt im ersten Textfeld ein und verändern Sie keinen anderen Werte. Wenn Sie dann auf ``Finish`` klicken, erscheint zunächst noch eine Abfrage, ob Sie eine module-info.java erstellen wollen - verneinen Sie dies und Ihr Projekt wird erstellt. Zunächst kommen Sie dann wieder zum Startbildschirm, wenn Sie dann aber durch Klick auf das Kreuz rechts oben den ``Welcome``-Tab schließen, erscheint Ihr Projekt:
+Erstellen Sie nun indem Sie auf den Plus-Button klicken ein neues Java-Projekt. Es werden zunächst einige Details abgefragt. Tragen Sie nur einen Namen für das Projekt im ersten Textfeld ein und verändern Sie keinen anderen Werte:
 
-![Neues Projekt](Bilder/eclipse_2.png)
+![Neues Projekt](Bilder/idea2.png)
 
-An diesem Punkt haben Sie Eclipse mitgeteilt, dass Sie ein Programm in Java schreiben wollen. Dieses Programm kann aber aus beliebig vielen Dateien, in denen Teile des Programms stehen, aufgeteilt sein. Um tatsächlich Java-Code schreiben zu können, müssen Sie zunächst eine erste solche Datei anlegen. Tun Sie das mittels ``File->New->Class``[^7]. Es werden wieder einige Dinge abgefragt. Geben Sie unter ``Name`` einen Namen (z.B. ``StartClass``) ein und setzen Sie ganz unten das Häkchen bei ``public static void main(String[] args)``:
+Wenn Sie dann auf ``Create`` klicken, erstellt IDEA für Sie die nötige Ordnerstruktur und die wichtigsten Dateien sowie etwas Beispielcode mit Kommentaren:
 
-![Neue Klasse](Bilder/eclipse_3.png)
+![Neues Projekt](Bilder/idea3.png)
 
-Eclipse legt für Sie nun eine Datei an der richtigen Stelle[^8] im Projekt an:
+Sie können das Programm wie in dem Kommentar angegeben direkt mit Klick auf einen der grünen Pfeile neben dem Code, auf den grünen Pfeil rechts oben im Fenster oder den shortcut ``Shift+F10`` starten - gewöhnen Sie sich aber nach Möglichkeit schnell die Verwendung der Shortcuts an, das wird Ihnen sehr viel Zeit sparen.
 
-![Java-Datei für die Neue Klasse](Bilder/eclipse_4.png)
+IDEA compiliert dann den Code und führt das Programm aus. Falls Ausgaben generiert werden, sehen Sie diese im unteren Teil des Fensters:
 
-Nun wird es an der Zeit, endlich dem Computer eine Anweisung in Java zu geben. Ersetzen Sie die Zeile ``// TODO Auto-generated method stub`` durch die Zeile ``System.out.print("Hello, world!");`` (keine Leerzeichen bei den Punkten, achten Sie auf das Semikolon am Ende). Die Funktion ``System.out.print(«Text»)`` bedeutet: ``Gib auf dem Bildschirm den Text «Text» aus``. Sollten Sie einen Fehler gemacht haben, z.B. das Semikolon vergessen, wird Eclipse Sie direkt durch eine rote Unterstreichung darauf hinweisen:
+![Hello, world!](Bilder/idea4.png)
 
-![Fehlermarkierung](Bilder/eclipse_5.png)
+Wenn Sie einen Fehler im Code haben - beispielsweise in Zeile 7 das Semikolon am Ende der Zeile löschen - wird Ihnen dies auf mehrere Weisen angezeigt: 
 
-Wenn Sie keine roten Markierungen sehen, klicken Sie auf den grünen Play-Button oben rechts auf dem Fenster (in dem nächsten Bild rot markiert) oder drücken Sie die Tastenkombination Strg-F11. Nun ruft Eclipse den Java-Compiler auf, der das Programm in Bytecode übersetzt, und übergibt diesen Bytecode dann der JVM, die ihm ausführt - und Sie sehen unten im Eclipse-Fenster, dass das Programm ``Hello, world!`` ausgegeben hat:
+* Auf der linken Seite neben der Nummer der Zeile mit dem Fehler erscheint eine rote Glühbirne
+* Die Stelle im Code wird mit einer roten Schlängellinie unterstrichen
+* Neben dem Scrollbalken erscheint ein roter Strich an der Stelle, wo der Fehler sich in etwa befindet
 
-![Hello, world!](Bilder/eclipse_6.png)
+Zudem erhalten Sie einige Hinweise, wie Sie den Fehler lösen könnten, wenn Sie auf die rote Glühbirne klicken. Vorsicht - IDEA versteht natürlich nicht, was Sie eigentlich mit dem Code tun wollen, nutzen Sie dies also bitte höchstens als Denkanstoß und vertrauen Sie nicht blind auf die Vorschläge!
 
-Sie wissen nun, wie man ein Java-Programm schreibt, compiliert und ausführt. Nun ist es an der Zeit, dieses Wissen mit dem Verständnis von Algorithmen-Entwicklung, welches Sie in Snap! ausprobiert haben, zu kombinieren, um dem Computer komplexere Aufgaben zu geben.
+![Fehler im Code](Bilder/idea5.png)
+
 
 ## Ein einfaches Java-Programm: Muster ausgeben
 
-Nehmen wir als erstes Beispiel die Musteraufgabe aus Snap!:
-
-![Viereck in Snap!](Bilder/uebung6.png)
-
-Anstatt aber Pfeile zu malen, geben wir Zeichen aus. Wir wissen schon, dass wir statt ``stamp`` in Java die Funktion ``System.out.print(«Text»)`` verwenden können. Die Anweisung ``make a step`` benötigen wir nicht - die Funktion ``System.out.print(«Text»)`` geht automatisch um die Anzahl der ausgegebenen Zeichen weiter, so dass zwei ausgegebene Texte nicht übereinander liegen. Wir benötigen dann noch etwas, um am Ende einer Zeile nach unten und wieder zum Beginn der Zeile zurückzugehen. Glücklicherweise geht das vergleichsweise einfach: Der Text ``\n`` wird von Java als ``newline``, was soviel bedeutet wie ``beginne eine neue Zeile für die Textausgabe``, interpretiert. Man kann also einfach ``System.out.print("\n");`` schreiben, um danach in einer neuen Zeile weiterzuschreiben. Probieren Sie es aus - ersetzen Sie die Zeile ``System.out.print("Hello, world!");`` in Ihrem Programm durch den folgenden Code aus Abbildung:
+Die einfachste Operation ist es, Zeichen auszugeben. Wir wissen schon, in Java mit der Funktion ``System.out.print(«Text»)`` Text ausgeben können. Der Text ``\n`` wird dabei von Java als ``newline``, was soviel bedeutet wie ``beginne eine neue Zeile für die Textausgabe``, interpretiert. Man kann also einfach ``System.out.print("\n");`` schreiben, um danach in einer neuen Zeile weiterzuschreiben. Probieren Sie es aus - ersetzen Sie den Code in der main-Methode durch folgenden Code:
 
 ```java
 System.out.print("*");
@@ -118,8 +117,7 @@ System.out.print("***\n+++");
 
 Vielleicht fragen Sie sich an diesem Zeitpunkt, wieso Sie nicht einfach nur diesen Code in Ihr Programm schreiben können, sondern die Zeilen drumherum auch behalten müssen. Die Antwort darauf ist leider zunächst: Nehmen Sie da bitte vorerst einfach so hin. In den nächsten Kapiteln werden die einzelnen Begriffe und Zeilen zunehmend klar, aber dafür ist noch einiges an Grundlagen notwendig, die sich nicht mit einem Nebensatz abhandeln lassen. Eine sehr grobe Zusammenfassung der Bedeutung der einzelnen Zeilen ist aber:
 
-* ``package erstesProgramm;``: Java-Programme umfassen häufig mehrere zig tausend Zeilen, größere Projekte können auch Millionen von Zeilen Java-Code beinhalten. Um einen groben Überblick zu bewahren, was wo steht, werden die einzelnen Programmteile danach, was sie tun, in hierarchisch angeordnete Pakete sortiert. Sie sehen diese Struktur auch in Eclipse, nachdem Sie die erste Java-Datei angelegt haben, auf der rechten Seite: Unter Ihrem Projekt hängt der Ordner ``src``, in dem sich der Programmcode befindet. Dieser enthält das Paket ``erstesProgramm`` (falls Sie dem Beispiel gefolgt sind, sonst halt Ihren Namen), in welchem Ihre Datei ``StartClass.java`` liegt.
-* ``public class StartClass``: Eine weitere logische Unterteilung des Programmcodes findet in sogenannten Klassen statt, die jeweils konzeptionell zusammengehörende Funktionen und Variablen[^9] an einem Ort sammeln. In Java wird im Normalfall jede Klasse in eine eigene Datei geschrieben, deren Name dem Namen der Klasse entspricht. In der Datei StartClass.java steht also die Klasse StartClass. Der Begriff ``public`` beschreibt, auf welche Art Funktionen aus anderen Klassen auf diese Klasse zugreifen können.
+* ``public class Main``: Eine weitere logische Unterteilung des Programmcodes findet in sogenannten Klassen statt, die jeweils konzeptionell zusammengehörende Funktionen und Variablen[^9] an einem Ort sammeln. In Java wird im Normalfall jede Klasse in eine eigene Datei geschrieben, deren Name dem Namen der Klasse entspricht. In der Datei Main.java steht also die Klasse Main. Der Begriff ``public`` beschreibt, auf welche Art Funktionen aus anderen Klassen auf diese Klasse zugreifen können.
 * ``public static void main(String[] args)``: Das ist die Java-Art, eine Funktion zu definieren: ``public static void`` beschreibt ein paar allgemeine Eigenschaften der Funktion, auf die wir später im Detail eingehen werden. ``main`` ist der Name der Funktion, ``args`` ist ein Argument und ``String[]`` beschreibt, was in dem Argument stehen kann (in diesem Fall eine Liste von Texten - auch damit befassen wir uns später im Detail). Wichtig ist, dass Sie Ihren Code in genau diese Funktion schreiben: Wenn die JVM Bytecode ausführen soll, schaut sie nach einer Funktion, die exakt diese Beschreibung hat, und fängt die Ausführung des Programms mit dieser Funktion an (diese Funktion ist also sozusagen das ``When Start clicked`` aus Snap!). 
 
 Natürlich beherrscht Java auch Kontrollstrukturen, wie Sie sie aus Snap! kennen:
@@ -127,7 +125,7 @@ Natürlich beherrscht Java auch Kontrollstrukturen, wie Sie sie aus Snap! kennen
 * ``Repeat until``:  wird in Java als ``while(«Bedingung»)`` geschrieben
 * Oft wird auch die ``for``-Schleife verwendet, die eine Kurzschreibweise für eine ``while``-Schleife mit Zählvariable darstellt: ``for(«Datentyp» «Variable»=«Startwert»; «Bedingung»; «Variable» «Operation»)``
 
-Beispielsweise könnte man das 4x4-Muster aus der Snap!-Aufgabe in Java mit einer ``while``-Schleife lösen:
+Beispielsweise könnte man ein 4x4-Muster mit einer ``while``-Schleife ausgeben:
 
 ```java
 int rows=0;
