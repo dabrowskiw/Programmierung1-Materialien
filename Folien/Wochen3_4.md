@@ -1,6 +1,6 @@
 ---
 marp: true
-theme: gaia
+theme: default
 paginate: true
 #footer: "Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin"
 ---
@@ -89,9 +89,9 @@ public class HelloWorld {
 # Funktionen in Java
 
 ```java
-public class HelloWorld {
+public class StackBeispiel {
   // Definition einer eigenen Funktion mit 2 Argumenten
-  public void printNumbers(from, to, by) {
+  public static void printNumbers(int from, int to, int by) {
     for(int i=from; i<to; i+=by) {
       System.out.println(i);
     }
@@ -103,43 +103,6 @@ public class HelloWorld {
   }
 }
 ```
-
-
----
-
-# Programmcode im Speicher
-
-Der Computer kann aber keinen Code, nur Zahlen...?
-
-| Befehl | Wert | Argumente | Kommentar |
-|---|---|---|---|
-| print | 1 | 1 | Auszugebende Adresse |
-| jeq | 2 | 3 | 2 Adressen verlgeichen, 3: Sprungziel |
-| add | 3 | 2 | 1: Adresse, 2: Zu addierender Wert |
-| jmp | 4 | 1 | Sprung-Adresse |
-| put | 5 | 2 | 1: Adresse, 2: Wert |
-
-
----
-
-# Programmcode -> Bytecode
-```java
-for(int i=0; i<10; i++) {
-  System.out.print(i);
-}
-```
-
-```asm
-90: put 69 0          
-93: put 68 10
-96: jeq 69 68 107
-100: print i
-102: add i 1
-105: jmp 96
-107: Programmende (0)
-```
-
-* Programm: `90: 5 69 0 5 68 10 2 69 68 107 1 69 3 69 1 4 96 0`
 
 ---
 
@@ -179,14 +142,18 @@ Scope ergibt sich aus Stack:
 * Funktionen kriegen nur Kopien der Argument-Werte!
 
 ```java
-void printNumbers(from, to, by) {}
-  for(; from<to; from += by) {
-    System.out.println(from);
+public class StackBeispiel {
+  public static void printNumbers(int from, int to, int by) {}
+    for(; from<to; from += by) {
+      System.out.println(from);
+    }
+  }
+  public static void main(String[] args) {
+    from = 0;
+    printNumbers(from, 100, 2);
+    System.out.println("From: " + from); // Gibt das 0 oder 100 aus?
   }
 }
-from = 0;
-printNumbers(from, 100, 2);
-System.out.println("From: " + from); // Gibt das 0 oder 100 aus?
 ```
 
 ---
@@ -195,25 +162,27 @@ System.out.println("From: " + from); // Gibt das 0 oder 100 aus?
 
 * Bisher angenommen: Ein Wert = eine Speicheradresse
 * Aber: Eigentlich kann der Computer nur 1 und 0 (bit)
+* Binärsystem: 
+    * Wie 10er-System, aber mit nur 2 Ziffern.
+    * Umrechnung mit 2er statt 10er Potenzen, Beispiel: Addition
 * Definierte Breite einer Zahl: 8 bit = 1 byte -> 0 - 255
-* Was tut man, um: 
-  * Zahlen kleiner 0 zu speichern?
-  * Zahlen größer 255 zu speichern?
-  * Gelitkommazahlen zu speichern?
-  * Buchstaben zu speichern?
-* 10 Minuten, Gruppen (durchzählen für Themen)
+* Datentypen: Sagen dem Computer, was der Speicherinhalt bedeutet
+    * `int`, `long`: Ganze Zahl
+    * `float`, `double`: Gleitkommazahl
+    * `char`: Buchstabe (mit Hochkomma: `char x = 'a';`)
+    * `boolean`: Ja/nein (`true` oder `false`)
+
 ---
 
-# Negative Zahlen: Zweierkomplement 
+# Speicherorganisation: Herausforderungen
 
-* Einfache Lösung: Erstes bit ist Vorzeichen (z.B. 3 = `0011`, -3=`1011`)
-* Probleme: 
-  * 0 "doppelt" (`0000`, `1000`)
-  * Addition schwierig (z.B. `0011+1011=1110`=-6?)
-* Zweierkomplement: Erstes bit ist -1*Max. (z.B. -8=`1000`, -5=`1011`)
-* Vorteile:
-  * 0 nur ein Mal (`0000`, `1000`=-8)
-  * Einfache Addition (z.B. `0101+1011=0000`)
+* Was tut man, um: 
+  * Zahlen größer 255 zu speichern?
+  * Zahlen kleiner 0 zu speichern?
+  * Gelitkommazahlen zu speichern?
+  * Buchstaben zu speichern?
+* Murmelgruppen, 5 Minuten
+
 ---
 
 # Zahlen größer als 0
@@ -226,6 +195,19 @@ System.out.println("From: " + from); // Gibt das 0 oder 100 aus?
   * `int`: 4 byte -> [-2147483648, 2147483647]
   * `long`: 8 byte -> [-9223372036854775808, 9223372036854775807]
   * Optional `unsigned` -> kein Zweierkomplement, höherer Maximalwert
+
+---
+
+# Negative Zahlen: Zweierkomplement 
+
+* Einfache Lösung: Erstes bit ist Vorzeichen (z.B. 3 = `0011`, -3=`1011`)
+* Probleme: 
+  * 0 "doppelt" (`0000`, `1000`)
+  * Addition schwierig (z.B. `0011+1011=1110`=-6?)
+* Zweierkomplement: Erstes bit ist -1*Max. (z.B. -8=`1000`, -5=`1011`)
+* Vorteile:
+  * 0 nur ein Mal (`0000`, `1000`=-8)
+  * Einfache Addition (z.B. `0101+1011=0000`)
 
 ---
 
@@ -243,11 +225,11 @@ System.out.println("From: " + from); // Gibt das 0 oder 100 aus?
 # Text
 
 * Interpretation von Zahlen als Buchstaben
-* ASCII-Tabelle: Zuordnung der Werte eines byte zu Zeichen
+* [ASCII-Tabelle](https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange): Zuordnung der Werte eines byte zu Zeichen
 * Problem: Unterschiedliche Alphabete
 * Lösungen:
   * Codepages - aber nicht automatisch erkennbar
-  * UTF-8: Ein Buchstabe kann bis zu 4 Zeichen breit sein, Erkennung über erstes bit.
+  * UTF-8: Ein Buchstabe kann bis zu 4 Byte breit sein, Erkennung über erstes bit.
 
 ---
 
@@ -319,6 +301,43 @@ Was bedeutet `01001000 01101001`?
 # Repository nach zwei commits
 
 ![h:400 background:blue](Bilder/head-to-master.png)
+
+
+---
+
+# Programmcode im Speicher
+
+Der Computer kann aber keinen Code, nur Zahlen...?
+
+| Befehl | Wert | Argumente | Kommentar |
+|---|---|---|---|
+| print | 1 | 1 | Auszugebende Adresse |
+| jeq | 2 | 3 | 2 Adressen verlgeichen, 3: Sprungziel |
+| add | 3 | 2 | 1: Adresse, 2: Zu addierender Wert |
+| jmp | 4 | 1 | Sprung-Adresse |
+| put | 5 | 2 | 1: Adresse, 2: Wert |
+
+
+---
+
+# Programmcode -> Bytecode
+```java
+for(int i=0; i<10; i++) {
+  System.out.print(i);
+}
+```
+
+```asm
+90: put 69 0          
+93: put 68 10
+96: jeq 69 68 107
+100: print i
+102: add i 1
+105: jmp 96
+107: Programmende (0)
+```
+
+* Programm: `90: 5 69 0 5 68 10 2 69 68 107 1 69 3 69 1 4 96 0`
 
 ---
 

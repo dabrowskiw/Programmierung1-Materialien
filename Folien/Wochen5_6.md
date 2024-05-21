@@ -1,8 +1,8 @@
 ---
 marp: true
-theme: HTW
+theme: default
 paginate: true
-footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
+#footer: Prof. Dr.-Ing. P. W. Dabrowski - Programmierung 1 - HTW Berlin
 
 ---
 # Arrays
@@ -105,6 +105,108 @@ public static void main(String[] args) {
 ```
 
 Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, was übergeben wird!
+
+---
+
+# Programmcode im Speicher
+
+Der Computer kann aber keinen Code, nur Zahlen...?
+
+| Befehl | Wert | Argumente | Kommentar |
+|---|---|---|---|
+| print | 1 | 1 | Auszugebende Adresse |
+| jeq | 2 | 3 | 2 Adressen verlgeichen, 3: Sprungziel |
+| add | 3 | 2 | 1: Adresse, 2: Zu addierender Wert |
+| jmp | 4 | 1 | Sprung-Adresse |
+| put | 5 | 2 | 1: Adresse, 2: Wert |
+
+
+---
+
+# Programmcode -> Bytecode
+```java
+for(int i=0; i<10; i++) {
+  System.out.print(i);
+}
+```
+
+```asm
+90: put 69 0          
+93: put 68 10
+96: jeq 69 68 107
+100: print i
+102: add i 1
+105: jmp 96
+107: Programmende (0)
+```
+
+* Programm: `90: 5 69 0 5 68 10 2 69 68 107 1 69 3 69 1 4 96 0`
+
+---
+
+# Verständnisübung 
+
+| Befehl | Wert | Argumente | Kommentar |
+|---|---|---|---|
+| print | 1 | 1 | Auszugebende Adresse |
+| jeq | 2 | 3 | 2 Adressen verlgeichen, 3: Sprungziel |
+| add | 3 | 2 | 1: Adresse, 2: Zu addierender Wert |
+| jmp | 4 | 1 | Sprung-Adresse |
+| put | 5 | 2 | 1: Adresse, 2: Wert |
+
+`90: 5 60 0 5 59 2 5 58 100 2 60 58 120 1 60 5 57 0 2 57 59 99 3 60 1 3 57 1 4 108 0`
+
+
+<!--
+90: put 60 0 # i
+93: put 59 2 # diff
+96: put 58 100 # max
+99: jeq 60 58 120
+103: print 60
+105: put 57 0
+108: jeq 57 59 99
+112: add 60 1
+115: add 57 1
+118: jmp 108
+120: Programmende
+-->
+
+---
+
+# Beispiel für "Array-Daten": MIDI
+
+* Musical Instrument Digital Interface
+* Standard, um Informationen von digitalen Instrumenten zu übertragen
+* Auch Dateiformat-Spezifikation
+* Enthält Informationen wie:
+    * Tonhöhe
+    * Betätigungsintensität
+    * Tondauer
+* -> Musik-Codierung auf kleinem Raum, Rekonstruktion möglich
+* Unterschiedliche Tools, z.B. fluidsynth (inkl. Soundfonts)
+
+---
+
+# Formatspezifikation
+
+<!-- http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA2_ -->
+
+
+```text
+MThd <length of header data>
+<header data>
+MTrk <length of track data>
+<track data>
+```
+
+* Unterschiedliche Format-Typen (0, 1, und 2), einfachstes ist Typ 0. Minimal-Header:
+    * Format-Typ (2 Byte: 00 00)
+    * Anzahl Tracks (2 Byte, für Format 0 immer 00 01)
+    * Länge einer Viertel-Note (2 Byte, z.B. 00 60 -> 96 beats)
+
+
+
+---
 
 <!--
 ---
