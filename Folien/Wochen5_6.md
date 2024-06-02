@@ -108,6 +108,83 @@ Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, w
 
 ---
 
+# Beispiel für "Array-Daten": MIDI
+
+* Musical Instrument Digital Interface
+* Standard, um Informationen von digitalen Instrumenten zu übertragen
+* Auch Dateiformat-Spezifikation
+* Enthält Informationen wie:
+    * Tonhöhe
+    * Betätigungsintensität
+    * Tondauer
+* -> Musik-Codierung auf kleinem Raum, Rekonstruktion möglich
+* Unterschiedliche Tools, z.B. fluidsynth (inkl. Soundfonts)
+
+---
+
+# Formatspezifikation
+
+<!-- http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA2_ -->
+
+
+```text
+MThd <length of header data>
+<header data>
+MTrk <length of track data>
+<track data>
+```
+
+* Unterschiedliche Format-Typen (0, 1, und 2), einfachstes ist Typ 0. Minimal-Header:
+    * Format-Typ (2 Byte: 00 00)
+    * Anzahl Tracks (2 Byte, für Format 0 immer 00 01)
+    * Länge einer Viertel-Note (2 Byte, z.B. 00 60 -> 96 beats)
+
+---
+
+# Formatspezifikation: Track
+
+Track enthält die eigentlichen Tondaten unterteilt in Channel als Ereignisse, insbesondere:
+
+* Geschwindigkeitsinformation
+* Jeweils mit 1 Byte Zeitdifferenz davor Instrumentereignisse (insb. "Note an", "Note aus"):
+    * 1001nnnn 0kkkkkkk 0vvvvvvv: Note on, n: channel, k: key, v: velocity
+    * 1000nnnn 0kkkkkkk 0vvvvvvv: Note off, n: channel, k: key, v: velocity
+    * 1100nnnn 0ppppppp: Program change, n: channel, p: program (Instrument)
+
+Vollständiger Überblick siehe z.B. [hier](http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA1_).
+
+---
+
+# Beispieldatei
+
+Dateiheader: 4D 54 68 64 00 00 00 06 00 00 00 01 00 60 (4 Byte: MThd, 4 Byte: Headerlänge, 2 Byte: Format 0, 2 Byte: 1 Track, 2 Byte: Geschwindigkeit) 
+Track-Header: 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 (MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)
+Track:
+
+* 0x00 0xC0 (0b11000000) 0x05: Instrument auf Track 0: 5 
+* 0x00 0x90 (0b10010000) 0x30 (48) 0x60: Note on, Channel 0: C3, v: 0x60
+* 0x60 0x80 (0b10000000) 0x30 (48) 0x60: Note off, Channel 0: C3, v: 0x60
+* 0x00 0x90 (0b10010000) 0x32 (50) 0x60: Note on, Channel 0: E3, v: 0x60
+* 0x60 0x80 (0b10010000) 0x32 (50) 0x60: Note off, Channel 0: E3, v: 0x60
+* 0xFF 0x2F 0x00: End of file
+
+---
+
+# Ton aus MIDI-Dateien
+
+* Beispielsweise über [fluidsynth](https://www.fluidsynth.org/)
+    * -d: Alle events ausgeben
+    * -i: Keine interaktive Event-Eingabe (aus MIDI-Datei lesen)
+    * Beispiel-Soundfont hier: [Game Boy Advance](https://moodle.htw-berlin.de/mod/resource/view.php?id=1714332)
+    * Beispiel-Midi-Datei vom [github-repo](https://github.com/dabrowskiw/Programmierung1-Materialien/tree/IKGneu/Beispieldaten)
+```
+fluidsynth -di ~/GBA.sf beispiel_folien.midi
+```
+
+* Was passiert, wenn wir die Datei bearbeiten, z.B. mit [bless](https://github.com/afrantzis/bless) (Linux) oder [frhed](https://sourceforge.net/projects/frhed/) (Windows)?
+
+---
+
 # Programmcode im Speicher
 
 Der Computer kann aber keinen Code, nur Zahlen...?
@@ -170,41 +247,6 @@ for(int i=0; i<10; i++) {
 118: jmp 108
 120: Programmende
 -->
-
----
-
-# Beispiel für "Array-Daten": MIDI
-
-* Musical Instrument Digital Interface
-* Standard, um Informationen von digitalen Instrumenten zu übertragen
-* Auch Dateiformat-Spezifikation
-* Enthält Informationen wie:
-    * Tonhöhe
-    * Betätigungsintensität
-    * Tondauer
-* -> Musik-Codierung auf kleinem Raum, Rekonstruktion möglich
-* Unterschiedliche Tools, z.B. fluidsynth (inkl. Soundfonts)
-
----
-
-# Formatspezifikation
-
-<!-- http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA2_ -->
-
-
-```text
-MThd <length of header data>
-<header data>
-MTrk <length of track data>
-<track data>
-```
-
-* Unterschiedliche Format-Typen (0, 1, und 2), einfachstes ist Typ 0. Minimal-Header:
-    * Format-Typ (2 Byte: 00 00)
-    * Anzahl Tracks (2 Byte, für Format 0 immer 00 01)
-    * Länge einer Viertel-Note (2 Byte, z.B. 00 60 -> 96 beats)
-
-
 
 ---
 
