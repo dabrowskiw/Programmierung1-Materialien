@@ -284,3 +284,58 @@ Was bedeutet `01001000 01101001`?
 -> Datentypen müssen in Java deklariert werden und *ändern die Bedeutung* von Variablen - z. B. `00110111` kann die Zahl 55 oder das Zeichen "7" sein (aber niemals die Zahl 7)! 
 
 ]
+
+#slide(title: "Programmcode im Speicher")[
+
+Der Computer kann aber keinen Code, nur Zahlen...?
+
+#table(
+columns: 4,
+[Befehl ], [ Wert ], [ Argumente ], [ Kommentar ], 
+[ print ], [ 1 ], [ 1 ], [ Auszugebende Adresse ], 
+[ jeq ], [ 2 ], [ 3 ], [ 2 Adressen verlgeichen, 3: Sprungziel ], 
+[ add ], [ 3 ], [ 2 ], [ 1: Adresse, 2: Zu addierender Wert ], 
+[ jmp ], [ 4 ], [ 1 ], [ Sprung-Adresse ], 
+[ put ], [ 5 ], [ 2 ], [ 1: Adresse, 2: Wert ], 
+
+)
+
+]
+
+#slide(title: "Programmcode -> Bytecode")[
+#sourcecode[```java
+for(int i=0; i<10; i++) {
+  System.out.print(i);
+}
+```]
+
+#sourcecode[```asm
+90: put 69 0          
+93: put 68 10
+96: jeq 69 68 107
+100: print i
+102: add i 1
+105: jmp 96
+107: Programmende (0)
+```]
+
+#v(-0.5cm)
+Programm: 90: 5 69 0 5 68 10 2 69 68 107 1 69 3 69 1 4 96 0
+]
+
+#slide(title: "Verständnisübung")[
+
+#table(
+columns: 4,
+[Befehl ], [ Wert ], [ Argumente ], [ Kommentar ], 
+[ print ], [ 1 ], [ 1 ], [ Auszugebende Adresse ], 
+[ jeq ], [ 2 ], [ 3 ], [ 2 Adressen verlgeichen, 3: Sprungziel ], 
+[ add ], [ 3 ], [ 2 ], [ 1: Adresse, 2: Zu addierender Wert ], 
+[ jmp ], [ 4 ], [ 1 ], [ Sprung-Adresse ], 
+[ put ], [ 5 ], [ 2 ], [ 1: Adresse, 2: Wert ], 
+
+)
+
+
+90: 5 60 0 5 59 2 5 58 100 2 60 58 120 1 60 5 57 0 2 57 59 99 3 60 1 3 57 1 4 108 0
+]

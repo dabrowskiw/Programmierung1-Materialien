@@ -163,6 +163,27 @@ MTrk <length of track data>
 
 ]
 
+#slide(title: "Format 0")[
+  #table(
+    columns: 2,
+    table.header(
+      [Bytes], [Bedeutung]
+    ),
+    [4D 54 68 64], [MThd - magic number für MIDI],
+    [xx xx xx xx], [4 Byte Länge des Headers],
+    [00 00], [Format: 0],
+    [00 01], [Anzahl der Tracks, hier 1],
+    [xx xx], [Geschwindigkeit der Datei],
+    [4D 54 72 6B], [MTrk - Trackbeginn],
+    [xx xx xx xx], [L - Länge des Tracks (in Byte)],
+    [7 Byte], [Zeitsignatur],
+    [6 Byte], [Tempo],
+    [L - 3 Byte], [Trackdaten],
+    [FF 2F 00], [Ende der Datei]
+  )
+
+]
+
 #slide(title: "Formatspezifikation: Track")[
 Track enthält die eigentlichen Tondaten unterteilt in Channel als Ereignisse, insbesondere:
 
@@ -175,16 +196,27 @@ Track enthält die eigentlichen Tondaten unterteilt in Channel als Ereignisse, i
 ]
 
 #slide(title: "Beispieldatei")[
-Dateiheader: 4D 54 68 64 00 00 00 06 00 00 00 01 00 60 (4 Byte: MThd, 4 Byte: Headerlänge, 2 Byte: Format 0, 2 Byte: 1 Track, 2 Byte: Geschwindigkeit) 
-Track-Header: 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 (MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)
-Track:
 
-- 0x00 0xC0 (0b11000000) 0x05: Instrument auf Track 0: 5 
-- 0x00 0x90 (0b10010000) 0x30 (48) 0x60: on, Channel 0: C3, v: 0x60
-- 0x60 0x80 (0b10000000) 0x30 (48) 0x60: off, Channel 0: C3, v: 0x60
-- 0x00 0x90 (0b10010000) 0x32 (50) 0x60: on, Channel 0: E3, v: 0x60
-- 0x60 0x80 (0b10010000) 0x32 (50) 0x60: off, Channel 0: E3, v: 0x60
-- 0xFF 0x2F 0x00: End of file
+  Was steht in dieser Datei drin? Welcher Bereich bedeutet was?
+
+  Die Zahlen sind alle hexadezimal, es sei denn, es steht etwas anderes davor.
+
+  #sourcecode[```text
+4D 54 68 64 00 00 00 06 00 00 00 01 00 60 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 00 C0 (0b11000000) 05 00 90 (0b10010000) 30 (dec 48) 60 60 80 (0b10000000) 30 (dec 48) 60 00 90 (0b10010000) 32 (dec 50) 60 60 80 (0b10000000) 32 (dec 50) 60 FF 2F 00
+```]
+]
+
+#slide(title: "Beispieldatei erklärt")[
+4D 54 68 64 00 00 00 06 00 00 00 01 00 60 *(4 Byte: MThd, 4 Byte: Headerlänge, 2 Byte: Format 0, 2 Byte: 1 Track, 2 Byte: Geschwindigkeit)*
+
+4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 *(MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)*
+
+- 0x00 0xC0 (0b11000000) 0x05 *Instrument auf Track 0: 5 *
+- 0x00 0x90 (0b10010000) 0x30 (48) 0x60 *on, Channel 0: C3, v: 0x60*
+- 0x60 0x80 (0b10000000) 0x30 (48) 0x60 *off, Channel 0: C3, v: 0x60*
+- 0x00 0x90 (0b10010000) 0x32 (50) 0x60 *on, Channel 0: E3, v: 0x60*
+- 0x60 0x80 (0b10010000) 0x32 (50) 0x60: off, Channel 0 *E3, v: 0x60*
+- 0xFF 0x2F 0x00 *End of file*
 
 ]
 
