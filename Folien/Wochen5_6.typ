@@ -1,33 +1,53 @@
-#import "@preview/polylux:0.3.1": *
+#import "@preview/polylux:0.4.0": *
 #import "@preview/colorful-boxes:1.3.1": *
 #import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
-#import "@preview/codelst:2.0.0": sourcecode
+#import "@preview/codelst:2.0.2": sourcecode
 #import fletcher.shapes: diamond, ellipse
-#import themes.university: *
+#import "/home/wojtek/Documents/workspaces/typst/htw-polylux/university.typ": theme, main
+//#import "@local/fau-typst:0.0.1": fau-theme, main
+#import theme: *  // import everything from the theme (slide types)
+
+// initialize the template with this function (important!)
+#show: main.setup-theme.with(
+  short-author: "Prof. Dr.-Ing. Piotr Wojciech Dabrowski",
+  short-title: "Programmierung 1",
+  short-date: datetime.today(),
+  short-organization: "IKG",
+)
+
+//#import themes.university: *
 
 #set text(
   hyphenate: true,
   lang: "de"
 )
 
-#show: university-theme.with(
-  color-a: rgb("#76B900"),
-  color-b: rgb("#0082D1"),
-  color-c: rgb("#EDf5DF"),
-  short-title: "Programmierung 1 IKG",
-  short-date: "WiSe 24/25"
-)
+//#show: university-theme.with(
+//  color-a: rgb("#76B900"),
+//  color-b: rgb("#0082D1"),
+//  color-c: rgb("#EDf5DF"),
+//  short-title: "Programmierung 1 IKG",
+//  short-date: "WiSe 24/25"
+//)
 
 #show link: underline
 
 #title-slide(
   title: "Programmierung 1",
   subtitle: "Wochen 5-6: Komplexere Datenstrukturen",
-  date: "07.11.2024",
-  institution-name: "HTW Berlin"
+//  date: "07.11.2024",
+  authors: (
+    (
+      name: "Piotr Dabrowski",
+      affiliation: "HTW Berlin",
+      email: "piotr.dabrowski@htw-berlin.de",
+    ),
+  )
 )
 
-#slide(title: "Arrays", new-section: "Arrays")[
+#section-slide("Arrays")
+
+#slide(title: "Arrays")[
 
 - Speichern mehrerer zusammehängender Werte oft nötig
     - Verlauf von einem Wert über die Zeit (Aktie, Infektionen, Ton...)
@@ -63,7 +83,9 @@ int[] vals = {1, 6, 5, 3};
 
 ]
 
-#slide(title: "Recap: Stack", new-section: "Stack")[
+#section-slide("Stack")
+
+#slide(title: "Recap: Stack")[
   #sourcecode[```java
 public static void doSomething(int value) {
     value = 2;
@@ -131,6 +153,8 @@ Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, w
 
 ]
 
+#section-slide("MIDI")
+
 #slide(title: "Beispiel für Array-Daten: MIDI")[
 - Musical Instrument Digital Interface
 - Standard, um Informationen von digitalen Instrumenten zu übertragen
@@ -146,7 +170,7 @@ Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, w
 
 #slide(title: "Formatspezifikation")[
 
-Vollständige Beschreibung #link("http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA2_")[online] verfügbar.
+Vollständige Beschreibung #link("https://midimusic.github.io/tech/midispec.html#BMA1_3")[online] verfügbar.
 
 
   #sourcecode[```text
@@ -202,14 +226,14 @@ Track enthält die eigentlichen Tondaten unterteilt in Channel als Ereignisse, i
   Die Zahlen sind alle hexadezimal, es sei denn, es steht etwas anderes davor.
 
   #sourcecode[```text
-4D 54 68 64 00 00 00 06 00 00 00 01 00 60 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 00 C0 (0b11000000) 05 00 90 (0b10010000) 30 (dec 48) 60 60 80 (0b10000000) 30 (dec 48) 60 00 90 (0b10010000) 32 (dec 50) 60 60 80 (0b10000000) 32 (dec 50) 60 FF 2F 00
+4D 54 68 64 00 00 00 06 00 00 00 01 00 60 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 FF 51 03 07 A1 20 00 C0 (0b11000000) 05 00 90 (0b10010000) 30 (dec 48) 60 60 80 (0b10000000) 30 (dec 48) 60 00 90 (0b10010000) 32 (dec 50) 60 60 80 (0b10000000) 32 (dec 50) 60 FF 2F 00
 ```]
 ]
 
 #slide(title: "Beispieldatei erklärt")[
 4D 54 68 64 00 00 00 06 00 00 00 01 00 60 *(4 Byte: MThd, 4 Byte: Headerlänge, 2 Byte: Format 0, 2 Byte: 1 Track, 2 Byte: Geschwindigkeit)*
 
-4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 *(MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)*
+4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 FF 51 03 07 A1 20 *(MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)*
 
 - 0x00 0xC0 (0b11000000) 0x05 *Instrument auf Track 0: 5 *
 - 0x00 0x90 (0b10010000) 0x30 (48) 0x60 *on, Channel 0: C3, v: 0x60*
@@ -235,7 +259,7 @@ fluidsynth -di ~/GBA.sf beispiel_folien.midi
 
 MIDI-Dateien sind ein klassisches Beispiel für Binärdateien. Bearbeitbar mit z.B.:
 
-- #link("https://github.com/afrantzis/bless")[bless] (Linux) 
+- #link("https://github.com/WerWolv/ImHex")[ImHex] (Linux) 
 - #link("https://sourceforge.net/projects/frhed/")[frhed] (Windows)
 
 ]
@@ -425,5 +449,4 @@ public static void showSmallestDivisor(int from, int to, int d1, int d2, int d3)
     - Falls diese Anzahl größer `maxsteps` ist, `-1`
   
 ]
-
 */
