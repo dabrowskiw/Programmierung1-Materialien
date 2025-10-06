@@ -2,6 +2,7 @@
 #import "@preview/colorful-boxes:1.3.1": *
 #import "@preview/fletcher:0.5.5" as fletcher: diagram, node, edge
 #import fletcher.shapes: diamond, ellipse
+#import "@preview/numbly:0.1.0": numbly
 #import themes.university: *
 
 #set text(
@@ -11,14 +12,18 @@
 
 #show: university-theme.with(
   aspect-ratio: "16-9",
-//  color-a: rgb("#76B900"),
-//  color-b: rgb("#0082D1"),
-//  color-c: rgb("#EDf5DF"),
   config-info(
-    title: "Programmierung 1 IKG",
-    date: "WiSe 24/25",
+    title: [Programmierung 1 (IKG)],
+    date: "WiSe 25/26",
     institution: "HTW Berlin",
     author: "Prof. Dr.-Ing. P. W. Dabrowski"
+  ),
+  config-colors(
+    primary: rgb("#76b900"),
+    secondary: rgb("#0082D1"),
+    tertiary: rgb("#EDF5DF"),
+    neutral-lightest: rgb("#ffffff"),
+    neutral-darkest: rgb("#000000"),
   )
 )
 
@@ -220,17 +225,6 @@ Sonstiges:
         edge((0,0.75), (0.6, 0.75), (0.6, 2.25), (0,2.25), "-|>", [ja], label-pos: 0.1),
       )
   ]
-
-== Zwischenfrage!
-
-- Dreier-Gruppen, 10 Minuten
-- Danach: Zufallsauswahl, Antwort von jemandem anders erzählen
-- Vorteile: 
-  - Kennenlernen
-  - Bezug zum Thema verstehen (für mich und für die anderen)
-- Experiment - Kein Bock = auch OK :)
-- Frage: "Was wollen Sie mit dem hier gelernten erreichen, was motiviert Sie?"
-
 
 == Beispiel: Steuersatz berechnen
 
