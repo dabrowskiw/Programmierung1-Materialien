@@ -21,7 +21,7 @@
   config-colors(
     primary: rgb("#76b900"),
     secondary: rgb("#0082D1"),
-    tertiary: rgb("#EDF5DF"),
+    tertiary: rgb("#FF5F00"),
     neutral-lightest: rgb("#ffffff"),
     neutral-darkest: rgb("#000000"),
   )
