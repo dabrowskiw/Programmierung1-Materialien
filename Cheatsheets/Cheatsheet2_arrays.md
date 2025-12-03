@@ -63,6 +63,17 @@ for(char c : word) {
 }
 ```
 
+Die ist gleichbedeutend (bis auf dass man keinen Zugriff auf die Zählvariable `i` hat) mit:
+
+```java
+char[] word = {'J', 'a', 'v', 'a'};
+// In einer Schleife alle Werte des Arrays ausgeben:
+for(int i=0; i<word.length; i++) {
+    char c = word[i];
+    System.out.print(c); 
+}
+```
+
 ## Mehrdimensionale Arrays
 
 Es können auch Arrays von Arrays erstellt werden, indem die eckigen Klammern wiederholt werden (`int[][]` bedeutet so viel wie: Array vom Datentyp `int[]`):
