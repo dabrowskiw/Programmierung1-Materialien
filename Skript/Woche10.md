@@ -25,20 +25,6 @@ Die Einschätzung der Verwendbarkeit einer library hängt stark von den Anforder
 
 ## Einbindung von Libraries in Eclipse
 
-\begin{figure}
-  \begin{subfigure}{0.43\textwidth}
-    \includegraphics[width=\textwidth]{Bilder/jar_eclipse1.png}
-    \caption{Öffnen der Build Path-Konfiguration}
-    \label{jar:1_1}
-  \end{subfigure}
-  \begin{subfigure}{0.55\textwidth}
-    \includegraphics[width=\textwidth]{Bilder/jar_eclipse2.png}
-    \caption{Hinzufügen einer JAR-Datei}
-    \label{jar:1_2}
-  \end{subfigure}
-  \caption{Hinzufügen einer JAR-Datei zu einem Eclipse-Projekt}
-\end{figure}
-
 Java-libraries werden in der Regel in Form von .jar-Dateien, die alle benötigten Klassen enthalten, bereitgestellt. Um eine library in einem Eclipse-Projekt zu verwenden, muss die entsprechende .jar-Datei dem "build path" (englisch für "Bauordner", eine Liste von Ordnern und .jar-Dateien, in denen alles zu finden ist, was zum Compilieren des Projektes nötig ist) hinzugefüg werden. Dafür wird der build path über Rechtsklick auf das Projekt->Build Path->Configure Build Path die Build-Path-Konfiguration geöffnet:
 
 ![Build-Path-Konfiguration](Bilder/jar_eclipse1.png)
