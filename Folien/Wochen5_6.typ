@@ -1,53 +1,89 @@
-#import "@preview/polylux:0.4.0": *
-#import "@preview/colorful-boxes:1.3.1": *
-#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
-#import "@preview/codelst:2.0.2": sourcecode
-#import fletcher.shapes: diamond, ellipse
-#import "/home/wojtek/Documents/workspaces/typst/htw-polylux/university.typ": theme, main
-//#import "@local/fau-typst:0.0.1": fau-theme, main
-#import theme: *  // import everything from the theme (slide types)
+#import "header.typ": *
 
-// initialize the template with this function (important!)
-#show: main.setup-theme.with(
-  short-author: "Prof. Dr.-Ing. Piotr Wojciech Dabrowski",
-  short-title: "Programmierung 1",
-  short-date: datetime.today(),
-  short-organization: "IKG",
-)
-
-//#import themes.university: *
-
-#set text(
-  hyphenate: true,
-  lang: "de"
-)
-
-//#show: university-theme.with(
-//  color-a: rgb("#76B900"),
-//  color-b: rgb("#0082D1"),
-//  color-c: rgb("#EDf5DF"),
-//  short-title: "Programmierung 1 IKG",
-//  short-date: "WiSe 24/25"
-//)
-
-#show link: underline
+#show: htwslides
 
 #title-slide(
   title: "Programmierung 1",
   subtitle: "Wochen 5-6: Komplexere Datenstrukturen",
-//  date: "07.11.2024",
-  authors: (
-    (
-      name: "Piotr Dabrowski",
-      affiliation: "HTW Berlin",
-      email: "piotr.dabrowski@htw-berlin.de",
-    ),
-  )
+  institution-name: "HTW Berlin"
 )
 
-#section-slide("Arrays")
+== Stack
 
-#slide(title: "Arrays")[
+- Eigener Speicherbereich für jede Funktion, pro Aufruf neu
+- Variablen der Funktion werden dort angelegt/übergeben
+#only(1)[
+  #sourcecode[```java
+    public class StackBeispiel {
+      // Definition einer eigenen Funktion mit 2 Argumenten
+      public static void pn(int from, int to, int by) {
+        for(int i=from; i<to; i+=by) {
+          System.out.println(i);
+        }
+      }
+      public static void main(String[] args) {
+        // Aufruf der Funktion (Ausführung des Codes darin)
+        pn(1, 12, 2);
+      }
+    }
+  ```]
+]
+
+#only(2)[
+  - pn(0, 100, 2)`` könnte ergeben:
+
+  #table(
+    columns: 3,
+    table.header(
+      [Adresse], [Wert], [Kommentar]
+    ),
+    [ 12 ], [ ... ], [ Nächster Befehl ],  
+    [ ... ], [ ... ], [ Anderer Code etc.], 
+    [ 67 ], [ 12 ], [ Rücksprung-Adresse ], 
+    [ 68 ], [ 2 ], [ by (Arg. 3) ],
+    [ 69 ], [ 100 ], [ to (Arg. 2) ], 
+    [ 70 ], [ 0 ], [ from (Arg. 1) ],
+    [ 71 ], [... ], [Rücksprung-Adresse vorherige Funktion ],
+    [ ... ], [ ... ], [ Restlicher Stack ]
+  )
+] 
+
+== Scope
+
+Scope ergibt sich aus Stack:
+- Funktionen verändern nur ihre eigenen Werte!
+- Funktionen kriegen nur Kopien der Argument-Werte!
+
+#sourcecode[```java
+  public class StackBeispiel {
+    public static void pn(int from, int to, int by) {
+      for(; from<to; from += by) {
+        System.out.println(from);
+      }
+    }
+    public static void main(String[] args) {
+      from = 0;
+      pn(from, 100, 2);
+      System.out.println("From: " + from); // 0 oder 100?
+    }
+  }
+```]
+
+== Weiteres Stack-Beispiel
+
+#sourcecode[```java
+  public static void doSomething(int value) {
+    value = 2;
+  }
+  public static void main(String[] args) {
+    int value = 3;
+    doSomething(value);
+    System.out.println(value); // Was steht hier?
+  }
+```]
+
+
+== Arrays
 
 - Speichern mehrerer zusammehängender Werte oft nötig
     - Verlauf von einem Wert über die Zeit (Aktie, Infektionen, Ton...)
@@ -56,106 +92,84 @@
 - Es kann Arrays von jedem Datentyp geben (auch von Arrays)
 - Die Länge eines Arrays ist *fest* (was würde sonst im RAM passieren?)
 
-  #sourcecode[```java
-int[] intArray = new int[5];
-char[][] charMatrix = new char[7][3];
-charMatrix[5][2] = (char)intArray[0]; //Zugriff auf Werte im Array über Index
-  ```]
+#sourcecode[```java
+  int[] intArray = new int[5];
+  char[][] charMatrix = new char[7][3];
+  charMatrix[5][2] = (char)intArray[0]; //Zugriff auf Werte im Array über Index
+```]
 
-]
 
-#slide(title: "Speicherorganisation")[
-  #sourcecode[```java
-int[] vals = {1, 6, 5, 3};
-  ```]
+
+== Speicherorganisation
+
+#sourcecode[```java
+  int[] vals = {1, 6, 5, 3};
+```]
 
 #table(
   columns: 6,
   table.header(
-[  Adresse  ], [  Wert  ], [  Kommentar  ], [  Adresse  ], [  Wert  ], [  Kommentar  ], 
+   [  Adresse  ], [  Wert  ], [  Kommentar  ], [  Adresse  ], [  Wert  ], [  Kommentar  ], 
   ),
-[  ...  ], [  ...  ], [  Andere Variablen ], [   76  ], [  5  ], [  3. Wert  ],
-[  73  ], [  4  ], [  Länge (header)  ], [  77  ], [  3  ], [  Letzter Wert ],
-[  74  ], [  1  ], [  1. Wert  ], [  ...  ], [  ...  ], [  Andere Variablen ],
-[  75  ], [  6  ], [  2. Wert  ], [  ...  ], [  ...  ], [  Andere Variablen ],
+  [  ...  ], [  ...  ], [  Andere Variablen ], [   76  ], [  5  ], [  3. Wert  ],
+  [  73  ], [  4  ], [  Länge (header)  ], [  77  ], [  3  ], [  Letzter Wert ],
+  [  74  ], [  1  ], [  1. Wert  ], [  ...  ], [  ...  ], [  Andere Variablen ],
+  [  75  ], [  6  ], [  2. Wert  ], [  ...  ], [  ...  ], [  Andere Variablen ],
 )
 
 
-]
+== Heap und Stack
 
-#section-slide("Stack")
-
-#slide(title: "Recap: Stack")[
-  #sourcecode[```java
-public static void doSomething(int value) {
-    value = 2;
-}
-public static void main(String[] args) {
-    int value = 3;
-    doSomething(value);
-    System.out.println(value); // Was steht hier?
-}
-  ```]
-
-]
-
-#slide(title: "Heap und Stack")[
 ...Aber passt das alles auf den Stack?
 
-  #sourcecode[```java
-public static void doSomething(int[] values) {
+#sourcecode[```java
+  public static void doSomething(int[] values) {
     for(int i=0; i<values.length; i++) {
-        System.out.println(values[i]);
+      System.out.println(values[i]);
     }
-}
-public static void main(String[] args) {   
+  }
+  public static void main(String[] args) {   
     int[] lotsaValues = new int[10000];
     doSomething(lotsaValues);
-}
-  ```]
+  }
+```]
 
-Das wäre viel zu kopieren! -> Heap
+Das wäre viel zu kopieren! #sym.arrow Daten in Heap, Adresse auf Stack
 
-]
+== Folgen für Scoping
 
-#slide(title: "Folgen für Scoping")[
 Was ist jetzt mit Scoping?
 
-  #sourcecode[```java
-public static void doSomethingElse(int[] values) {
+#sourcecode[```java
+  public static void doSomethingElse(int[] values) {
     values[0] = 5;
-}
-public static void main(String[] args) {
+  }
+  public static void main(String[] args) {
     int[] vals = new int[] {0, 1, 2, 3};
     System.out.println(vals[0]); // Was steht hier?
     doSomethingElse(vals);
     System.out.println(vals[0]); // Was steht hier?
-}
-  ```]
+  }
+```]
 
-]
-
-#slide(title: "Folgen für Scoping")[
-  #sourcecode[```java
-public static void doSomethingElse(int[] values) {
+== Folgen für Scoping
+#sourcecode[```java
+  public static void doSomethingElse(int[] values) {
     values = new int[2];
     values[0] = 5;
-}
-public static void main(String[] args) {
+  }
+  public static void main(String[] args) {
     int[] vals = new int[] {0, 1, 2, 3};
     System.out.println(vals[0]); // Was steht hier?
     doSomethingElse(vals);
     System.out.println(vals[0]); // Was steht hier?
-}
-  ```]
+  }
+```]
 
-Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, was übergeben wird!
+Der Scope gilt immer noch - aber nur für die Adresse! #sym.arrow Immer beachten, was übergeben wird!
 
-]
+== Beispiel für Array-Daten: MIDI
 
-#section-slide("MIDI")
-
-#slide(title: "Beispiel für Array-Daten: MIDI")[
 - Musical Instrument Digital Interface
 - Standard, um Informationen von digitalen Instrumenten zu übertragen
 - Auch Dateiformat-Spezifikation
@@ -163,31 +177,100 @@ Der Scope gilt aber immer noch - aber nur für die Adresse! -> Immer beachten, w
     - Tonhöhe
     - Betätigungsintensität
     - Tondauer
-- -> Musik-Codierung auf kleinem Raum, Rekonstruktion möglich
+- #sym.arrow Musik-Codierung auf kleinem Raum, Rekonstruktion möglich
 - Unterschiedliche Tools, z.B. fluidsynth (inkl. Soundfonts)
 
-]
+== Formatspezifikation
 
-#slide(title: "Formatspezifikation")[
+Vollständige Beschreibung #link("http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA2_")[online] verfügbar.
 
-Vollständige Beschreibung #link("https://midimusic.github.io/tech/midispec.html#BMA1_3")[online] verfügbar.
-
-
-  #sourcecode[```text
-MThd <length of header data>
-<header data>
-MTrk <length of track data>
-<track data>
-  ```]
+#sourcecode[```text
+  MThd <length of header data>
+  <header data>
+  MTrk <length of track data>
+  <track data>
+```]
 
 - Unterschiedliche Format-Typen (0, 1, und 2), einfachstes ist Typ 0. Minimal-Header:
     - Format-Typ (2 Byte: 00 00)
     - Anzahl Tracks (2 Byte, für Format 0 immer 00 01)
     - Länge einer Viertel-Note (2 Byte, z.B. 00 60 -> 96 beats)
 
-]
+== Format 0
 
-#slide(title: "Format 0")[
+#table(
+  columns: 2,
+  table.header(
+    [Bytes], [Bedeutung]
+  ),
+  [4D 54 68 64], [MThd - magic number für MIDI],
+  [xx xx xx xx], [4 Byte Länge des Headers],
+  [00 00], [Format: 0],
+  [00 01], [Anzahl der Tracks, hier 1],
+  [xx xx], [Geschwindigkeit der Datei],
+  [4D 54 72 6B], [MTrk - Trackbeginn],
+  [xx xx xx xx], [L - Länge des Tracks (in Byte)],
+  [7 Byte], [Zeitsignatur],
+  [6 Byte], [Tempo],
+  [L - 3 Byte], [Trackdaten],
+  [FF 2F 00], [Ende der Datei]
+)
+
+== Formatspezifikation: Track
+
+Track enthält die eigentlichen Tondaten unterteilt in Channel als Ereignisse, insbesondere:
+
+- Geschwindigkeitsinformation
+- Jeweils mit 1 Byte Zeitdifferenz davor Instrumentereignisse (insb. "Note an", "Note aus"):
+    - 1001nnnn 0kkkkkkk 0vvvvvvv: Note on, n: channel, k: key, v: velocity
+    - 1000nnnn 0kkkkkkk 0vvvvvvv: Note off, n: channel, k: key, v: velocity
+    - 1100nnnn 0ppppppp: Program change, n: channel, p: program (Instrument)
+
+== Beispieldatei
+
+Was steht in dieser Datei drin? Welcher Bereich bedeutet was?
+
+Die Zahlen sind alle hexadezimal, es sei denn, es steht etwas anderes davor.
+
+#sourcecode[```text
+  4D 54 68 64 00 00 00 06 00 00 00 01 00 60 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 00 C0 (0b11000000) 05 00 90 (0b10010000) 30 (dec 48) 60 60 80 (0b10000000) 30 (dec 48) 60 00 90 (0b10010000) 32 (dec 50) 60 60 80 (0b10000000) 32 (dec 50) 60 FF 2F 00
+```]
+
+== Beispieldatei erklärt
+
+4D 54 68 64 00 00 00 06 00 00 00 01 00 60 *(4 Byte: MThd, 4 Byte: Headerlänge, 2 Byte: Format 0, 2 Byte: 1 Track, 2 Byte: Geschwindigkeit)*
+
+4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 00 FF 51 03 07 A1 20 *(MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)*
+
+- 0x00 0xC0 (0b11000000) 0x05 *Instrument auf Track 0: 5 *
+- 0x00 0x90 (0b10010000) 0x30 (48) 0x60 *on, Channel 0: C3, v: 0x60*
+- 0x60 0x80 (0b10000000) 0x30 (48) 0x60 *off, Channel 0: C3, v: 0x60*
+- 0x00 0x90 (0b10010000) 0x32 (50) 0x60 *on, Channel 0: E3, v: 0x60*
+- 0x60 0x80 (0b10010000) 0x32 (50) 0x60: off, Channel 0 *E3, v: 0x60*
+- 0xFF 0x2F 0x00 *End of file*
+
+== Ton aus MIDI-Dateien
+
+- Beispielsweise über #link("https://www.fluidsynth.org/")[fluidsynth]
+    - -d: Alle events ausgeben
+    - -i: Keine interaktive Event-Eingabe (aus MIDI-Datei lesen)
+    - Beispiel-Soundfont hier: #link("https://moodle.htw-berlin.de/mod/resource/view.php?id=1714332")[Game Boy Advance]
+    - Beispiel-Midi-Datei vom #link("https://github.com/dabrowskiw/Programmierung1-Materialien/tree/IKGneu/Beispieldaten")[github-repo]
+#sourcecode[```
+  fluidsynth -di ~/GBA.sf beispiel_folien.midi
+```]
+
+== Binärdateien
+
+MIDI-Dateien sind ein klassisches Beispiel für Binärdateien. Bearbeitbar mit z.B.:
+
+- #link("https://github.com/WerWolv/ImHex")[ImHex] (Linux) 
+- #link("https://sourceforge.net/projects/frhed/")[frhed] (Windows)
+
+/*
+#slide(title: "Programmcode im Speicher")[
+Der Computer kann aber keinen Code, nur Zahlen...?
+
   #table(
     columns: 2,
     table.header(
@@ -205,69 +288,6 @@ MTrk <length of track data>
     [L - 3 Byte], [Trackdaten],
     [FF 2F 00], [Ende der Datei]
   )
-
-]
-
-#slide(title: "Formatspezifikation: Track")[
-Track enthält die eigentlichen Tondaten unterteilt in Channel als Ereignisse, insbesondere:
-
-- Geschwindigkeitsinformation
-- Jeweils mit 1 Byte Zeitdifferenz davor Instrumentereignisse (insb. "Note an", "Note aus"):
-    - 1001nnnn 0kkkkkkk 0vvvvvvv: Note on, n: channel, k: key, v: velocity
-    - 1000nnnn 0kkkkkkk 0vvvvvvv: Note off, n: channel, k: key, v: velocity
-    - 1100nnnn 0ppppppp: Program change, n: channel, p: program (Instrument)
-
-]
-
-#slide(title: "Beispieldatei")[
-
-  Was steht in dieser Datei drin? Welcher Bereich bedeutet was?
-
-  Die Zahlen sind alle hexadezimal, es sei denn, es steht etwas anderes davor.
-
-  #sourcecode[```text
-4D 54 68 64 00 00 00 06 00 00 00 01 00 60 4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 FF 51 03 07 A1 20 00 C0 (0b11000000) 05 00 90 (0b10010000) 30 (dec 48) 60 60 80 (0b10000000) 30 (dec 48) 60 00 90 (0b10010000) 32 (dec 50) 60 60 80 (0b10000000) 32 (dec 50) 60 FF 2F 00
-```]
-]
-
-#slide(title: "Beispieldatei erklärt")[
-4D 54 68 64 00 00 00 06 00 00 00 01 00 60 *(4 Byte: MThd, 4 Byte: Headerlänge, 2 Byte: Format 0, 2 Byte: 1 Track, 2 Byte: Geschwindigkeit)*
-
-4D 54 72 6B 00 00 00 22 00 FF 58 04 04 02 18 08 FF 51 03 07 A1 20 *(MTrk, 4 Byte Länge, 7 Byte Zeitsignatur, 6 Byte Tempo)*
-
-- 0x00 0xC0 (0b11000000) 0x05 *Instrument auf Track 0: 5 *
-- 0x00 0x90 (0b10010000) 0x30 (48) 0x60 *on, Channel 0: C3, v: 0x60*
-- 0x60 0x80 (0b10000000) 0x30 (48) 0x60 *off, Channel 0: C3, v: 0x60*
-- 0x00 0x90 (0b10010000) 0x32 (50) 0x60 *on, Channel 0: E3, v: 0x60*
-- 0x60 0x80 (0b10010000) 0x32 (50) 0x60: off, Channel 0 *E3, v: 0x60*
-- 0xFF 0x2F 0x00 *End of file*
-
-]
-
-#slide(title: "Ton aus MIDI-Dateien")[
-- Beispielsweise über #link("https://www.fluidsynth.org/")[fluidsynth]
-    - -d: Alle events ausgeben
-    - -i: Keine interaktive Event-Eingabe (aus MIDI-Datei lesen)
-    - Beispiel-Soundfont hier: #link("https://moodle.htw-berlin.de/mod/resource/view.php?id=1714332")[Game Boy Advance]
-    - Beispiel-Midi-Datei vom #link("https://github.com/dabrowskiw/Programmierung1-Materialien/tree/IKGneu/Beispieldaten")[github-repo]
-  #sourcecode[```
-fluidsynth -di ~/GBA.sf beispiel_folien.midi
-  ```]
-  ]
-
-#slide(title: "Binärdateien")[
-
-MIDI-Dateien sind ein klassisches Beispiel für Binärdateien. Bearbeitbar mit z.B.:
-
-- #link("https://github.com/WerWolv/ImHex")[ImHex] (Linux) 
-- #link("https://sourceforge.net/projects/frhed/")[frhed] (Windows)
-
-]
-
-/*
-#slide(title: "Programmcode im Speicher")[
-Der Computer kann aber keinen Code, nur Zahlen...?
-
 | Befehl | Wert | Argumente | Kommentar |
 |---|---|---|---|
 | print | 1 | 1 | Auszugebende Adresse |

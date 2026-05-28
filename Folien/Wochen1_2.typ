@@ -1,35 +1,12 @@
-#import "@preview/touying:0.6.1": *
-#import "@preview/colorful-boxes:1.3.1": *
-#import "@preview/fletcher:0.5.5" as fletcher: diagram, node, edge
-#import fletcher.shapes: diamond, ellipse
-#import "@preview/numbly:0.1.0": numbly
-#import themes.university: *
+#import "header.typ": *
 
-#set text(
-  hyphenate: true,
-  lang: "de"
+#show: htwslides
+
+#title-slide(
+  title: "Programmierung 1",
+  subtitle: "Wochen 1-2: Einführung",
+  institution-name: "HTW Berlin"
 )
-
-#show: university-theme.with(
-  aspect-ratio: "16-9",
-  config-info(
-    title: [Programmierung 1 (IKG)],
-    date: "WiSe 25/26",
-    institution: "HTW Berlin",
-    author: "Prof. Dr.-Ing. P. W. Dabrowski"
-  ),
-  config-colors(
-    primary: rgb("#76b900"),
-    secondary: rgb("#0082D1"),
-    tertiary: rgb("#FF5F00"),
-    neutral-lightest: rgb("#ffffff"),
-    neutral-darkest: rgb("#000000"),
-  )
-)
-
-#show link: underline
-
-#title-slide()
 
 = Organisatorisches
 
@@ -71,14 +48,18 @@
 
 == Was tun wir hier eigentlich?
 
+#slide(composer: (3fr,2fr))[
 - Grundlagen des Programmierens (in Java) beherrschen
 - Einfache Algorithmen selber ausdenken und implementieren
-- Grundbegiffe der (objektorientierten) Programmierung beherrschen
+- Grundbegiffe der Programmierung beherrschen
 - Desillusionierung:
-  - Programmieren lernen ist zeitaufwendig!
+  - Programmieren lernen braucht Zeit!
   - Ich kann es Ihnen nicht beibringen!
-- Wichtig: Ab Anfang konsequent mitmachen, gerne Laptop in die VL mitbringen
-- Ideal: Eigene Projekte haben!
+  - ChatGPT = Durchfallen
+- Ab Anfang mitmachen!
+- Ideal: Eigene Projekte haben!][
+  #image("Bilder/orly-progconcept.png")
+]
 
 
 == Was ist Programmierung?
