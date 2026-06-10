@@ -4,9 +4,16 @@
 #import fletcher.shapes: diamond, ellipse
 #import "@preview/numbly:0.1.0": numbly
 #import themes.university: *
-#import "@preview/codelst:2.0.2": sourcecode
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.10": *
 
 #let htwslides(body) = {
+  show: codly-init
+  codly(
+    languages: codly-languages,
+    inset: 0.15em,
+  )
+
   set text(
     hyphenate: true,
     lang: "de"
