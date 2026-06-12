@@ -84,7 +84,7 @@
 
 == Formatspezifikation
 
-Vollständige Beschreibung #link("http://www.music.mcgill.ca/~ich/classes/mumt306/StandardMIDIfileformat.html#BMA2_")[online] verfügbar.
+Vollständige Beschreibung #link("https://midimusic.github.io/tech/midispec.html")[online] verfügbar.
 
 ```text
   MThd <length of header data>
@@ -168,6 +168,8 @@ FF 2F 00
 ```
   fluidsynth -di ~/GBA.sf beispiel_folien.midi
 ```
+
+Alternativ über #link("https://cifkao.github.io/html-midi-player/")[online-MIDI-Player], auch zum anschauen.
 
 Gemeinsam: Von Hand bearbeiten, mehr/andere Töne?
 
@@ -254,6 +256,172 @@ public static void showUneven(
   ]
 )
 
+== Quality of Life: switch
+
+- Kürzere Schreibweise für lange `if`-`elseif`-`else`-Kette
+- Vorsicht: `case` bedeutet "ab hier ausführen", nicht "nur ausführen wenn"! 
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  [
+    ```java
+    switch (Variable) {
+      case Wert 1:
+        Operation 1
+      case Wert 2:
+        Operation 1
+      //...
+      default:
+        Operation n
+    ```
+    #sym.arrow Ab dem ersten zutreffenden Wert alle Operationen
+  ],
+  [
+    #codly(highlighted-lines: (6,))
+    ```java
+    switch (Variable) {
+      case Wert 1:
+        Operation 1
+      case Wert 2:
+        Operation 1
+        break;
+      //...
+      default:
+        Operation n
+    ```
+    `break` unterbricht `switch` #sym.arrow Operationen nur bis zum ersten break. 
+  ]
+)
+
+== Quality of Life: switch
+
+#only(3)[
+`case` ohne `break`: Sinnvoll bei hierarchisch angeordneten Operationen, z.B.:
+- Berechtigungen (Viewer: Lesen, Editor: +Schreiben, Admin: +Löschen)
+- Memeber (Basic: Zutritt, Premium: +Lounge, VIP: +Autogramm)
+]
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  [
+    #only("1-2")[
+    ```java
+    public static String getPredIf(char grade) {
+        String res = "Prädikat: ";
+        if(grade == 'A') {
+            res += "Sehr gut";
+        } else if(grade == 'B') {
+            res += "Gut";
+        } else if(grade == 'B') {
+            res += "Befriedigend";
+        } else if(grade == 'B') {
+            res += "Ausreichend";
+        } else {
+            res += "Unbekannt";
+        }
+        return res;
+    }
+    ```
+  ]
+    #only(2)[
+      ...Aber ist das nicht sinnlos?\ 
+      Warum die ganzen `break`?
+    ]
+    #only(3)[
+      ```java
+      public void setPermissions(
+                          String role) {
+        if(role.equals("admin")) {
+          grantAdmin();
+          grantEditor();
+          grantViewer();
+        } else if(role.equals("editor")) {
+          grantEditor();
+          grantViewer();
+        } else if(role.equals("viewer")) {
+          grantViewer();
+        } else {
+          removePermissions();
+        }
+      }
+      ```
+    ]
+  ],
+  [
+    #only(1)[
+      ```java
+      public static String getPred(
+                          char grade) {
+          String res = "Prädikat: ";
+          switch (grade) {
+              case 'A':
+                  res += "Sehr gut";
+              case 'B':
+                  res += "Gut";
+              case 'C':
+                  res += "Befriedigend";
+              case 'D':
+                  res += "Ausreichend";
+              default:
+                  res += "Unbekannt";
+          }
+          return res;
+      }
+      ```
+      Was ist `res` bei `grade='C'`?\ 
+      Warum? Debugger!
+
+    ]
+    #only(2)[
+      #codly(highlighted-lines: (7, 10, 13, 16))
+      ```java
+      public static String getPred(
+                          char grade) {
+          String res = "Prädikat: ";
+          switch (grade) {
+              case 'A':
+                  res += "Sehr gut";
+                  break;
+              case 'B':
+                  res += "Gut";
+                  break;
+              case 'C':
+                  res += "Befriedigend";
+                  break;
+              case 'D':
+                  res += "Ausreichend";
+                  break;
+              default:
+                  res += "Unbekannt";
+          }
+          return res;
+      }
+      ```
+    ]
+    #only(3)[
+      ```java
+      public void setPermissions(
+                          String role) {
+        switch (role) {
+          case "admin":
+            grantAdmin();
+          case "editor":
+            grantEdit();
+          case "viewer":
+            grantView();
+            break;
+          default:
+            removePermissions();
+        }
+      }
+      ```
+    ]
+  ]
+)
+
+
 == Programmcode im Speicher
 
 #grid(
@@ -285,7 +453,7 @@ public static void showUneven(
       }
       ```
     ],
-    [ #codly(display-name: false)
+    [ #codly(lang-format: (_, _, _) => [], number-format: none)
       ```asm
       90: put 69 0 # i
       93: put 68 10 # j=10
@@ -320,7 +488,7 @@ public static void showUneven(
     118: 4 108
     120: 0
   ```]],
-    [#only("4")[#codly(number-format: none)```asm
+    [#only("4")[```asm
     90: put 60 0 # i=0
     93: put 59 2 # j=2
     96: put 58 100 # k=100
