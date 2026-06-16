@@ -1,48 +1,12 @@
-#import "@preview/polylux:0.4.0": *
-#import "@preview/colorful-boxes:1.3.1": *
-#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
-#import "@preview/codelst:2.0.2": sourcecode
-#import fletcher.shapes: diamond, ellipse
-#import "/home/wojtek/Documents/workspaces/typst/htw-polylux/university.typ": theme, main
-//#import "@local/fau-typst:0.0.1": fau-theme, main
-#import theme: *  // import everything from the theme (slide types)
+#import "header.typ": *
 
-// initialize the template with this function (important!)
-#show: main.setup-theme.with(
-  short-author: "Prof. Dr.-Ing. Piotr Wojciech Dabrowski",
-  short-title: "Programmierung 1",
-  short-date: datetime.today(),
-  short-organization: "IKG",
-)
 
-//#import themes.university: *
-
-#set text(
-  hyphenate: true,
-  lang: "de"
-)
-
-//#show: university-theme.with(
-//  color-a: rgb("#76B900"),
-//  color-b: rgb("#0082D1"),
-//  color-c: rgb("#EDf5DF"),
-//  short-title: "Programmierung 1 IKG",
-//  short-date: "WiSe 24/25"
-//)
-
-#show link: underline
+#show: htwslides
 
 #title-slide(
   title: "Programmierung 1",
-  subtitle: "Das Finale: Dateioperationen",
-//  date: "07.11.2024",
-  authors: (
-    (
-      name: "Piotr Dabrowski",
-      affiliation: "HTW Berlin",
-      email: "piotr.dabrowski@htw-berlin.de",
-    ),
-  )
+  subtitle: "Wochen 9-10: Objektorientierte Programmierung",
+  institution-name: "HTW Berlin"
 )
 
 == Komplexe Daten mit Arrays
@@ -63,8 +27,6 @@ int[] hp = new int[]{15, 3};
 char[] type = new char[]{'G', 'V'};
 ```
 
-
-
 == Komplexe Daten mit Arrays - Verwendung
 
 - Wenn etwas getan werden soll, notwendige Arrays übergeben
@@ -82,7 +44,6 @@ int[] xpos = new int[]{9, 7};
 int[] ypos = new int[]{2, 5};
 int[] hp = new int[]{15, 3};
 ```
-
 
 
 == Komplexe Daten mit Arrays - Verwendung 2
@@ -110,81 +71,317 @@ public class Main {
 -> Je mehr Daten zusammenhängen, um so schwieriger
 
 
+== Lösung: Objektorientierte Programmierung
 
-== Lösung: Objekte
+- Computer-Sicht: Lauter Werte
+- Menschen-Sicht: Repräsentation von Dingen der realen Welt
+- Idee der objektorientierten Programmierung:
+  - Zusammenfassen logisch zusammengehöriger Daten zu Objekten
+  - Bildet das menschliche Denken ab
+  - Repräsentiert Dinge der realen Welt im Computer
 
-- Dinge, die konzeptionell zusammengehören verbinden
-- Gemeinsame Speicherung (Heap! Wie Array mit mehr Datentypen)
+== Klassen
 
-```java
-public class Mob {
-    public int x;
-    public int y;
-    public int hp;
-    public char type;
-}
-public class Main {
-  public static void main(String[] args) {
-    Mob mob1 = new Mob();
-    mob1.x = 9;
-    mob1.y = 2;
-    mob1.hp = 15;
-    mob1.type = 'G';
-  }
-}
-```
+Primitive Datentypen:
+- Repräsentieren grundlegende Konzepte: `int`, `char`, `float` etc.
+- Definieren, wie Bits interpretiert werden
+- Definieren, wie viele Bytes zusammengehören
+
+Klassen:
+- Repräsentieren komplexe Dinge der echten Welt
+- Definieren dafür eigenen, zusammengesetzten Datentyp:
+  - Wie viele welcher anderer Datentypen beschreiben das Ding?
+  - Wie viel Speicher wird dafür benötigt?
+- Definieren, was das Ding kann: Kapselung der Logik
+
+== Beispiel-Klasse: Mob
+
+#grid(
+  columns: (1.5fr, 3fr),
+  gutter: 1em,
+  [
+    - Attribute: Variablen, die Eigenschaften beschreiben
+    - Methoden: Funktionen, die Fähigkeiten beschreiben
+  ],[
+    #codly(
+      annotations: (
+        (
+          start: 2, end: 5,
+          content: block(
+            width: 2em,
+            rotate(-90deg, reflow: true,
+              align(center)[Attribute]
+            )
+          )
+        ),
+        (
+          start: 8, end: 22,
+          content: block(
+            width: 2em,
+            rotate(-90deg, reflow: true,
+              align(center)[Methoden]
+            )
+          )
+        ),
+      ),
+    )
+    ```java
+    public class Mob {
+      public int x;
+      public int y;
+      public int hp;
+      public char type;
 
 
+      public void sayHello() {
+        System.out.print("Grr, I am a ");
+        if(type == 'G') {
+          System.out.print("gelatinous cube ");
+        } else if(type == 'V') {
+          System.out.print("vampire ");
+        }
+        System.out.print("and I will eat you!");
+      }
 
-== Objekt initialisieren: Constructor
-
-```java
-public class Mob {
-    public int x;
-    public int y;
-    public Mob(int newx, int newy) {
-        x = newx;
-        y = newy;
+      public void showHealth() {
+        for(int i=0; i<hp; i++) {
+          System.out.print("♥");
+        }
+      }
     }
-}
-public class Main {
-  public static void main(String[] args) {
-    Mob mob1 = new Mob(9, 2);
-    Mob mob2 = new Mob(7, 5);
-  }
-}
-```
+    ```
+  ]
+)
 
-- x: Attribut, newx: Variable
-- Mob(): Constructor + Methode
-- Mob: Klasse, mob1+mob2: Objekte
+== Randnotiz: Wrapper-Klassen
 
+#grid(
+  columns: (2.5fr, 3fr),
+  gutter: 1em,
+  [
+    Bisher:
+    - Keine Attribute
+    - Alle Methoden `static`
+
+    #sym.arrow Wrapper-Klasse
+    - Beschreibt kein reales "Ding"
+    - Platz für Methoden, die sonst nirgendwo hingehören
+
+  ],[
+    ```java
+    public class Main {
+      public static void main(String[] args) {
+        System.out.println("Hallo!");
+        System.out.println(getMax(2, 7));
+      }
+
+      public static int getMax(int a, int b) {
+        if(a > b) {
+          return a;
+        }
+        return b;
+      }
+    }
+    ```
+  ]
+)
+
+`static`: 
+- Methode: Benötigt keinen Zugriff auf nicht-`static`-Attribute
+- Attribut: Benötigt kein Objekt (später)
+
+== Objekte
+
+- Klasse: 
+  - Beschreibt, was für Eigenschaften etwas hat ("Auto hat Farbe")
+  - Eine Klasse im ganzen Programm (Konzept von "Auto")
+  - Wie ein Datentyp: `int`, `float` etc.
+- Objekt: 
+  - Beschreibt eine konkrete Ausprägung ("Dieses Auto ist grün")
+  - Beliebig viele Objekte (konkrete Autos)
+  - Wie konkrete Variablen: `x` und `y` in `int x=5; int y=6;`
+  - Vokabular: Objekt ist *Instanz* einer Klasse
+
+Vergleich: Platons Ideenlehre
+- Ideen: Abstrakte, perfekte, unveränderliche Urbilder ("Stuhl", "Haus")
+- Gegenstände: Vergängliche, veränderliche Abbilder in der realen Welt
+
+== Objektbeispiel
+
+#grid(
+  columns: (2.5fr, 3fr),
+  gutter: 1em,
+  [
+    ```java
+    public class Main {
+      public static void main(
+              String[] args) {
+        Mob mob1 = new Mob();
+        mob1.hp = 2;
+        mob1.type = 'G';
+        Mob mob2 = new Mob();
+        mob1.hp = 10;
+        mob1.type = 'V';
+        mob1.sayHello();
+        mob1.showHealth();
+        mob2.sayHello();
+        mob2.showHealth();
+      }
+    }```
+
+    `Mob`: Klasse keine Werte (`hp`, `type`)
+    
+    `mob1`, `mob2`: Objekte mit Werten 
+  ],[
+    ```java
+    public class Mob {
+      public int x;
+      public int y;
+      public int hp;
+      public char type;
+
+      public void sayHello() {
+        System.out.print("Grr, I am a ");
+        if(type == 'G') {
+          System.out.print("cube ");
+        } else if(type == 'V') {
+          System.out.print("vampire ");
+        }
+        System.out.print(", I will eat you!");
+      }
+
+      public void showHealth() {
+        for(int i=0; i<hp; i++) {
+          System.out.print("♥");
+        }
+      }
+    }
+    ```
+  ]
+)
+
+== Spezielle Methode: Constructor
+
+#grid(
+  columns: (2fr, 3fr),
+  gutter: 1em,
+  [
+    Constructor: Methode zum Initialisieren eines Objekts
+    - Kein return-Datentyp
+    - Name = Klassenname
+    - Beliebige Argumente
+
+    Hier:
+    - `newhp`, `newtype`: Variablen
+    - `hp`, `type`: Attribute
+  ],[
+    ```java
+    public class Mob {
+      public int hp;
+      public char type;
+
+      public Mob(int newhp, char newtype) {
+        hp = newhp;
+        type = newtype;
+      }
+    }
+
+    public class Main {
+      public static void main(String[] args) {
+        Mob mob1 = new Mob(5, 'G');
+        Mob mob2 = new Mob(10, 'V');
+        mob1.sayHello();
+        mob1.showHealth();
+        mob2.sayHello();
+        mob2.showHealth();
+      }
+    }
+    ```
+  ]
+)
+
+== Methoden-Beispiel
+
+#grid(
+  columns: (3fr, 3fr),
+  gutter: 1em,
+  [
+    #codly(highlighted-lines: (17,))
+    ```java
+    public static void moveMob(
+      int num, int[] x, int[] y, int[] hp, char[] type, char dir) {
+        if(dir=='Q') {
+          x[num] -=1;
+          y[num] -= 1;
+        }
+        if(type[num] == 'G') {
+            hp[num] -= 1;
+        }
+    }
+    public class Main {
+      public static void main(String[] a) {
+        int[] xpos = new int[]{9, 7};
+        int[] ypos = new int[]{2, 5};
+        int[] hp = new int[]{5, 10};
+        char[] t = new char[]{'G', 'V'}; 
+        moveMob(0, xpos, ypos, hp, t, 'Q');
+      }
+    }
+    ```
+  ],[
+    #codly(highlighted-lines: (20,))
+    ```java
+    public class Mob {
+      public int x, y, hp;
+      public char type;
+      public Mob(int x,int y,char t,int h) 
+      { /*...*/ }
+      public void move(char dir) {
+        if(dir == 'Q') {
+          x -= 1;
+          y -= 1;
+        }
+        if(type == 'G') {
+          hp -= 1;
+        }
+      }
+    }
+    public class Main {
+      public static void main(String[] a) {
+        Mob mob1 = new Mob(9, 2, 'G', 5);
+        Mob mob2 = new Mob(7, 5, 'V', 10);
+        mob1.move('Q');
+      }
+    }
+    ```
+  ]
+)
 
 
 == Scoping
+
+Was sagt uns das `new` über Heap und Stack?
 
 ```java
 public class Mob { /* [...] */ }
 
 public class Main {
-  public void changeX(Mob mob, int diff) {
-      mob.x += diff;
+  public void changeHP(Mob mob, int diff) {
+      mob.hp += diff;
   }
-  public void replaceMob(Mob mob, int x, int y) {
-      mob = new Mob(x, y);
+  public void replaceMob(Mob mob, int hp, char type) {
+      mob = new Mob(hp, type);
   }
   public static void main(String[] args) {
-    Mob mob1 = new Mob(12, 15);
-    System.out.println(mob1.x + ", " + mob1.y); // "12, 15"
+    Mob mob1 = new Mob(5, 'G');
+    System.out.println(mob1.hp); // ?
     changeX(mob1, 7);
-    System.out.println(mob1.x + ", " + mob1.y); // "Mob at ?, ?"
-    replaceMob(mob1, 8, 9);
-    System.out.println(mob1.x + ", " + mob1.y); // "Mob at ?, ?"
+    System.out.println(mob1.hp); // ?
+    replaceMob(mob1, 10, 'V');
+    System.out.println(mob1.hp); // ?
   }
 }
 ```
-
-
 
 == Auflösung von Variablen/Attributen
 
@@ -202,33 +399,6 @@ public class Mob {
     }
 }
 ```
-
-
-
-== Methoden
-
-```java
-public class Mob {
-    public int x;
-    public int y;
-//    [...]
-    public void move(char dir) {
-        if(dir == 'Q') {
-            x -= 1;
-            y -= 1;
-        }        
-    }
-}
-public class Main {
-  public static void main(String[] args) {
-    Mob mob1 = new Mob(12, 15);
-    mob1.move('Q');
-  }
-}
-```
-- Deutlich einfachere Erweiterbarkeit als bei Arrays!
-
-
 
 == Zugriff: Access modifiers
 
@@ -252,6 +422,44 @@ public class Main {
 }
 ```
 
+== Best practice: Getter, Setter
+
+#grid(
+  columns: (3fr, 3fr),
+  gutter: 1em,
+  [
+    - Attribute sollten immer `private` (oder `protected`) sein
+    - Zugriffe: Getter, Setter
+      - Abfrage: `getAttributname()`
+      - Veränderung: `setAttributename()`
+      - Intern auch verwenden!
+    - Vorteile:
+      - Datenkonsistenz
+      - Zentrale Logik
+  ],[
+    ```java
+    public class Square {
+      private float sidelength;
+      private float area;
+      public Square(float l) {
+        setSidelength(l);
+      }
+      public void setSidelength(float l) {
+        sidelength = l;
+        area = l*l;
+      }
+      public float getSidelength() {
+        return sidelength;
+      }
+      public float getArea() {
+        return area;
+      }
+    }
+    ```
+  ]
+)
+    - Warum kein `setArea()`?
+    - Warum nicht `sidelength=l` im Constructor?
 
 
 == Verwendung von Objekten
@@ -260,7 +468,7 @@ public class Main {
 - Alles was mit primitiven Datentypen geht, geht auch mit Klassen
 
 ```java
-public class Mob { /- [...] */ }
+public class Mob { /* [...] */ }
 
 public class Main {
   public static void main(String[] args) {
@@ -274,196 +482,6 @@ public class Main {
 }
 ```
 
-== Live-Beispiel: Rezeptverwaltung
+== ArrayList
 
-- Idee: Liste von Rezepten. Jedes Rezept hat:
-    - Name
-    - Kochzeit
-    - Liste an Zutaten
-- Jede Zutat (bspw. "395g Mehl" -> parsen über `toCharArray()`) hat:
-    - Name
-    - Menge
-    - Einheit
-- Modellierung mit Arrays? Oder lieber doch Klassen?
-
-
-
-#section-slide("Exceptions")
-
-#slide(title: "Die Idee")[
-- Bisheriges Umgehen mit Fehlern:
-    - Alle Fehlerquellen abfangen
-    - Ungültigen Wert zurückgeben
-- Aber das geht nicht immer
-    - Oft zu viele mögliche Gründe für Fehler, um alle zu vermeiden
-    - Es können alle Rückgabewerte sinnvoll sein
-- Alternative: Neuer Informationskanal zusätzlich zu return
-
-]
-
-#slide(title: "Die Umsetzung")[
-- Bei Auftreten eines Fehlers kann eine Exception geworfen werden:
-
-  #sourcecode[```java
-public class Divider {
-    public static double divide(double a, double b) throws Exception {
-        if(b == 0) {
-            throw new Exception("Can't divide by zero");
-        }
-        return a/b;
-    }
-}
-try {
-	System.out.println(Divider.divide(7, 0));
-} catch(Exception e) {
-    System.out.println("Ups, Fehler: " + e.getMessage());
-}
-  ```]
-
-]
-
-#slide(title: "Regeln")[
-- Wenn eine Methode eine Exception werfen kann, muss sie das mit `throws` in der Signatur ankündigen
-- Wird eine Exception von einer Methode `a` geworfen, dann:
-    - Ist das automatisch wie ein return an dieser Stelle
-    - Wird die Exception an der Stelle, wo `a` aufgerufen wurde, sofort wieder geworfen
-    - Die Kette wird erst durch ein passendes `catch` unterbrochen
-- Alle Exceptions außer `RuntimeExceptions` wie `ArrayIndexOutOfBounds` müssen zwingend per `catch` gefangen werden, bevor sie aus der main-Methode fliegen können
-
-]
-
-#slide(title: "Live-Beispiel")[
-- Generell überall sinnvoll, wo Fehler auftreten können (-> Algorithmus kann kein sinnvolles Ergebnis liefern)
-- Eigene Ideen? 
-- Sonst: Fibonacci-Folge berechnen, Exception bei:
-  - Integer overflow
-  - Negativer Eingabe
-
-]
-
-#section-slide("Dateien")
-
-#slide(title: "Allgemeines")[
-- Spezilalisierte Klassen für Dateioperationen:
-    - Datei selber: `File`
-    - Lesen: `FileReader` + `BufferedReader`
-    - Schreiben: `FileWriter` + `BufferedWriter`
-    - Werfen bei Fehlern (Datei existiert nicht, keine Berechtigung, Festplatte voll...) `IOException`
-- Idee: `File` beschreibt Datei, `Reader`/`Writer` macht low-Level-Zugriff, `BufferedReader`/`BufferedWriter` bietet Komfort-Funktionen (z.B. zeilenweises Lesen)
-
-]
-
-#slide(title: "Code und Live-Beispiel")[
-  #sourcecode[```java
-public class TextReader {
-	public static void printContents(String infile) {
-		File f = new File(infile);
-		try {
-			BufferedReader r = new BufferedReader(new FileReader(f));
-			while(r.ready()) {
-				System.out.println(r.readLine());
-			}
-		}
-		catch(IOException e) {
-			e.printStackTrace();
-		}
-	}
-}
-  ```]
-
-  Wie könnte man damit die Wörter in einer Datei zählen?
-
-]
-
-#section-slide("Nützliche Dinge")
-
-#slide(title: "StringBuilder")[
-- String hält intern ein `char[]`
-    - immutable!
-    - Scheinbare Veränderung = Inhalt kopieren + neuer String
-- Effizienter Aufbau: `StringBuilder`
-    - Erlaubt Hinzufügen von Textteilen
-    - Werden am Ende mit `toString()` zusammengefügt
-    - -> nur 1 Kopiervorgang
-
-]
-
-#slide(title: "StringBuilder")[
-  #sourcecode[```java
-double startTime = System.currentTimeMillis();
-String text = "";
-for(int i=0; i<100000; i++) {
-    text += i + ",";
-}
-System.out.println(text.substring(0, 10));
-System.out.println(System.currentTimeMillis() - startTime); // 4291 ms
-startTime = System.currentTimeMillis();
-StringBuilder textBuilder = new StringBuilder();
-for(int i=0; i<100000; i++) {
-    textBuilder.append(i + ",");
-}
-System.out.println(textBuilder.toString().substring(0, 10));
-System.out.println(System.currentTimeMillis() - startTime); // 8 ms
-  ```]
-
-]
-
-#slide(title: "Static-Attribute")[
-Wichtig bei Attributen: Jedes Objekt hat eine eigene Kopie!
-
-- Sinnvoll bei Eigenschaften des Objekts (ISBN des Buches)
-- Aber schwierig, wenn Eigenschaft gemeinsam sein soll
-
-Lösung: Statische Attribute:
-
-- Markierung mittels `static`
-- Alle Objekte haben gemeinsamen Wert!
-
-]
-
-#slide(title: "Static-Attribute")[
-  #sourcecode[```java
-public Class Book {
-    private int ID;
-    public static int numBooks = 0;
-    public Book() {
-        ID = numBooks;
-        numBooks += 1;
-    }
-    public int getID() { return ID; } 
-}
-Book book1 = new Book();
-System.out.println("Book 1 ID: " + book1.getID())
-System.out.println("Total number of books: " + Book.numBooks); //nicht book1.
-Book book2 = new Book();
-System.out.println("Book 2 ID: " + book2.getID())
-System.out.println("Total number of books: " + Book.numBooks);
-  ```]
-
-]
-
-#slide(title: "Static-Methoden")[
-- Methoden, die keinen Zugriff auf Attribute außer `static` brauchen
-- Typisch:
-    - Utility-Methoden, die logisch in die Klasse gehören
-    - Ganze Utility-Klassen
-    - Getter für statische Attribute
-
-  #sourcecode[```java
-public Class Book {
-    private static int numBooks = 0;
-    //...
-    public static int getNumBooks() { return numBooks; } // kann static sein
-}
-  ```]
-
-]
-
-#slide(title: "Live-Beispiele für static")[
-- Book - was passiert mit und ohne static?
-- static als Fehlerquelle - PatientList.calculateMeanAge() mit Patient.age als static
-- Singleton zum Verwalten von Einstellungen
-- DateUtilities.getDay("12.07.2022") - ähnliche Logik wie Integer.parseInt("12")
-
-]
-
+== LinkedList
