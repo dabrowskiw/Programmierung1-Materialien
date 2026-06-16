@@ -482,6 +482,177 @@ public class Main {
 }
 ```
 
-== ArrayList
+== Vergleiche von Objekten
 
-== LinkedList
+
+
+#grid(
+  columns: (3fr, 3fr),
+  gutter: 1em,
+  [
+    #only(1)[
+      ```java
+      public class Main {
+        public static void main(String[] a) {
+          String s1 = "Hello!"; 
+          String s2 = "Hello";
+          if(s1 == s2) {
+            System.out.println(s1+"="+s2);
+          } else {
+            System.out.println(s1+"!="+s2);
+          }
+          s2 = s2 + "!";
+          if(s1 == s2) {
+            System.out.println(s1+"="+s2);
+          } else {
+            System.out.println(s1+"!="+s2);
+          }
+        }
+      }
+      ```
+      Welche Ausgaben?
+    ]
+    #only(2)[
+      #codly(highlighted-lines: (3, 4))
+      ```java
+      public class Main {
+        public static void main(String[] a) {
+          String s1 = new String("Hello!"); 
+          String s2 = new String("Hello");
+          if(s1 == s2) {
+            System.out.println(s1+"="+s2);
+          } else {
+            System.out.println(s1+"!="+s2);
+          }
+          s2 = s2 + "!";
+          if(s1 == s2) {
+            System.out.println(s1+"="+s2);
+          } else {
+            System.out.println(s1+"!="+s2);
+          }
+        }
+      }
+      ```
+      Welche Ausgaben?
+       \ Erinnerung: Was macht `new`?
+     ]
+    #only(3)[
+      #codly(highlighted-lines: (5, 11))
+      ```java
+      public class Main {
+        public static void main(String[] a) {
+          String s1 = new String("Hello!"); 
+          String s2 = new String("Hello");
+          if(s1.equals(s2)) {
+            System.out.println(s1+"="+s2);
+          } else {
+            System.out.println(s1+"!="+s2);
+          }
+          s2 = s2 + "!";
+          if(s1.equals(s2)) {
+            System.out.println(s1+"="+s2);
+          } else {
+            System.out.println(s1+"!="+s2);
+          }
+        }
+      }
+      ```
+    ]
+  ],[
+    #only(2)[
+      ```java
+      public class Point {
+        private int x;
+        private int y;
+        public Point(int x, int y) {
+          setX(x);
+          setY(y);
+        }
+        public void setX(int x) {
+          this.x = x;
+        }
+      }
+      public class Main {
+        public static void main(String[] a) {
+          Point p1 = new Point(2, 3);
+          Point p2 = new Point(3, 3);
+          // p1==p2?
+          p2.setX(3);
+          // p1==p2?
+        }
+      }
+      ```
+    ]
+    #only(3)[
+      #codly(highlighted-lines: (3, 4, 5, 6, 7, 8, 9, 15, 17))
+      ```java
+      public class Point {
+        //...
+        public boolean equals(Object o) {
+          Point p2 = (Point)o;
+          if(p2.getX() == get() &&
+             p2.getY() == getY())
+             return true;
+          return false;
+        }
+      }
+      public class Main {
+        public static void main(String[] a) {
+          Point p1 = new Point(2, 3);
+          Point p2 = new Point(3, 3);
+          // p1==p2? p2.equals(p2)?
+          p2.setX(3);
+          // p1==p2? p2.equals(p2)?
+        }
+      }
+      ```
+    ]
+  ]
+)
+
+== ArrayList, LinkedList
+
+#grid(
+  columns: (3fr, 3fr),
+  gutter: 1em,
+  [
+  Nützliche Klassen: Listen!
+- Verwendung wie Arrays, aber dynamische Länge
+- Können nur Objekte verwalten, keine primitiven Datentypen
+  - Wrapper-Klassen
+  - Automatische Umwandlung
+- Unterschiede:
+  - Speicherverwaltung
+  - Effizienz von:
+    - `add()` `pop()`, `remove()`
+    - `get()`
+
+],
+  [
+    #codly(highlights: (
+      (line: 1, start: 1, end: none),
+      (line: 5, start: 16, end: 22)
+    ))
+    ```java
+    import java.util.LinkedList;
+
+    public class Main {
+      static void main() {
+        LinkedList<Integer> vals 
+                    = new LinkedList<>();
+        vals.add(5);
+        vals.add(7);
+        System.out.println(
+            "# values: " + vals.size());
+        for(int val : vals) {
+          System.out.println(val);
+        }
+        System.out.println(vals.get(1));
+      }
+    }
+    ```
+    - Identisch für `ArrayList`
+    - Vorsicht: Import!
+  ]
+)
+
