@@ -577,7 +577,7 @@ public class Main {
           Point p1 = new Point(2, 3);
           Point p2 = new Point(3, 3);
           // p1==p2?
-          p2.setX(3);
+          p1.setX(3);
           // p1==p2?
         }
       }
