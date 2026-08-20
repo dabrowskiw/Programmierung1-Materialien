@@ -18,11 +18,12 @@
   - Zusatzaufgaben zum selber üben
   - Fragen stellen (Forum, SL)! 
 - Prüfungsleistung: 
-  - Wie Hausaufgabe, aber größer (2 Wochen)
-  - Voraussetzung: 2 Hausaufgaben-Vorstellungen
-    - Ich wähle in jeder Übung zufällig Leute aus
-    - Code zeigen, erklären!
-    - 1x darf man sich auch aussuchen, dass man vorstellen will
+  - Wie Hausaufgabe, aber:
+    - Größer (2-3 Wochen)
+    - Einfacher
+  - Voraussetzung: 2 von 3 Testaten bestanden 
+    - Enthält Papier-Aufgabe! Nur KI #sym.arrow Keine Zulassung!
+    - Keine Ausnahmen, kein Nachholen! #sym.arrow Rechtzeitig kommen!
 
 == Boni
 
@@ -37,14 +38,18 @@
 
 == Fahrplan
 
-- Was ist allgemein Programmierung?
-- Visuelle Übungen mit #link("https://godotengine.org")[#underline("Godot")] und Flussdiagrammen (2 Wochen)
-- "Fingerübungen" mit Java (ca. 4 Wochen)
-- Anwendungsaufgaben (ca. 6-8 Wochen):
-  - Arrays
+- Logik-Übungen mit Flussdiagrammen (2 Wochen) #sym.arrow *Testat 1*:
+  - Entwicklung eines Algorithmus aus Fragestellung
+  - Grundlegende Funktionsweise einer Programmiersprache
+- Java-Einführung (4 Wochen) #sym.arrow *Testat 2*:
+  - Grundlegender Programmaufbau
+  - Primitive Datentypen
+  - Methoden, Stack, Heap
+  - Tooling (IDE, Debugging, KI)
+- Anwendungsaufgaben (ca. 6-8 Wochen) #sym.arrow *Testat 3*:
   - Grundlagen der Objektorientierung
+  - Dateioperationen
   - Eigenes Noten-zu-Tonausgabe-Programm entwickeln
-- Puffer
 
 == Was tun wir hier eigentlich?
 
@@ -70,10 +75,23 @@
   - Problem selber lösen
   - Sich selber dabei beobachten ("warum tue ich das gerade?")
   - Beobachtungen idiotensicher zum Nachkochen aufschreiben
--> Algorithmus: Finite Abfolge von ausführbaren Anweisungen
-
+- Programmiersprache: 
+  - Egal welche, es gibt viele
+  - Konkrete Schreibweise: "X for Y programmers" und KI
+  - Wichtigster Skill: Problem verstehen, Algorithmus entwickeln
 
 = Algorithmen
+
+== Definition Algorithmus
+
+#note[Eine Abfolge von Schritten, die nötig sind, um von vorgegebenen Eingabewerten zu einem Ausgabewert zu kommen]
+
+5 Eigenschaften nach Donald Erwin Knuth:
+- *Finit*: Muss in einer endlichen Anzahl von Schritten zum Ende kommen.
+- *Definiert*: Jeder Schritt ist vollkommen eindeutig und präzise definiert.
+- *Eingabe*: Startwerte und -Bedingungen müssen definiert sein.
+- *Ausgabe*: Die erwartete Ausgabe ist in Relation zur Eingabe immer vollständig definiert.
+- *Effektiv*: Verwendet Algorithmen oder Basisoperationen (könnten von Mensch mit Papier und Stift erledigt werden).
 
 == Beispiel-Algorithmus
 
