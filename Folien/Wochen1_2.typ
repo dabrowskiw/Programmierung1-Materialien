@@ -30,8 +30,9 @@
 - Alternative zu Prüfungsleistung: Projekt
   - Rechtzeitig mit mir reden, um Umfang zu definieren
   - Muss alle Konzepte des Moduls beinhalten
-  - Sprache, Thema sind egal
+  - Thema ist egal, Sprache muss Java sein
   - Vorstellung am Semesterende
+  - Gleiche Zulassungsvoraussetzung wie Prüfung!
 - Bonuspunkte für Verbesserungsvorschläge (siehe #link("https://github.com/dabrowskiw/Programmierung1-Materialien/tree/IKGneu")[#underline("git-repo")]): 2.5% für Vorschlag, 5% für Code (mail, pull request), max. 2/Semester
 
 = Allgemeine Hintergründe
@@ -77,37 +78,109 @@
   - Beobachtungen idiotensicher zum Nachkochen aufschreiben
 - Programmiersprache: 
   - Egal welche, es gibt viele
-  - Konkrete Schreibweise: "X for Y programmers" und KI
-  - Wichtigster Skill: Problem verstehen, Algorithmus entwickeln
+  - Konkrete Schreibweise: "X for Y programmers"-Bücher, KI
+- Wichtigster Skill: Problem verstehen, Algorithmus entwickeln
+#sym.arrow Testate enthalten *Papier-Teil ohne Computer-Hilfe*!
 
 = Algorithmen
 
 == Definition Algorithmus
 
-#note[Eine Abfolge von Schritten, die nötig sind, um von vorgegebenen Eingabewerten zu einem Ausgabewert zu kommen]
+#tip(title: "Algorithmus")[Eine Abfolge von Schritten, die nötig sind, um von vorgegebenen Eingabewerten zu einem Ausgabewert zu kommen]
 
 5 Eigenschaften nach Donald Erwin Knuth:
-- *Finit*: Muss in einer endlichen Anzahl von Schritten zum Ende kommen.
-- *Definiert*: Jeder Schritt ist vollkommen eindeutig und präzise definiert.
-- *Eingabe*: Startwerte und -Bedingungen müssen definiert sein.
-- *Ausgabe*: Die erwartete Ausgabe ist in Relation zur Eingabe immer vollständig definiert.
+- *Finit*: Endet nach einer endlichen Anzahl von Schritten.
+- *Definiert*: Jeder Schritt vollkommen sind eindeutig definiert.
+- *Eingabe*: Startwerte und -Bedingungen sind eindeutig definiert.
+- *Ausgabe*: Ausgabe in Relation zur Eingabe vollständig definiert.
 - *Effektiv*: Verwendet Algorithmen oder Basisoperationen (könnten von Mensch mit Papier und Stift erledigt werden).
 
 == Beispiel-Algorithmus
 
 - Schreiben Sie ein Programm, das mich zur Tür bringt
 - Erlaubte Anweisungen:
-  - "Schritt": Ich mache einen Schritt
-  - "Drehen": Ich drehe mich um 90 Grad nach links
+  - S: Schritt, ich mache einen Schritt
+  - D: Drehen, ich drehe mich um 90 Grad nach links
 - Freiwillige/r an der Tafel
 - Bitte mich nicht umbringen!
 
+#pause
+
+Ist das ein Algorithmus? Finit? Definiert? Eingabe? Ausgabe? Effektiv?
 
 == Wie schreibt man das auf?
 
   #place(top+left, dx: -20pt, box(width: 280pt, clip: true, image(width: 800pt, "Bilder/flow.png")))
 
   #place(top+right, dx: 40pt, image(width: 500pt, "Bilder/flow_xkcd.png"))
+
+== Beispiel: Zur Tür laufen
+
+Programm von eben als Flussdiagramm:
+
+#block(
+  width: 100%,
+  height: 65%,
+  diagram(
+    spacing: (3em, 1em),
+    node-stroke: 1pt,
+    edge-stroke: 1pt,
+    node((0,0), [Start], radius: 1.3em),
+    edge("-|>"),
+    node((1,0), [Drehen], corner-radius: 5pt),
+    edge("-|>"),
+    node((2,0), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((3,0), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((4,0), [Drehen], corner-radius: 5pt),
+    edge("-|>"),
+    node((4,1), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((3,1), [Drehen], name: <d1>, corner-radius: 5pt),
+    edge("-|>"),
+    node((2,1), [Drehen], name: <d2>, corner-radius: 5pt),
+    edge("-|>"),
+    node((1,1), [Drehen], name: <d3>, corner-radius: 5pt),
+    edge("-|>"),
+    node((0,1), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((0,2), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((1,2), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((2,2), [Drehen], name: <d4>, corner-radius: 5pt),
+    edge("-|>"),
+    node((3,2), [Drehen], name: <d5>, corner-radius: 5pt),
+    edge("-|>"),
+    node((4,2), [Drehen], name: <d6>, corner-radius: 5pt),
+    edge("-|>"),
+    node((4,3), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((3,3), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((2,3), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((1,3), [Ende], radius: 1.3em),
+    pause,
+    node(
+      enclose: (<d1>, <d2>, <d3>),
+      inset: 10pt,
+      snap: false,
+      stroke: blue + 1pt,
+      fill: blue.lighten(90%),
+    ),
+    node(
+      enclose: (<d4>, <d5>, <d6>),
+      inset: 10pt,
+      snap: false,
+      stroke: blue + 1pt,
+      fill: blue.lighten(90%),
+    ),
+  )
+)
+
+3x drehen = nach Rechts drehen
 
 == Beispiel: Zur Tür laufen
   

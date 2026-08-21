@@ -6,11 +6,16 @@
 #import themes.university: *
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.10": *
-#import "@preview/thmbox:0.3.0": *
+#import "@preview/gentle-clues:1.3.1": *
+
+#let diagram = touying-reducer.with(
+  reduce: fletcher.diagram,
+  cover: fletcher.hide,
+)
 
 #let htwslides(body) = {
   show: codly-init
-  show: thmbox-init()
+
   codly(
     languages: codly-languages,
     inset: 0.15em,
