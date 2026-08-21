@@ -125,7 +125,7 @@ Programm von eben als Flussdiagramm:
     spacing: (3em, 1em),
     node-stroke: 1pt,
     edge-stroke: 1pt,
-    node((0,0), [Start], radius: 1.3em),
+    node((0,0), [Start], shape: ellipse),
     edge("-|>"),
     node((1,0), [Drehen], corner-radius: 5pt),
     edge("-|>"),
@@ -157,30 +157,282 @@ Programm von eben als Flussdiagramm:
     edge("-|>"),
     node((4,3), [Schritt], corner-radius: 5pt),
     edge("-|>"),
-    node((3,3), [Schritt], corner-radius: 5pt),
+    node((3,3), [Drehen], name: <d6>, corner-radius: 5pt),
     edge("-|>"),
     node((2,3), [Schritt], corner-radius: 5pt),
     edge("-|>"),
-    node((1,3), [Ende], radius: 1.3em),
+    node((1,3), [Schritt], corner-radius: 5pt),
+    edge("-|>"),
+    node((0,3), [Ende], shape: ellipse),
     pause,
-    node(
-      enclose: (<d1>, <d2>, <d3>),
-      inset: 10pt,
-      snap: false,
-      stroke: blue + 1pt,
-      fill: blue.lighten(90%),
-    ),
-    node(
-      enclose: (<d4>, <d5>, <d6>),
-      inset: 10pt,
-      snap: false,
-      stroke: blue + 1pt,
-      fill: blue.lighten(90%),
-    ),
+    hlnode((<d1>, <d2>, <d3>)),
+    hlnode((<d4>, <d5>, <d6>)),
   )
 )
 
-3x drehen = nach Rechts drehen
+3x drehen = nach Rechts drehen #sym.arrow Auslagern in eigenen Algorithmus!
+
+== Beispiel: Zur Tür laufen
+
+#grid(
+  columns: (1fr, 3fr),
+  align(center,
+    box(
+      stroke: 1pt+black,
+      inset: 0.2em,
+      [
+      Rechts drehen:
+      #diagram(
+        spacing: (3em, 1em),
+        node-stroke: 1pt,
+        edge-stroke: 1pt,
+        node((0,0), [Start], radius: 1.3em),
+        edge("-|>"),
+        node((0,1), [Drehen], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,2), [Drehen], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,3), [Drehen], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,4), [Ende], radius: 1.3em),
+      )
+      ]
+    )
+  ),
+  [
+    #diagram(
+      spacing: (1em, 1em),
+      node-stroke: 1pt,
+      edge-stroke: 1pt,
+      node((0,0), [Start], shape: ellipse),
+      edge("-|>"),
+      node((1,0), [Drehen], name: <d1>, corner-radius: 5pt),
+      edge("-|>"),
+      node((2,0), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((3,0), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((3,1), [Drehen], name: <d2>, corner-radius: 5pt),
+      edge("-|>"),
+      node((2,1), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((1,1), [Rechts drehen], name: <d3>, corner-radius: 5pt),
+      edge("-|>"),
+      node((0,1), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((0,2), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((1,2), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((2,2), [Rechts Drehen], name: <d4>, corner-radius: 5pt),
+      edge("-|>"),
+      node((3,2), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((3,3), [Drehen], name: <d5>, corner-radius: 5pt),
+      edge("-|>"),
+      node((2,3), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((1,3), [Schritt], corner-radius: 5pt),
+      edge("-|>"),
+      node((0,3), [Ende], shape: ellipse),
+      pause,
+      hlnode((<d1>)),
+      hlnode((<d2>)),
+      hlnode((<d3>)),
+      hlnode((<d4>)),
+      hlnode((<d5>)),
+    )
+    Warum eigentlich "Drehen" und "Rechts drehen"?
+
+    Schöner: Drehen(rechts) und Drehen(links)
+  ]
+)
+
+== Beispiel: Zur Tür laufen
+
+#let dex1 = align(center,
+    box(
+      stroke: 1pt+black,
+      inset: 0.2em,
+      [
+      Drehen(Richtung):
+        #diagram(
+          spacing: (3em, 1em),
+          node-stroke: 1pt,
+          edge-stroke: 1pt,
+          node((0.5,0), [Start\ r: Richtung], shape: ellipse, width: 7em, height: 3.2em),
+          edge("-|>"),
+          node((0.5,1), shape: diamond, align(center)[r = Rechts?]),
+          edge((0.5,1), (0,2), "-|>", [nein], label-pos: 100%),
+          edge((0.5,1), (1,2), "-|>", [ja], label-pos: 100%),
+          node((0,2), [Drehen], corner-radius: 5pt),
+          edge("-|>"),
+          node((1,2), [Drehen], corner-radius: 5pt),
+          edge("-|>"),
+          node((1,3), [Drehen], corner-radius: 5pt),
+          edge("-|>"),
+          node((1,4), [Drehen], corner-radius: 5pt),
+          edge("-|>"),
+          node((0,4), [Ende], radius: 1.3em),
+          edge((0,2), (0,4), "-|>"),
+        )
+      ]
+    )
+  )
+
+#grid(
+  columns: (1.3fr, 2fr),
+  dex1,
+  [
+    Fallunterscheidung:
+    - Enthält immer "ja"/"nein"-Frage
+    - Hat immer exakt 2 ausgehende Pfeile
+    - Form: Raute
+  ]
+)
+
+== Beispiel: Zur Tür laufen
+
+#grid(
+  columns: (1.3fr, 2fr),
+  dex1,
+  [
+      #diagram(
+        spacing: (1em, 1em),
+        node-stroke: 1pt,
+        edge-stroke: 1pt,
+        node((0,0), [Start], shape: ellipse),
+        edge("-|>"),
+        node((1,0), [Drehen(links)], corner-radius: 5pt),
+        edge("-|>"),
+        node((2,0), [Schritt], name: <s1>, corner-radius: 5pt),
+        edge("-|>"),
+        node((2,1), [Schritt], name: <s2>, corner-radius: 5pt),
+        edge("-|>"),
+        node((1,1), [Drehen(links)], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,1), [Schritt], name: <s3>, corner-radius: 5pt),
+        edge("-|>"),
+        node((0,2), [Drehen(rechts)], corner-radius: 5pt),
+        edge("-|>"),
+        node((1,2), [Schritt], name: <s4>, corner-radius: 5pt),
+        edge("-|>"),
+        node((2,2), [Schritt], name: <s5>, corner-radius: 5pt),
+        edge("-|>"),
+        node((2,3), [Schritt], name: <s6>, corner-radius: 5pt),
+        edge("-|>"),
+        node((1,3), [Drehen(rechts)], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,3), [Schritt], name: <s7>, corner-radius: 5pt),
+        edge("-|>"),
+        node((0,4), [Drehen(links)], corner-radius: 5pt),
+        edge("-|>"),
+        node((1,4), [Schritt], name: <s8>, corner-radius: 5pt),
+        edge("-|>"),
+        node((2,4), [Schritt], name: <s9>, corner-radius: 5pt),
+        edge("-|>"),
+        node((2,5), [Ende], shape: ellipse),
+        pause,
+        hlnode((<s1>, <s2>)),
+        hlnode((<s3>)),
+        hlnode((<s4>, <s5>)),
+        hlnode((<s5>, <s6>)),
+        hlnode((<s7>)),
+        hlnode((<s8>, <s9>)),
+      )
+      #place(
+        bottom+right,
+        dx: -6cm,
+        dy: -0.1cm,
+        align(left, [Viele Einzelschritte...\ Schöner wäre Schritte(n)])
+      )
+  ]
+)
+
+== Beispiel: Zur Tür laufen
+
+#let dex2 = align(center,
+    box(
+      stroke: 1pt+black,
+      inset: 0.2em,
+      [
+      Schritte(Anzahl):
+        #diagram(
+          spacing: (1em, 2em),
+          node-stroke: 1pt,
+          edge-stroke: 1pt,
+          node((0.5,0), [Start\ n: Anzahl], shape: ellipse, width: 7em, height: 3.2em),
+          edge("-|>"),
+          node((0,1), [gelaufen = 0], corner-radius: 5pt),
+          edge("-|>"),
+          node((0,2), shape: diamond, align(center)[gelaufen = n?]),
+          edge("r", "-|>", [nein], label-pos: 50%),
+          edge("d", "-|>", [ja], label-pos: 50%),
+          node((1,2), [Schritt], corner-radius: 5pt),
+          edge("-|>"),
+          node((1,1), [gelaufen += 1], corner-radius: 5pt),
+          edge((1,1), (0, 2), "-|>"),
+          node((0,3), [Ende], radius: 1.3em),
+        )
+      ]
+    )
+  )
+
+#grid(
+  columns: (2.1fr, 2fr),
+  gutter: 1em, 
+  dex2,
+  [
+    Typisches Konzept: Schleife
+    - Etwas immer wieder tun
+    - *Finit*: Irgendwann Abbruch
+    
+    #sym.arrow häufig "Zählvariable"
+    - Name für Wert
+    - Kann sich ändern
+    - Trace-Tabelle für Schritt(3)
+  ]
+)
+
+== Beispiel: Zur Tür laufen
+
+#grid(
+  columns: (2.1fr, 2fr),
+  gutter: 1em,
+  dex2,
+  [
+      #diagram(
+        spacing: (1em, 1em),
+        node-stroke: 1pt,
+        edge-stroke: 1pt,
+        node((0,0), [Start], shape: ellipse),
+        edge("-|>"),
+        node((1,0), [Drehen(links)], corner-radius: 5pt),
+        edge("-|>"),
+        node((1,1), [Schritte(2)], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,1), [Drehen(links)], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,2), [Schritte(1)], name: <s3>, corner-radius: 5pt),
+        edge("-|>"),
+        node((1,2), [Drehen(rechts)], corner-radius: 5pt),
+        edge("-|>"),
+        node((1,3), [Schritte(3)], name: <s4>, corner-radius: 5pt),
+        edge("-|>"),
+        node((0,3), [Drehen(rechts)], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,4), [Schritte(1)], name: <s7>, corner-radius: 5pt),
+        edge("-|>"),
+        node((1,4), [Drehen(links)], corner-radius: 5pt),
+        edge("-|>"),
+        node((1,5), [Schritte(2)], corner-radius: 5pt),
+        edge("-|>"),
+        node((0,5), [Ende], shape: ellipse),
+      )
+      #pause
+      Immer noch "Schritt"+"Drehen"! #sym.arrow "Schreibe A" vs. "Setze Pixel"
+  ]
+)
 
 == Beispiel: Zur Tür laufen
   

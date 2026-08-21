@@ -13,6 +13,15 @@
   cover: fletcher.hide,
 )
 
+#let hlnode(enc) = node(
+      enclose: enc,
+      inset: 10pt,
+      snap: false,
+      stroke: blue + 1pt,
+      fill: blue.lighten(90%),
+    )
+
+
 #let htwslides(body) = {
   show: codly-init
 
