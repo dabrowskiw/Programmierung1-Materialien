@@ -434,7 +434,23 @@ Programm von eben als Flussdiagramm:
   ]
 )
 
-== Beispiel: Zur Tür laufen
+
+== Take-aways
+
+Wichtig für Testat (in PCÜ in 2 Wochen)!
+
+- Algorithmus: 
+  - Beschreibt Schritte, um ein Problem zu lösen
+  - Finit, definierte Schritte, Eingaben und Ausgabe, effektiv
+- Flussdiagramm:
+  - Graphische Darstellung eines Algorithmus
+  - Wichtig, korrekt zu zeichnen: Start, Schritte, Fallunterscheidungen, Ende
+- Entwicklung einfacher Algorithmen:
+  - Fallunterscheidungen
+  - Variablen
+  - Schleifen
+
+== Übungsbeispiel: Zur Tür laufen
   
 Annahmen: 
  - Ich schaue schon Richtung Tür.
@@ -468,7 +484,7 @@ Sonstiges:
     node((1,2), [Ende], radius: 1.3em),
   )
 ]
-== Beispiel: Gewichtszone
+== Übungsbeispiel: Gewichtszone
   Über- bzw. Untergewicht ist an BMI schätzbar
 
   $"BMI" = frac("Körpergewicht in kg", "Körpergröße in m"^2)$
@@ -483,7 +499,7 @@ Sonstiges:
     [Weiblich], [\>23.9], [Übergewicht],
   )
 
-== Lösung: Gewichtszone II
+== Lösung: Gewichtszone
 
 #place(top+left)[
     #diagram(
@@ -511,7 +527,7 @@ Sonstiges:
       Aufgabe: Erweitern um Geschlecht. Gruppen (2 oder 3), 10 Minuten
   ]
 
-== Beispiel: Code reuse
+== Lösung: Code reuse
   #place(top+left, dx:-40pt)[
     #place(top+left, dx: 0.3em, dy:0.3em, [*f(w, h, uglimit, nglimit)*])
     #box(stroke: black, inset: (top: 35pt, left: 20pt, right: 20pt, bottom: 20pt),
@@ -519,7 +535,7 @@ Sonstiges:
         #diagram(
           node-stroke: 1pt,
           edge-stroke: 1pt,
-          node((0,1), shape: ellipse, width: 6em, height: 7em, [w=weight\ h=height\ uglimit\ nglimit]),
+          node((0,1), shape: ellipse, width: 6em, height: 7em, [w: weight\ h: height\ uglimit\ nglimit]),
           node((1,0.25), height: 2em, [$"BMI"=frac("w", "h*h")$]),
           node((1,1), shape: diamond, height: 2em, align(center)[BMI < 20?]),
           node((1,1.75), shape: diamond, height: 2em, align(center)[BMI <= 24.9?]),
@@ -542,28 +558,38 @@ Sonstiges:
         edge-stroke: 1pt,
         node((0,0), shape: ellipse, width: 3em, height: 3em, [w, h\ sex]),
         node((0,0.75), shape: diamond, width: 3em, height: 2em, [sex=m?]),
-        node((0, 1.5), [f(w, h, 19, 23.9)]),
-        node((0, 2.25), [f(w, h, 20, 24.9)]),
+        node((0, 1.5), shape: ellipse, height: 2.5em, [f(w, h, 19, 23.9)]),
+        node((0, 2.25), shape: ellipse, height: 2.5em, [f(w, h, 20, 24.9)]),
         edge((0,0), (0,0.75), "-|>"),
         edge((0,0.75), (0,1.5), "-|>", [nein]),
         edge((0,0.75), (0.6, 0.75), (0.6, 2.25), (0,2.25), "-|>", [ja], label-pos: 0.1),
       )
   ]
 
-== Beispiel: Steuersatz berechnen
+== Übungsbeispiel: N! berechnen
 
-  In zweier- oder dreier-Gruppen, 10 Minuten
+$n!$ = Fakultät von n = $1*2*3*...*n$. Annahme: $n >= 1$
 
-  #table(
-    columns: 2,
-    [*Einkommen*], [*Steuersatz*],
-    [0-744€], [0%],
-    [745-14.753€], [14%-24%],
-    [14.754€-57.918€], [24%-42%],
-    [57.919€-274.612€], [42%],
-    [>274.612€], [45%],
+In zweier- oder dreier-Gruppen, 10 Minuten
+
+#pause
+
+#diagram(
+    node-stroke: 1pt,
+    edge-stroke: 1pt,
+    node((0,0), shape: ellipse, height: 3em, [Start\ n: n]),
+    edge("-|>"),
+    node((1, 0), [$"res" = n$]),
+    edge("-|>"),
+    node((2, 0), shape: diamond, [$n = 1$?]),
+    edge("r", "-|>", [ja]),
+    edge("d", "-|>", [nein]),
+    node((3,0), shape: ellipse, [res]),
+    node((2, 1), [$"res" = "res" * n$]),
+    edge("-|>"),
+    node((1, 1), [$n = n - 1$]),
+    edge((1,1), (1, 0.2), (2, 0), "-|>"),
   )
 
-
-
+Trace-Tabelle für n=4 #sym.arrow Tafel
 
