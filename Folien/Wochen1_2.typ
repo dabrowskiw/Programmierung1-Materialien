@@ -255,7 +255,7 @@ Programm von eben als Flussdiagramm:
       stroke: 1pt+black,
       inset: 0.2em,
       [
-      Drehen(Richtung):
+      Drehen(r: Richtung):
         #diagram(
           spacing: (3em, 1em),
           node-stroke: 1pt,
@@ -284,6 +284,9 @@ Programm von eben als Flussdiagramm:
   columns: (1.3fr, 2fr),
   dex1,
   [
+    Argumente:
+      - In Definition/Verwendung:\ "Algorithmusname(Argument1: Datentyp1, ..., ArguentN: DatentypN)"
+      - In Start: "Name: Datentyp"
     Fallunterscheidung:
     - Enthält immer "ja"/"nein"-Frage
     - Hat immer exakt 2 ausgehende Pfeile
@@ -356,12 +359,12 @@ Programm von eben als Flussdiagramm:
       stroke: 1pt+black,
       inset: 0.2em,
       [
-      Schritte(Anzahl):
+      Schritte(n: Zahl):
         #diagram(
           spacing: (1em, 2em),
           node-stroke: 1pt,
           edge-stroke: 1pt,
-          node((0.5,0), [Start\ n: Anzahl], shape: ellipse, width: 7em, height: 3.2em),
+          node((0.5,0), [Start\ n: Zahl], shape: ellipse, width: 7em, height: 3.2em),
           edge("-|>"),
           node((0,1), [gelaufen = 0], corner-radius: 5pt),
           edge("-|>"),
@@ -505,7 +508,7 @@ Sonstiges:
     #diagram(
       node-stroke: 1pt,
       edge-stroke: 1pt,
-      node((0,0), shape: ellipse, width: 7em, height: 3em, [w=weight\ h=height]),
+      node((0,0), shape: ellipse, width: 7em, height: 4em, [Start\ w: Zahl\ h: Zahl]),
       node((1,0), height: 2em, [$"BMI"=frac("w", "h*h")$]),
       node((1,1), shape: diamond, height: 2em, align(center)[BMI < 20?]),
       node((1,2), shape: diamond, height: 2em, align(center)[BMI <= 24.9?]),
@@ -523,22 +526,22 @@ Sonstiges:
 
   #pause
 
-  #place(bottom, dy: -1em)[
+  #place(bottom, dy: -0.5em)[
       Aufgabe: Erweitern um Geschlecht. Gruppen (2 oder 3), 10 Minuten
   ]
 
 == Lösung: Code reuse
   #place(top+left, dx:-40pt)[
-    #place(top+left, dx: 0.3em, dy:0.3em, [*f(w, h, uglimit, nglimit)*])
-    #box(stroke: black, inset: (top: 35pt, left: 20pt, right: 20pt, bottom: 20pt),
+    #place(top+left, dx: 0.3em, dy:0.3em, [*f(w: Zahl, h: Zahl, ug: Zahl, ng: Zahl)*])
+    #box(stroke: black, inset: (top: 35pt, left: 10pt, right: 10pt, bottom: 20pt),
       [
         #diagram(
           node-stroke: 1pt,
           edge-stroke: 1pt,
-          node((0,1), shape: ellipse, width: 6em, height: 7em, [w: weight\ h: height\ uglimit\ nglimit]),
+          node((0,1), shape: ellipse, width: 6em, height: 7em, [Start\ w: Zahl\ h: Zahl\ ug: Zahl\ ng: Zahl]),
           node((1,0.25), height: 2em, [$"BMI"=frac("w", "h*h")$]),
-          node((1,1), shape: diamond, height: 2em, align(center)[BMI < 20?]),
-          node((1,1.75), shape: diamond, height: 2em, align(center)[BMI <= 24.9?]),
+          node((1,1), shape: diamond, height: 2em, align(center)[BMI < ug?]),
+          node((1,1.75), shape: diamond, height: 2em, align(center)[BMI <= ng?]),
           node((2,1), shape: ellipse, width: 6em, height: 3em, [Unter-\ gewicht]),
           node((2,1.75), shape: ellipse, width: 6em, height: 3em, [Normal-\ gewicht]),
           node((0,1.75), shape: ellipse, width: 6em, height: 2em, [Übergewicht]),
@@ -552,11 +555,11 @@ Sonstiges:
       ]
     )
   ]
-  #place(top+right, dx:40pt)[
+  #place(top+right, dx:20pt)[
     #diagram(
         node-stroke: 1pt,
         edge-stroke: 1pt,
-        node((0,0), shape: ellipse, width: 3em, height: 3em, [w, h\ sex]),
+        node((0,0), shape: ellipse, width: 7em, height: 5.5em, [Start\ w: Zahl\ h: Zahl\ sex: Text]),
         node((0,0.75), shape: diamond, width: 3em, height: 2em, [sex=m?]),
         node((0, 1.5), shape: ellipse, height: 2.5em, [f(w, h, 19, 23.9)]),
         node((0, 2.25), shape: ellipse, height: 2.5em, [f(w, h, 20, 24.9)]),
@@ -566,13 +569,9 @@ Sonstiges:
       )
   ]
 
-== Übungsbeispiel: N! berechnen
+== Beispiel: N! berechnen
 
 $n!$ = Fakultät von n = $1*2*3*...*n$. Annahme: $n >= 1$
-
-In zweier- oder dreier-Gruppen, 10 Minuten
-
-#pause
 
 #diagram(
     node-stroke: 1pt,
@@ -591,5 +590,65 @@ In zweier- oder dreier-Gruppen, 10 Minuten
     edge((1,1), (1, 0.2), (2, 0), "-|>"),
   )
 
-Trace-Tabelle für n=4 #sym.arrow Tafel
+== Trace-Tabelle
 
+Für n=4:
+
+#table(
+  columns: (1fr, 1fr, 1fr),
+  table.header(
+    [*Schritt*], [*n*], [*res*]
+  ),
+  [0], [4], [-],
+  [1], [.], [4],
+  [2], [.], [16],
+  [3], [3], [.],
+  [4], [.], [48],
+  [5], [2], [.],
+  [6], [.], [96],
+  [7], [1], [.],
+)
+
+#sym.arrow Ergebnis: 96 #pause Aber stimmt das? #pause $4! = 24$, nicht 96
+
+== Beispiel: N! korrigieren
+
+$n!$ = Fakultät von n = $1*2*3*...*n$. Annahme: $n >= 1$
+
+#diagram(
+    node-stroke: 1pt,
+    edge-stroke: 1pt,
+    node((0,0), shape: ellipse, height: 3em, [Start\ n: n]),
+    edge("-|>"),
+    node((1, 0), [$"res" = n$]),
+    edge("-|>"),
+    node((2, 0), shape: diamond, [$n = 1$?]),
+    edge("r", "-|>", [ja]),
+    edge("d", "-|>", [nein]),
+    node((3,0), shape: ellipse, [res]),
+    node((2, 1), name: <n1>, [$n = n - 1$]),
+    edge("-|>"),
+    node((1, 1), name: <n2>,[$"res" = "res" * n$]),
+    edge((1,1), (1, 0.2), (2, 0), "-|>"),
+    hlnode((<n1>,<n2>)),
+  )
+
+== Trace-Tabelle
+
+Für n=4:
+
+#table(
+  columns: (1fr, 1fr, 1fr),
+  table.header(
+    [*Schritt*], [*n*], [*res*]
+  ),
+  [0], [4], [-],
+  [1], [.], [4],
+  [2], [3], [.],
+  [3], [.], [12],
+  [4], [2], [.],
+  [5], [.], [24],
+  [6], [1], [.],
+)
+
+#sym.arrow Ergebnis: 24
