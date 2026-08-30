@@ -13,12 +13,12 @@
   cover: fletcher.hide,
 )
 
-#let hlnode(enc) = node(
+#let hlnode(enc, col: blue.lighten(90%)) = node(
       enclose: enc,
       inset: 10pt,
       snap: false,
       stroke: blue + 1pt,
-      fill: blue.lighten(90%),
+      fill: col,
     )
 
 #let colorsPrimary = rgb("#76b900")

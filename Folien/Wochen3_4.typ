@@ -223,10 +223,12 @@ public class HelloWorld {
 
 
 
-== BMI in Java
+== Bedingungen in Java
 
+ja/nein #sym.arrow `if-else`, `{}` definieren Codeblock
+    
 #grid(
-  columns: (1fr, 1fr),
+  columns: (1.2fr, 1fr),
   [
     #diagram(
       spacing: (1em, 1em),
@@ -235,19 +237,50 @@ public class HelloWorld {
       node((0,0), shape: ellipse, width: 7em, height: 4em, [Start\ w: Zahl\ h: Zahl]),
       node((1,0), height: 2em, [$"BMI"=frac("w", "h*h")$]),
       node((1,1), shape: diamond, height: 1.5em, align(center)[$"BMI" < 20$]),
-      node((1,2), shape: diamond, height: 1.5em, align(center)[$"BMI" <= 24.9$]),
-      node((0,1), shape: ellipse, width: 7em, height: 2em, [Untergewicht]),
-      node((1,3), shape: ellipse, width: 7em, height: 2em, [Normalgewicht]),
-      node((0,2), shape: ellipse, width: 7em, height: 2em, [Übergewicht]),
+      node((1,2), shape: diamond, height: 1.5em, align(center)[$"BMI" <= 24.9$], name: <n2_3>),
+      node((0,1), shape: ellipse, width: 7em, height: 2em, [Untergewicht], name: <n1>),
+      node((1,3), shape: ellipse, width: 7em, height: 2em, [Normalgewicht], name: <n2_1>),
+      node((0,2), shape: ellipse, width: 7em, height: 2em, [Übergewicht], name: <n2_2>),
       edge((0,0), (1,0), "-|>"),
       edge((1,0), (1,1), "-|>"),
       edge((1,1), (0,1), "-|>", [ja]),
       edge((1,2), (1,3), "-|>", [ja]),
       edge((1,2), (0,2), "-|>", [nein]),
       edge((1,1), (1,2), "-|>", [nein]),
+      hlnode(((<n1>))),
+      hlnode(((<n2_1>, <n2_2>, <n2_3>)), col: orange.lighten(90%)),
     )
   ],
   [
+    #codly(
+      highlighted-lines: (
+        (5, blue.lighten(60%)),
+        (8, orange.lighten(60%)),
+        (9, orange.lighten(60%)),
+        (10, orange.lighten(60%)),
+        (11, orange.lighten(60%)),
+        (12, orange.lighten(60%)),
+        (13, orange.lighten(60%)),
+      )
+    )
+    ```java
+public class Main {
+  public static String bmi(double w, double h) {
+    double BMI = w/(h*h);
+    if(BMI < 20) {
+      return "Untergewicht";
+    }
+    else { 
+      if(BMI <= 24.9) {
+        return "Normalgewicht";
+      }
+      else {
+        return "Übergewicht";
+      }
+    }
+  }
+}
+    ```
   ]
 )
 
