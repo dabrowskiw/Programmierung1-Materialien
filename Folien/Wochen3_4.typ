@@ -221,8 +221,6 @@ public class HelloWorld {
     - `boolean`: Ja/nein (`true` oder `false`)
     - `String`: Text mit mehreren Zeichen hintereinander
 
-
-
 == Bedingungen in Java
 
 ja/nein #sym.arrow `if-else`, `{}` definieren Codeblock
@@ -284,6 +282,67 @@ public class Main {
   ]
 )
 
+== Dateneingabe
+
+Wo kommen die Werte her? Spezialisierte Methoden, z.B. für:
+- Dateien (später)
+- GUI (nächstes Semester)
+- Texteingabe: Scanner-Klasse
+  - Erstellen einer Scanner-Variable:\ `Scanner myScanner = new Scanner(System.in);`\ Details warum `new`: Später
+  - Einlesen mittels z.B.:
+    - `int`: `Scanner.nextInt()`
+    - `double`: `Scanner.nextDouble()`
+    - `String`: `Scanner.nextLine()`
+
+== Beispiel Dateneingabe
+
+#grid(
+  columns: (1.2fr, 1fr),
+  [
+    Algorithmus-Idee:
+    #diagram(
+      spacing: (1em, 1em),
+      node-stroke: 1pt,
+      edge-stroke: 1pt,
+      node((0,0), shape: ellipse, [Start]),
+      edge("-|>"),
+      node((1,0), [Ausgabe:\ "Höhe?"]),
+      edge("-|>"),
+      node((1,1), [h=einlesen\ mit Scanner]),
+      edge("-|>"),
+      node((0,1), [Ausgabe:\ "Gewicht?"]),
+      edge("-|>"),
+      node((0,2), [w=einlesen\ mit Scanner]),
+      edge("-|>"),
+      node((1,2), [gew=bmi(w, h)]),
+      edge("-|>"),
+      node((1,3), [Ausgabe:\ "Sie haben "+gew]),
+      edge("-|>"),
+      node((0,3), shape: ellipse, [Ende]),
+      
+    )
+  ],
+  [
+    ```java
+public class Main {
+  public static String bmi(double w, double h) {
+    double BMI = w/(h*h);
+    if(BMI < 20) {
+      return "Untergewicht";
+    }
+    else { 
+      if(BMI <= 24.9) {
+        return "Normalgewicht";
+      }
+      else {
+        return "Übergewicht";
+      }
+    }
+  }
+}
+    ```
+  ]
+)
 
 
 == Funktionen in Java
