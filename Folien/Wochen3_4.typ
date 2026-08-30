@@ -12,68 +12,250 @@
 
 - Neben Strukturdiagrammen gibt es viele Programmiersprachen
 
-#sourcecode[```python
+```python
 vals = [1, 6, 5, 3]
 for i in range(0, len(vals)):
     print(vals[i])
-```]
+```
 
-#sourcecode[```c++
+```c
 #include <iostream>
 int vals[4] = {1, 6, 5, 3};
 for(int i=0; i<sizeof(vals)/sizeof(int); i+=1) {
     std::cout << vals[i] << "\n";
 }
-```]
+```
 
 
-== Java
+== Warum Java?
 
-- Weit eingesetzte Programmiersprache
+- Ist eine breit eingesetzte Programmiersprache
 - Kümmert sich um Speicherverwaltung (anders als bspw. C)
 - Besitzt viele Komfort-Features
 - Beliebt auf dem Markt
 
+== Verwendung von LLMs
+
+- Trotz LLMs:
+  - Selber programmieren können ist wichtig!
+  - Unbedingt Code ausprobieren, verändern, selber schreiben (nicht copy-paste)!
+  - Sonst: Kein Verständnis, Halluzinationen #sym.arrow wertlos auf dem Arbeitsmarkt, Studium = verschwendete Zeit
+- Realität: Viel Code von LLMs generiert
+  - Wichtig: Selber den Algorithmus entwickeln und verstehen!
+  - Richtige Tools verwenden statt einfach Aufgabe in ChatGPT pasten
+#sym.arrow In späteren Wochen Verwendung von lokalen LLMs\ 
+#sym.arrow Testate mit Papier- und Programmier-Anteil!
+
 == Erstes Java-Programm
 
-#sourcecode[```java
+```java
 // Jede Klasse muss in gleichnamiger Datei stehen
 // Jeder Java-Code muss in einem Klassen-Block stehen: {}
 public class HelloWorld {
   // Code ist in Methoden unterteilt. Anweisungen in 
   // Methoden-Blöcken
   // Spezielle Methode main: Startpunkt eines Programms
-  public static void main(String[] args) {
+  public static void main() {
     // System.out.println: Bildschirmausgabe    
     System.out.println("Hello, world!");
     // Jede Zeile muss mit einem       ; enden
   }
   // Jede geöffnete Klammer muss geschlossen werden
 }
-```]
+```
 
+HelloWorld.main() (Klassenname.Methodenname):\ 
+#diagram(
+  spacing: (3em, 1em),
+  node-stroke: 1pt,
+  edge-stroke: 1pt,
+  node((0,0), [Start], radius: 1.3em),
+  edge("-|>"),
+  node((1,0), [println("Hello, world!")], corner-radius: 5pt),
+  edge("-|>"),
+  node((2,0), [Ende], radius: 1.3em),
+)
+
+== Allgemeine Struktur eines Java-Programms
+
+
+#grid(
+  columns: (1fr, 1.2fr),
+  gutter: 0.5em,
+  [
+    ```java
+    public class Klassenname {
+      public static void methode1() {
+        anweisung1;
+        anweisung2;
+        //...
+        anweisungN1;
+      }
+      public static void methode2() {
+        anweisung1;
+        anweisung2;
+        //...
+        anweisungN2;
+      }
+      //...
+      public static void methodeM() {
+        anweisung1;
+        anweisung2;
+        //...
+        anweisungN3;
+      }
+    }
+    ```
+  ],
+  [
+    Hierarchisch aufgebaut: 
+    - Klasse 
+      - Methode 
+        - Anweisungen
+
+    Anweisungen:
+    - Werden nacheinander abgearbeitet
+    - Können sein:
+      - #effect(text.with(fill: colorsSecondary), "2-")[Variable erstellen]
+      - #effect(text.with(fill: colorsSecondary), "2-")[Variablenwert ändern]
+      - #effect(text.with(fill: colorsSecondary), "2-")[Methode aufrufen]
+      - Bedingung/Schleife
+      - Rückgabe
+  ]
+)
 
 == Variablen in Java
 
-#sourcecode[```java
+HelloWorld.main():\ 
+#diagram(
+  spacing: (1em, 1em),
+  node-stroke: 1pt,
+  edge-stroke: 1pt,
+  node((0,0), [Start], radius: 1.3em),
+  edge("-|>"),
+  node((1,0), [i=0], corner-radius: 5pt),
+  edge("-|>"),
+  node((2,0), [k=3], corner-radius: 5pt),
+  edge("-|>"),
+  node((3,0), [i=i+1], corner-radius: 5pt),
+  edge("-|>"),
+  node((4,0), [i=(k+3*i)%2], corner-radius: 5pt),
+  edge("-|>"),
+  node((5,0), [System.out.print(i)], corner-radius: 5pt),
+  edge("-|>"),
+  node((6,0), [Ende], radius: 1.3em),
+)
+```java
 public class HelloWorld {
-  public static void main(String[] args) {
-    // Variablen (hier: Zahlen) deklarieren und initialisieren
+  public static void main() {
+    // Variablen (hier: Zahlen) erstellen: deklarieren und initialisieren
     int i = 0;
     int k = 3;
-    // Wert von i um 1 erhöhen
+    // Variablenwert ändern: Wert von i um 1 erhöhen
     i ++;
     // Mathematische Operationen (hier: +, * und Modulo)
     i = (k + 3*i) % 2;
+    // Methode aufrufen
     System.out.print(i);
   }
 }
-```]
+```
+
+== Eigene Methoden in Java
+
+#grid(
+  columns: (1fr, 1fr),
+  [
+    HelloWorld.printNumber(n: Zahl)
+    #diagram(
+      spacing: (1em, 1em),
+      node-stroke: 1pt,
+      edge-stroke: 1pt,
+      node((0,0), shape: ellipse, width: 5em, [Start\ n: Zahl]),
+      edge("-|>"),
+      node((0, 1), [System.out.print(n)]),
+      edge("-|>"),
+      node((0,2), shape: ellipse, [Ende]),
+    )
+    HelloWorld.main()
+    #diagram(
+      spacing: (1em, 1em),
+      node-stroke: 1pt,
+      edge-stroke: 1pt,
+      node((0,0), shape: ellipse, [Start]),
+      edge("-|>"),
+      node((0, 1), [printNumber(10)]),
+      edge("-|>"),
+      node((0,2), shape: ellipse, [Ende]),
+    )
+  ],
+  [
+    ```java
+    public class HelloWorld {
+      public static void printNumber(int n) {
+        System.out.println(n);
+      }
+      public static void main() {
+        printNumber(10);
+      }
+    }
+    ```
+    Java: Explizite Datentypen
+    - `int n` = "n: Zahl"
+    - `void printNumber` = "Ende" ohne Rückgabe
+  ]
+)
+
+== Exkurs Datentypen
+
+- Wir arbeiten mit Zahlen, Texten
+- Aber: Eigentlich kann der Computer nur 1 und 0 (bit)
+- Binärsystem: 
+    - Wie 10er-System, aber mit nur 2 Ziffern.
+    - Umrechnung mit 2er statt 10er Potenzen, Beispiel: Addition
+- Definierte Breite einer Zahl: 8 bit = 1 byte -> 0 - 255
+- Datentypen: Sagen dem Computer, was der Speicherinhalt bedeutet
+    - `int`, `long`: Ganze Zahl
+    - `float`, `double`: Gleitkommazahl #sym.arrow Mantisse+Exponent
+    - `char`: Buchstabe (mit Hochkomma: `char x = 'a';`) #sym.arrow ASCII-Tabelle
+    - `boolean`: Ja/nein (`true` oder `false`)
+    - `String`: Text mit mehreren Zeichen hintereinander
+
+
+
+== BMI in Java
+
+#grid(
+  columns: (1fr, 1fr),
+  [
+    #diagram(
+      spacing: (1em, 1em),
+      node-stroke: 1pt,
+      edge-stroke: 1pt,
+      node((0,0), shape: ellipse, width: 7em, height: 4em, [Start\ w: Zahl\ h: Zahl]),
+      node((1,0), height: 2em, [$"BMI"=frac("w", "h*h")$]),
+      node((1,1), shape: diamond, height: 1.5em, align(center)[$"BMI" < 20$]),
+      node((1,2), shape: diamond, height: 1.5em, align(center)[$"BMI" <= 24.9$]),
+      node((0,1), shape: ellipse, width: 7em, height: 2em, [Untergewicht]),
+      node((1,3), shape: ellipse, width: 7em, height: 2em, [Normalgewicht]),
+      node((0,2), shape: ellipse, width: 7em, height: 2em, [Übergewicht]),
+      edge((0,0), (1,0), "-|>"),
+      edge((1,0), (1,1), "-|>"),
+      edge((1,1), (0,1), "-|>", [ja]),
+      edge((1,2), (1,3), "-|>", [ja]),
+      edge((1,2), (0,2), "-|>", [nein]),
+      edge((1,1), (1,2), "-|>", [nein]),
+    )
+  ],
+  [
+  ]
+)
+
 
 
 == Funktionen in Java
 
-#sourcecode[```java
+```java
 public class StackBeispiel {
   // Definition einer eigenen Funktion mit 2 Argumenten
   public static void pn(int from, int to, int by) {
@@ -87,7 +269,7 @@ public class StackBeispiel {
     pn(1, 12, 2);
   }
 }
-```]
+```
 
 = Speicherorganisation
 
@@ -124,7 +306,7 @@ Scope ergibt sich aus Stack:
 
 == Scope
 
-#sourcecode[```java
+```java
 public class StackBeispiel {
   public static void pn(int from, int to, int by) {
     for(; from<to; from += by) {
@@ -137,12 +319,12 @@ public class StackBeispiel {
     System.out.println("From: " + from); // 0 oder 100?
   }
 }
-```]
+```
 
 
 == Scope
 
-#sourcecode[```java
+```java
 public class StackBeispiel {
 public static void pn(int from, int to, int by) {
 for(; from<to; from += by) {
@@ -155,11 +337,11 @@ pn(from, 100, 2);
 System.out.println("From: " + from); // 0 oder 100?
 }
 }
-```]
+```
 
 == Scope
 
-#sourcecode[```
+```
 public class StackBeispiel {
 public static void pn(int from, int to, int by) {
 for(; from<to; from += by) {
@@ -172,22 +354,7 @@ pn(from, 100, 2);
 System.out.println("From: " + from); // 0 oder 100?
 }
 }
-```]
-
-
-== Datentypen
-
-- Bisher angenommen: Ein Wert = eine Speicheradresse
-- Aber: Eigentlich kann der Computer nur 1 und 0 (bit)
-- Binärsystem: 
-    * Wie 10er-System, aber mit nur 2 Ziffern.
-    * Umrechnung mit 2er statt 10er Potenzen, Beispiel: Addition
-- Definierte Breite einer Zahl: 8 bit = 1 byte -> 0 - 255
-- Datentypen: Sagen dem Computer, was der Speicherinhalt bedeutet
-    - `int`, `long`: Ganze Zahl
-    - `float`, `double`: Gleitkommazahl
-    - `char`: Buchstabe (mit Hochkomma: `char x = 'a';`)
-    - `boolean`: Ja/nein (`true` oder `false`)
+```
 
 
 == Herausforderungen
@@ -268,13 +435,13 @@ columns: 4,
 
 == Programmcode -> Bytecode
 
-  #sourcecode[```java
+  ```java
 for(int i=0; i<10; i++) {
   System.out.print(i);
 }
-```]
+```
 
-#sourcecode[```asm
+```asm
 90: put 69 0          
 93: put 68 10
 96: jeq 69 68 107
@@ -282,7 +449,7 @@ for(int i=0; i<10; i++) {
 102: add i 1
 105: jmp 96
 107: Programmende (0)
-```]
+```
 
 #v(-0.5cm)
 Programm: 90: 5 69 0 5 68 10 2 69 68 107 1 69 3 69 1 4 96 0

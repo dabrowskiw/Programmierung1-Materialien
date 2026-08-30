@@ -21,6 +21,12 @@
       fill: blue.lighten(90%),
     )
 
+#let colorsPrimary = rgb("#76b900")
+
+#let colorsSecondary = rgb("#0082D1")
+
+#let colorsTertiary = rgb("#FF5F00")
+
 
 #let htwslides(body) = {
   show: codly-init
@@ -41,9 +47,9 @@
     short-date: "WiSe 26/27",
     author: "Prof. Dr.-Ing. Piotr Wojciech Dabrowski",
     config-colors(
-      primary: rgb("#76b900"),
-      secondary: rgb("#0082D1"),
-      tertiary: rgb("#FF5F00"),
+      primary: colorsPrimary,
+      secondary: colorsSecondary,
+      tertiary: colorsTertiary,
       neutral-lightest: rgb("#ffffff"),
       neutral-darkest: rgb("#000000"),
     )
