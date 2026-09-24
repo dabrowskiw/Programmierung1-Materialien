@@ -27,15 +27,15 @@
 
 == Fahrplan
 
-- Logik-Übungen mit Flussdiagrammen (2 Wochen) #sym.arrow *Testat 1*:
+- Logik-Übungen mit Flussdiagrammen (2 Wochen):
   - Entwicklung eines Algorithmus aus Fragestellung
   - Grundlegende Funktionsweise einer Programmiersprache
-- Java-Einführung (4 Wochen) #sym.arrow *Testat 2*:
+- Java-Einführung (4 Wochen):
   - Grundlegender Programmaufbau
-  - Primitive Datentypen
+  - Primitive Datentypen, Arrays
   - Methoden, Stack, Heap
-  - Tooling (IDE, Debugging, KI)
-- Anwendungsaufgaben (ca. 6-8 Wochen) #sym.arrow *Testat 3*:
+  - Tooling (IDE, Debugging)
+- Anwendungsaufgaben (ca. 6 Wochen):
   - Grundlagen der Objektorientierung
   - Dateioperationen
   - Eigenes Noten-zu-Tonausgabe-Programm entwickeln
@@ -68,7 +68,21 @@
   - Egal welche, es gibt viele
   - Konkrete Schreibweise: "X for Y programmers"-Bücher, KI
 - Wichtigster Skill: Problem verstehen, Algorithmus entwickeln
-#sym.arrow Testate enthalten *Papier-Teil ohne Computer-Hilfe*!
+
+== Exkurs KI
+
+KI ist ein Werkzeug. Ergänzt *Wissen*, ersetzt kein *Verständnis*! Einsatzszenario "Fleißiger Junior":
+- Kann stupide Coding-Aufgaben ersetzen
+- Kann bei Debugging helfen und Code erklären
+- Macht Fehler
+- Versteht nicht das "big picture"
+#sym.arrow Um KI gut einzusetzen, muss man es selber verstehen!
+
+Probleme bei "ChatGPT kann das doch auch":
+- Studie Leistungsverlust/Durchhaltevermögen: Es macht dümmer!
+- Arbeitsmarkt: 3 Jahre studieren vs. "prompt to product in 3 days"?
+
+Ausnahme KI-Tutor (siehe Moodle): Denkhilfen, keine Lösungen!
 
 = Algorithmen
 
@@ -428,7 +442,7 @@ Programm von eben als Flussdiagramm:
 
 == Take-aways
 
-Wichtig für Testat (in PCÜ in 2 Wochen)!
+Wichtig für Prüfung!
 
 - Algorithmus: 
   - Beschreibt Schritte, um ein Problem zu lösen
