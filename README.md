@@ -1,3 +1,3 @@
-Materialien (Folien, Skript und Aufgabenblätter) für das Modul Programmierung 1 im Bachelor-Studiengang [Informatik in Kultur und Gesundheit](https://ikg.htw-berlin.de/) an der [HTW Berlin](https://www.htw-berlin.de).
+Materialien (Folien, Cheatsheets und Hausaufgaben) für das Modul Programmierung 1 im Bachelor-Studiengang [Informatik in Kultur und Gesundheit](https://ikg.htw-berlin.de/) an der [HTW Berlin](https://www.htw-berlin.de).
 
-Das Skript lässt sich einfach mit `pandoc -o ausgabe.pdf eingabe.md` in PDF konvertieren. Die Folien sind mit [typst](https://typst.app/) geschrieben und lassen sich am besten lokal mit dem typst-Compiler in PDF konvertieren. Für HTW-Studierende sind die Folien als PDF in Moodle verfügbar.
+Die Folien sind mit [typst](https://typst.app/) geschrieben und lassen sich am besten lokal mit dem typst-Compiler in PDF konvertieren (z.B. `typst compile Wochen1_2.typ`). Für HTW-Studierende sind die Folien als PDF in Moodle verfügbar.
