@@ -17,23 +17,11 @@
   - Regelmäßige Hausaufgaben
   - Zusatzaufgaben zum selber üben
   - Fragen stellen (Forum, SL)! 
-- Prüfungsleistung: 
-  - Wie Hausaufgabe, aber:
-    - Größer (2-3 Wochen)
-    - Einfacher
-  - Voraussetzung: 2 von 3 Testaten bestanden 
-    - Enthält Papier-Aufgabe! Nur KI #sym.arrow Keine Zulassung!
-    - Keine Ausnahmen, kein Nachholen! #sym.arrow Rechtzeitig kommen!
-
-== Boni
-
-- Alternative zu Prüfungsleistung: Projekt
-  - Rechtzeitig mit mir reden, um Umfang zu definieren
-  - Muss alle Konzepte des Moduls beinhalten
-  - Thema ist egal, Sprache muss Java sein
-  - Vorstellung am Semesterende
-  - Gleiche Zulassungsvoraussetzung wie Prüfung!
-- Bonuspunkte für Verbesserungsvorschläge (siehe #link("https://github.com/dabrowskiw/Programmierung1-Materialien/tree/IKGneu")[#underline("git-repo")]): 2.5% für Vorschlag, 5% für Code (mail, pull request), max. 2/Semester
+- Prüfung: Klausur
+  - Verständnis- und Programmierteil
+  - *Keine* KI-Unterstützung!
+  - Absolute Voraussetzung: Lauffähigen Code selber schreiben können
+- Bonuspunkte für Verbesserungsvorschläge (siehe #link("https://github.com/dabrowskiw/Programmierung1-Materialien/tree/WiSe2627")[#underline("git-repo")]): 2.5% für Vorschlag, 5% für Code (mail, pull request), max. 2/Semester
 
 = Allgemeine Hintergründe
 
