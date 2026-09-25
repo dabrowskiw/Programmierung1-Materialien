@@ -26,6 +26,7 @@ for(int i=0; i<sizeof(vals)/sizeof(int); i+=1) {
 }
 ```
 
+Was tut dieser Code? Ideen, ohne Python/C++ zu können?
 
 == Warum Java?
 
@@ -38,13 +39,15 @@ for(int i=0; i<sizeof(vals)/sizeof(int); i+=1) {
 
 - Trotz LLMs:
   - Selber programmieren können ist wichtig!
-  - Unbedingt Code ausprobieren, verändern, selber schreiben (nicht copy-paste)!
+  - Unbedingt Code ausprobieren, verändern, selber schreiben!
   - Sonst: Kein Verständnis, Halluzinationen #sym.arrow wertlos auf dem Arbeitsmarkt, Studium = verschwendete Zeit
 - Realität: Viel Code von LLMs generiert
   - Wichtig: Selber den Algorithmus entwickeln und verstehen!
   - Richtige Tools verwenden statt einfach Aufgabe in ChatGPT pasten
-#sym.arrow In späteren Wochen Verwendung von lokalen LLMs\ 
-#sym.arrow Testate mit Papier- und Programmier-Anteil!
+  - In Programmierung 1: Nur selber Code schreiben, Grundlage!
+#sym.arrow Klausur direkt in VPL:
+  - Kaum Syntax-Unterstützung, keine Code Completion
+  - *kein lauffähiger Code = durchgefallen*.
 
 == Erstes Java-Programm
 
@@ -116,9 +119,9 @@ HelloWorld.main() (Klassenname.Methodenname):\
     Anweisungen:
     - Werden nacheinander abgearbeitet
     - Können sein:
-      - #effect(text.with(fill: colorsSecondary), "2-")[Variable erstellen]
-      - #effect(text.with(fill: colorsSecondary), "2-")[Variablenwert ändern]
-      - #effect(text.with(fill: colorsSecondary), "2-")[Methode aufrufen]
+      - Variable erstellen
+      - Variablenwert ändern
+      - Methode aufrufen
       - Bedingung/Schleife
       - Rückgabe
   ]
@@ -206,10 +209,9 @@ public class HelloWorld {
   ]
 )
 
-== Exkurs Datentypen
+== Grundvokabular: Datentypen
 
-- Wir arbeiten mit Zahlen, Texten
-- Aber: Eigentlich kann der Computer nur 1 und 0 (bit)
+Wir arbeiten mit Zahlen, Texten. Aber Computer kann nur 1 und 0 (bit)?
 - Binärsystem: 
     - Wie 10er-System, aber mit nur 2 Ziffern.
     - Umrechnung mit 2er statt 10er Potenzen, Beispiel: Addition
@@ -217,9 +219,94 @@ public class HelloWorld {
 - Datentypen: Sagen dem Computer, was der Speicherinhalt bedeutet
     - `int`, `long`: Ganze Zahl
     - `float`, `double`: Gleitkommazahl #sym.arrow Mantisse+Exponent
-    - `char`: Buchstabe (mit Hochkomma: `char x = 'a';`) #sym.arrow ASCII-Tabelle
+    - `char`: Buchstabe (mit Hochkomma: `char x = 'a';`) #sym.arrow ASCII
     - `boolean`: Ja/nein (`true` oder `false`)
-    - `String`: Text mit mehreren Zeichen hintereinander
+    - `String`: Text mit mehreren Zeichen hintereinander (mit Anführungsstrichen: `String text = "Text";`)
+
+== Speicherinterpretation: Datentypen
+
+Was bedeutet `01001000 01101001`?
+- Zwei `byte`: 72, 105?
+- Ein `short`: 18537?
+- Zwei `char`: "H", "i"?
+
+-> Datentypen müssen in Java deklariert werden und *ändern die Bedeutung* von Variablen - z. B. `00110111` kann die Zahl 55 oder das Zeichen "7" sein (aber niemals die Zahl 7)! 
+
+
+== Grundvokabular: Java-Programm
+
+#let col_declaration=rgb("#8A7420")
+#let col_assignment=rgb("#BA06A8")
+#let col_jump=rgb("#004FE0")
+#let col_control=rgb("#969696")
+
+#only("2-")[
+  #codly(
+    annotation-format: none,
+    annotations: (
+      (start: 1, end: 1, content: [Klassendefinition]),
+      (start: 2, end: 2, content: [Beginn Codeblock (Klasse)]),
+      (start: 3, end: 3, content: [Methodendefinition]),
+      (start: 4, end: 4, content: [Beginn Codeblock (Methode)]),
+      (start: 5, end: 5, content: [#text(col_declaration)[Variablen-Deklaration]]),
+      (start: 6, end: 6, content: [#text(col_assignment)[Zuweisung Variable=Ausdruck]]),
+      (start: 7, end: 7, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 8, end: 8, content: [#text(col_assignment)[Compound assignment]]),
+      (start: 9, end: 9, content: [#text(col_jump)[Methodenaufruf]]),
+      (start: 10, end: 10, content: [#text(col_jump)[Rückgabe]]),
+      (start: 11, end: 11, content: [Ende Codeblock (Methode)]),
+      (start: 12, end: 12, content: [Ende Codeblock (Klasse)]),
+
+    ),
+    highlights: (
+      (line: 6, start: 11, end: 13, fill: orange, tag: "(Ausdruck)"),
+      (line: 7, start: 21, end: 25, fill: blue, tag: "(String literal)"),
+      (line: 8, start: 15, end: 18, fill: blue, tag: "(String literal)"),
+      (line: 9, start: 24, end: 35, fill: orange, tag: "(Ausdruck)"),
+    )
+  )
+]
+
+```java
+public class HelloWorld 
+{
+  public static int triple(int n) 
+  {
+    int res;
+    res = n*3;
+    String prefix = "res";
+    prefix += ": ";
+    System.out.println(prefix + res);
+    return res;
+  }
+}
+```
+
+#only(2)[
+  #grid(
+    columns: (1fr, 1fr),
+    gutter: 1em,
+    [
+      Anweisung: Aktion/Befehl
+      - #text(col_declaration)[Deklarationsanweisung]
+      - #text(col_assignment)[Zuweisungsanweisung]
+      - #text(col_jump)[Sprunganweisung]
+    ],
+    [
+      Ausdruck: Berechnung
+      - Liefert einen Wert
+      - Verschachtelbar
+      - Ändert nichts (außer #text(col_assignment)[compound])
+    ]
+  )
+]
+
+#only(3)[
+Warum ist das wichtig? Korrektes Fachvokabular ist nötig für:
+- Gemeinsame Sprache in Informatik
+- Unterstützung bei Übungsaufgaben
+- Prüfung
+]
 
 == Bedingungen in Java
 
@@ -253,22 +340,28 @@ ja/nein #sym.arrow `if-else`, `{}` definieren Codeblock
     #codly(
       highlighted-lines: (
         (5, blue.lighten(60%)),
-        (8, orange.lighten(60%)),
+        (6, blue.lighten(60%)),
+        (7, blue.lighten(60%)),
         (9, orange.lighten(60%)),
         (10, orange.lighten(60%)),
         (11, orange.lighten(60%)),
         (12, orange.lighten(60%)),
         (13, orange.lighten(60%)),
+        (14, orange.lighten(60%)),
+        (15, orange.lighten(60%)),
+        (16, orange.lighten(60%)),
       )
     )
     ```java
 public class Main {
   public static String bmi(double w, double h) {
     double BMI = w/(h*h);
-    if(BMI < 20) {
+    if(BMI < 20) 
+    {
       return "Untergewicht";
     }
-    else { 
+    else 
+    { 
       if(BMI <= 24.9) {
         return "Normalgewicht";
       }
@@ -281,6 +374,159 @@ public class Main {
     ```
   ]
 )
+
+== Bedingungen: if-else if-else
+
+#only(2)[
+  #codly(
+    annotation-format: none,
+    annotations: (
+      (start: 1, end: 1, content: [Klassendefinition]),
+      (start: 2, end: 2, content: [Methodendefinition]),
+      (start: 3, end: 3, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 4, end: 4, content: [#text(col_control)[Kontrollfluss-Anweisung]]),
+      (start: 5, end: 5, content: [#text(col_jump)[Rückgabe]]),
+      (start: 7, end: 7, content: [#text(col_control)[Kontrollfluss-Anweisung]]),
+      (start: 8, end: 8, content: [#text(col_jump)[Rückgabe]]),
+      (start: 10, end: 10, content: [#text(col_control)[Kontrollfluss-Anweisung]]),
+      (start: 11, end: 11, content: [#text(col_jump)[Rückgabe]]),
+
+    ),
+    highlights: (
+      (line: 3, start: 18, end: 24, fill: orange, tag: "(Ausdruck)"),
+      (line: 4, start: 8, end: 15, fill: orange, tag: "(Ausdruck)"),
+      (line: 7, start: 13, end: 23, fill: orange, tag: "(Ausdruck)"),
+      (line: 5, start: 14, end: 27, fill: blue, tag: "(String literal)"),
+      (line: 8, start: 14, end: 28, fill: blue, tag: "(String literal)"),
+      (line: 11, start: 14, end: 27, fill: blue, tag: "(String literal)"),
+    )
+  )
+]
+
+```java
+public class Main {
+  public static String bmi(double w, double h) {
+    double BMI = w/(h*h);
+    if(BMI < 20) {
+      return "Untergewicht";
+    }
+    else if(BMI <= 24.9) {
+      return "Normalgewicht";
+    }
+    else {
+      return "Übergewicht";
+    }
+  }
+}
+``` 
+#only(2)[
+  - `if`, `else if` (1-n Mal), `else`: #text(col_control)[Kontrollfluss-Answeisungen]
+  - `if`, `else if`: Benötigen Ausdruck, der zu `true`/`false` evaluiert
+
+]
+
+== Schleifen in Java
+
+#only("1-3")[
+  `while`: Tue Dinge in Codeblock immer wider, so lange Ausdruck `true` ist
+]
+#only("4-")[
+  `for`: Wie while, aber mit Initialisierung und Änderung Zählvariable
+]
+
+#grid(
+  columns: (1fr, 1fr),
+  [
+    #diagram(
+      spacing: (1em, 1em),
+      node-stroke: 1pt,
+      edge-stroke: 1pt,
+      node((0,0), shape: ellipse, width: 7em, height: 4em, [Start\ out: Zahl]),
+      edge("-|>"),
+      node((1,0), [n=out]),
+      edge("-|>"),
+      node((1,1), shape: diamond, height: 1.5em, align(center)[$n >= 0$], name: <n0>),
+      node((0,1), [Ausgabe: out], name: <n1>),
+      edge("-|>"),
+      node((0,2), [n=n-1], name: <n2>),
+      edge((0,2), (0,1), "-|>"),
+      node((1,3), shape: ellipse, [Ende]),
+      edge((1,1), (0,1), "-|>", [ja]),
+      edge((1,1), (1,3), "-|>", [nein]),
+      hlnode((<n0>, <n1>, <n2>)),
+    )
+  ],
+  [
+    #only("1-3")[
+
+      #codly(
+        highlighted-lines: (
+          (4, blue.lighten(60%)),
+          (5, blue.lighten(60%)),
+          (6, blue.lighten(60%)),
+          (7, blue.lighten(60%)),
+        )
+      )
+      ```java
+public class Main {
+  public static void pn(int out) {
+    int n = out;
+    while(n >= 0) {
+      System.out.println(out);
+      n -= 1;
+    }
+  }
+}
+      ```
+    ]
+    #only("4-")[
+
+      #codly(
+        highlighted-lines: (
+          (3, blue.lighten(60%)),
+          (4, blue.lighten(60%)),
+          (5, blue.lighten(60%)),
+        )
+      )
+      ```java
+public class Main {
+  public static void pn(int out) {
+    for(int n=out; n >= 0; n-=1) {
+      System.out.println(out);
+    }
+  }
+}
+      ```
+    ]
+
+    #only(2)[
+      Was ist (Fachvokabular):
+      - `while`?
+      - `n >= 0`?
+    ]
+    #only(3)[
+      Was ist (Fachvokabular):
+      - `while`: #text(col_control)[Kontrollfluss-Anweisung]
+      - `n >= 0`: Ausdruck
+    ]
+    #only(4)[
+      Was ist (Fachvokabular):
+      - `for`?
+      - `int n=out`?
+      - `n >= 0`?
+      - `n -= 1`?
+    ]
+    #only(5)[
+      Was ist (Fachvokabular):
+      - `for`: #text(col_control)[Kontrollfluss-Anweisung]
+      - `int n=out`: #text(col_declaration)[Deklarations-] mit #text(col_assignment)[Zuweisungs-Anweisung]
+      - `n >= 0`: Ausdruck
+      - `n-=1`: #text(col_assignment)[Zuweisungs-Anweisung]
+    ]
+  ]
+)
+
+
 
 == Dateneingabe
 
@@ -297,7 +543,8 @@ Wo kommen die Werte her? Spezialisierte Methoden, z.B. für:
 == Beispiel Dateneingabe
 
 #grid(
-  columns: (1.2fr, 1fr),
+  columns: (1fr, 1.15fr),
+  gutter: 1em,
   [
     Algorithmus-Idee:
     #diagram(
@@ -325,51 +572,31 @@ Wo kommen die Werte her? Spezialisierte Methoden, z.B. für:
   [
     ```java
 public class Main {
-  public static String bmi(double w, double h) {
-    double BMI = w/(h*h);
-    if(BMI < 20) {
-      return "Untergewicht";
-    }
-    else { 
-      if(BMI <= 24.9) {
-        return "Normalgewicht";
-      }
-      else {
-        return "Übergewicht";
-      }
-    }
+  public static void main() {
+    Scanner s = new Scanner(System.in);
+    System.out.print("Höhe?");
+    int h = s.nextInt();
+    System.out.print("Gewicht?");
+    int w = s.nextInt();
+    String gew = bmi(w, h);
+    System.out.println("Sie haben "+gew);
   }
 }
     ```
+
+    Zusammen: Welche Zeile ist was?
+    - Mehrere Sprachelemente in einer Zeile möglich
+    - Methodenaufruf kann #text(col_jump)[Sprunganweisung] und Ausdruck sein
   ]
 )
-
-
-== Funktionen in Java
-
-```java
-public class StackBeispiel {
-  // Definition einer eigenen Funktion mit 2 Argumenten
-  public static void pn(int from, int to, int by) {
-    for(int i=from; i<to; i+=by) {
-      System.out.println(i);
-    }
-  }
-
-  public static void main(String[] args) {
-    // Aufruf der Funktion (Ausführung des Codes darin)
-    pn(1, 12, 2);
-  }
-}
-```
 
 = Speicherorganisation
 
 == Stack
 
 
-- Eigener Speicherbereich für jede Funktion, pro Aufruf neu
-- Variablen der Funktion werden dort angelegt/übergeben
+- Eigener Speicherbereich für jede Methode, pro Aufruf neu
+- Variablen der Methode werden dort angelegt/übergeben
 - ``printNumbers(0, 100, 2)`` könnte ergeben:
 
 #table(
@@ -383,7 +610,7 @@ public class StackBeispiel {
  [ 68 ], [ 2 ], [ by (Arg. 3) ],
  [ 69 ], [ 100 ], [ to (Arg. 2) ], 
  [ 70 ], [ 0 ], [ from (Arg. 1) ],
- [ 71 ], [... ], [Rücksprung-Adresse vorherige Funktion ],
+ [ 71 ], [... ], [Rücksprung-Adresse vorherige Methode],
  [ ... ], [ ... ], [ Restlicher Stack ]
 
 )
@@ -392,13 +619,11 @@ public class StackBeispiel {
 == Scope
 
 Scope ergibt sich aus Stack:
-- Funktionen verändern nur ihre eigenen Werte!
-- Funktionen kriegen nur Kopien der Argument-Werte!
+- Methoden verändern nur ihre eigenen Werte!
+- Methoden kriegen nur Kopien der Argument-Werte!
 
-
-== Scope
-
-```java
+#only(2)[
+  ```java
 public class StackBeispiel {
   public static void pn(int from, int to, int by) {
     for(; from<to; from += by) {
@@ -408,14 +633,36 @@ public class StackBeispiel {
   public static void main(String[] args) {
     from = 0;
     pn(from, 100, 2);
-    System.out.println("From: " + from); // 0 oder 100?
+    System.out.println("From: " + from);
   }
 }
-```
+  ```
+  #v(-0.3cm)
+  - Was tut `pn(0, 100, 2)`?
+  - Was wird in Zeile 10 ausgegeben? 0 oder 100?
+]
 
+== Randnotiz: Highlighting, Einrückung
 
-== Scope
-
+#only(1)[
+  Korrekt eingerückter Code: Codeblöcke erkennbar
+  ```java
+public class StackBeispiel {
+  public static void pn(int from, int to, int by) {
+    for(; from<to; from += by) {
+      System.out.println(from);
+    }
+  }
+  public static void main(String[] args) {
+    from = 0;
+    pn(from, 100, 2);
+    System.out.println("From: " + from);
+  }
+}
+  ```
+]
+#only(2)[
+  Nicht eingerückt: Ist das lesbar?
 ```java
 public class StackBeispiel {
 public static void pn(int from, int to, int by) {
@@ -430,9 +677,26 @@ System.out.println("From: " + from); // 0 oder 100?
 }
 }
 ```
-
-== Scope
-
+]
+#only(3)[
+  Falsch eingerückt: Ist das lesbar?
+```java
+public class StackBeispiel {
+  public static void pn(int from, int to, int by) {
+    for(; from<to; from += by) {
+      System.out.println(from);
+      }
+      }
+      public static void main(String[] args) {
+        from = 0;
+        pn(from, 100, 2);
+          System.out.println("From: " + from); // 0 oder 100?
+        }
+      }
+```
+]
+#only(4)[
+Ganz schlimm: Nicht eingerückt, kein highlighting.
 ```
 public class StackBeispiel {
 public static void pn(int from, int to, int by) {
@@ -447,67 +711,9 @@ System.out.println("From: " + from); // 0 oder 100?
 }
 }
 ```
+]
 
-
-== Herausforderungen
-
-- Was tut man, um: 
-  * Zahlen größer 255 zu speichern?
-  * Zahlen kleiner 0 zu speichern?
-  * Gelitkommazahlen zu speichern?
-  * Buchstaben zu speichern?
-- Murmelgruppen, 5 Minuten
-
-== Zahlen größer als 0
-
-- Mehrere bytes zu einer Zahl zusammengefasst
-- Architekturabhängig, wie "breit" Zahlen sind
-- Java macht es einheitlich:
-  - `byte`: 1 byte -> [-128, 127]
-  - `short`: 2 byte -> [-32768, 32767]
-  - `int`: 4 byte -> [-2147483648, 2147483647]
-  - `long`: 8 byte -> [-9223372036854775808, 9223372036854775807]
-  - Optional `unsigned` -> kein Zweierkomplement, höherer Maximalwert
-
-
-== Zweierkomplement
-
-- Einfache Lösung: Erstes bit ist Vorzeichen (z.B. 3 = `0011`, -3=`1011`)
-- Probleme: 
-  * 0 "doppelt" (`0000`, `1000`)
-  * Addition schwierig (z.B. `0011+1011=1110`=-6?)
-- Zweierkomplement: Erstes bit ist -1*Max. (z.B. -8=`1000`, -5=`1011`)
-- Vorteile:
-  * 0 nur ein Mal (`0000`, `1000`=-8)
-  * Einfache Addition (z.B. `0101+1011=0000`)
-
-== Gleitkommazahlen
-
-- Aufteilung der Zahl: Exponent, Mantisse
-- Wert=Mantisse^Exponent
-- Gleitkommazahlen sind nur Näherungswerte!
-  - Für kleine Werte: Extrem gute Näherung
-  - Je größer der Wert, um so geringer die Genauigkeit
-  - Spezielle Bibliotheken für genaue Berechnungen mit großen Zahlen
-
-== Text
-
-- Interpretation von Zahlen als Buchstaben
-- #link("https://de.wikipedia.org/wiki/American_Standard_Code_for_Information_Interchange")[ASCII-Tabelle]: Zuordnung der Werte eines byte zu Zeichen
-- Problem: Unterschiedliche Alphabete
-- Lösungen:
-  - Codepages - aber nicht automatisch erkennbar
-  - UTF-8: Ein Buchstabe kann bis zu 4 Byte breit sein, Erkennung über erstes bit.
-
-
-Speicherinterpretation: Datentypen
-
-Was bedeutet `01001000 01101001`?
-- Zwei `byte`: 72, 105?
-- Ein `short`: 18537?
-- Zwei `char`: "H", "i"?
-
--> Datentypen müssen in Java deklariert werden und *ändern die Bedeutung* von Variablen - z. B. `00110111` kann die Zahl 55 oder das Zeichen "7" sein (aber niemals die Zahl 7)! 
+= Exkurs: Bytecode
 
 == Programmcode im Speicher
 
@@ -525,7 +731,7 @@ columns: 4,
 )
 
 
-== Programmcode -> Bytecode
+== Programmcode #sym.arrow Bytecode
 
   ```java
 for(int i=0; i<10; i++) {
