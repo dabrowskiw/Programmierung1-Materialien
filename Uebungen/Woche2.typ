@@ -94,7 +94,7 @@ Schreiben Sie Ihren Algorithmus als korrekt formatiertes Flussdiagramm auf.
 
 == Aufgabe 3
 
-== Uafgabe 3.1
+== Aufgabe 3.1
 
 Entwickeln Sie einen Algorithmus `teilberDurch3(z: Zahl)`, der `ja` zurückgibt, falls die Zahl $z$ durch 3 teilbar ist, und sonst `nein`. Hinweise: 
 - Eine Zahl ist genau dann durch 3 teilbar, wenn ihre Quersumme durch 3 teilbar ist.
