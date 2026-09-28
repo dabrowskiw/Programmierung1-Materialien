@@ -319,4 +319,93 @@ public static void main() {
     ]
   ]
 )
+== Mehrdimensionale Arrays
+
+Deklaration eines Arrays: #text(colorsPrimary)[Datentyp]#text(colorsSecondary)[`[]`] #sym.arrow #text(colorsSecondary)[Array] von #text(colorsPrimary)[Datentyp].
+- #text(colorsPrimary)[`int`]#text(colorsSecondary)[`[]`]: #text(colorsSecondary)[Array] von #text(colorsPrimary)[int]
+- #text(colorsPrimary)[`String`]#text(colorsSecondary)[`[]`]: #text(colorsSecondary)[Array] von #text(colorsPrimary)[String]#pause
+- #text(colorsPrimary)[`int[]`]#text(colorsSecondary)[`[]`]#pause: #text(colorsSecondary)[Array] von #text(colorsPrimary)[`int[]`]: #text(colorsSecondary)[Array] von #text(colorsPrimary)[`Array von int`] 
+  - Zweidimensionales Array (`int[][]`)
+  - Jedes Element ist wieder ein Array (`int[]`)
+  - Jedes Element davon ist ein `int`
+  - Beliebig viele Dimensionen möglich, z.B. `int[][][]`
+- Ideen für Anwendungsfälle?
+
+== Mehrdimensionale Arrays: Syntax
+
+  #codly(
+    annotation-format: none,
+    annotations: (
+      (start: 1, end: 1, content: [#text(col_declaration)[Array-Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 2, end: 2, content: [#text(col_declaration)[Array-Deklaration]]),
+      (start: 3, end: 5, content: [#text(col_assignment)[Initialisierung]]),
+      (start: 6, end: 10, content: [#text(col_declaration)[Array-Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 11, end: 13, content: [Wertzugriff über Index]),
+    ),
+  )
+```java
+int[][] pixels = new int[1024][1024];
+int[][] groups;
+groups = new int[2][];
+groups[0] = new int[3];
+groups[1] = new int[5];
+int[][] tictactoe = { 
+              {0, 1, 0}, 
+              {0, 2, 1},
+              {2, 0, 0}
+            };
+int[] firstRow = tictactoe2[0];
+int topRightPlayer = firstRow[2];
+int centerPlayer = tictactoe[1][1];
+```
+
+Zusammen an der Tafel:
+- Was steht in `groups` auf dem Stack?
+- Was passiert in Zeilen 2-5 auf dem Heap?
+- Wie sieht `tictactoe` auf Stack und Heap aus?
+
+== Minibeispiel mehrdimensionale Arrays
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+```java
+public static void main() {
+  Scanner s = new Scanner(System.in);
+  char[][] tictactoe = new char[3][3];
+  char player = 'X';
+  while(true) {
+    System.out.println(
+          "Player " + player + ": ");
+    int row = s.nextInt();
+    int col = s.nextInt();
+    tictactoe[row][col] = player;
+    player = player=='X'?'O':'X';
+    showBoard(tictactoe);
+  }
+}
+```
+  ],
+  [
+    ```java
+public static void showBoard(
+                char[][] b) {
+  for(char[] row : b) {
+    for(char player : row) {
+      char out = player==0?' ':player;
+      System.out.print(out);
+    }
+    System.out.println();
+  }
+}
+    ```
+  ]
+)
+#v(-0.8cm)
+- Gemeinsam: Durchlaufen, was passiert? Welche Zeile ist was?
+- Kurzform von `if-else`: Ternary if
+  - Keine Anweisung, sondern komplexer Ausdruck!
+  - Format: Bedingung ? Wert, wenn `true` : wert wenn `false`
+  - Bedingung ist selber Ausdruck, der `true` oder `false` sein muss
 
