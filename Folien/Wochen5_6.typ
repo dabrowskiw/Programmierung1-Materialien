@@ -4,167 +4,319 @@
 
 #title-slide(
   title: "Programmierung 1",
-  subtitle: "Wochen 5-6: Komplexere Datenstrukturen",
+  subtitle: "Wochen 5-6: Arrays",
   institution-name: "HTW Berlin"
 )
 
-== Stack
+== Recap
 
-- Eigener Speicherbereich für jede Funktion, pro Aufruf neu
-- Variablen der Funktion werden dort angelegt/übergeben
+```java
+public static void doSomething(int value, boolean change) {
+  if(change) {
+    value = value - 2;
+  }
+}
+public static void main() {
+  int value = 3;
+  doSomething(value, 1==(2-1));
+  System.out.println(value);
+}
+```
+
 #only(1)[
-  #sourcecode[```java
-    public class StackBeispiel {
-      // Definition einer eigenen Funktion mit 2 Argumenten
-      public static void pn(int from, int to, int by) {
-        for(int i=from; i<to; i+=by) {
-          System.out.println(i);
-        }
-      }
-      public static void main(String[] args) {
-        // Aufruf der Funktion (Ausführung des Codes darin)
-        pn(1, 12, 2);
-      }
-    }
-  ```]
+  Sprachelemente:
+  - Codeblöcke?
+  - Methodendefinitionen?
+  - Ausdrücke?
+  - Anweisungen? Welche Art?
 ]
 
 #only(2)[
-  - pn(0, 100, 2)`` könnte ergeben:
+  Stack:
+    - Was wird in Zeile 7 ausgegeben?
+    - Was steht wann auf dem Stack?
+]
 
-  #table(
-    columns: 3,
-    table.header(
-      [Adresse], [Wert], [Kommentar]
-    ),
-    [ 12 ], [ ... ], [ Nächster Befehl ],  
-    [ ... ], [ ... ], [ Anderer Code etc.], 
-    [ 67 ], [ 12 ], [ Rücksprung-Adresse ], 
-    [ 68 ], [ 2 ], [ by (Arg. 3) ],
-    [ 69 ], [ 100 ], [ to (Arg. 2) ], 
-    [ 70 ], [ 0 ], [ from (Arg. 1) ],
-    [ 71 ], [... ], [Rücksprung-Adresse vorherige Funktion ],
-    [ ... ], [ ... ], [ Restlicher Stack ]
-  )
-] 
+== Zusammenhängende Daten
 
-== Scope
+Beispiel: Mittelwert von Tagestemperaturen in der Woche
 
-Scope ergibt sich aus Stack:
-- Funktionen verändern nur ihre eigenen Werte!
-- Funktionen kriegen nur Kopien der Argument-Werte!
+```java
+public static double getAverageTemp(double t1, double t2, double t3, double t4, double t5, double t6, double t7) {
+  double sum = t1+t2+t3+t4+t5+t6+t7;
+  return sum/7;
+}
+public static void main() {
+  double weekAverage = getAverageTemp(12.5, 11.9, 13.5, 13.2, 11.9, 8.7, 5.8);
+  System.out.println("Durchschnittstemperatur diese Woche: " + weekAverage);
+}
+```
 
-#sourcecode[```java
-  public class StackBeispiel {
-    public static void pn(int from, int to, int by) {
-      for(; from<to; from += by) {
-        System.out.println(from);
-      }
-    }
-    public static void main(String[] args) {
-      from = 0;
-      pn(from, 100, 2);
-      System.out.println("From: " + from); // 0 oder 100?
-    }
-  }
-```]
+#only(2)[
+  Und jetzt für das ganze Jahr...?
 
-== Weiteres Stack-Beispiel
-
-#sourcecode[```java
-  public static void doSomething(int value) {
-    value = 2;
-  }
-  public static void main(String[] args) {
-    int value = 3;
-    doSomething(value);
-    System.out.println(value); // Was steht hier?
-  }
-```]
-
+  #sym.arrow Spezieller Datentyp für zusammenhängende Werte
+]
 
 == Arrays
 
-- Speichern mehrerer zusammehängender Werte oft nötig
+- Speichern mehrerer zusammenhängender Werte oft nötig
     - Verlauf von einem Wert über die Zeit (Aktie, Infektionen, Ton...)
-    - Liste von Werten (HP aller Gegner, Koordinaten von Städten...)
-    - Mehrdimensionale Werte (Pixel eines Bildes, )
+    - Liste von Werten (Koordinaten von Städten, Namen...)
+    - Mehrdimensionale Werte (Pixel im Bild, Niederschlagsmengen...)
 - Es kann Arrays von jedem Datentyp geben (auch von Arrays)
+- Alle Werte im Array haben *den selben Datentyp*
+- Jeder Wert hat einen Index, beginnend bei 0
 - Die Länge eines Arrays ist *fest* (was würde sonst im RAM passieren?)
 
-#sourcecode[```java
-  int[] intArray = new int[5];
-  char[][] charMatrix = new char[7][3];
-  charMatrix[5][2] = (char)intArray[0]; //Zugriff auf Werte im Array über Index
-```]
-
-
-
-== Speicherorganisation
-
-#sourcecode[```java
-  int[] vals = {1, 6, 5, 3};
-```]
-
+Beispiel für ein `double`-Array mit Temperaturen:
 #table(
-  columns: 6,
-  table.header(
-   [  Adresse  ], [  Wert  ], [  Kommentar  ], [  Adresse  ], [  Wert  ], [  Kommentar  ], 
-  ),
-  [  ...  ], [  ...  ], [  Andere Variablen ], [   76  ], [  5  ], [  3. Wert  ],
-  [  73  ], [  4  ], [  Länge (header)  ], [  77  ], [  3  ], [  Letzter Wert ],
-  [  74  ], [  1  ], [  1. Wert  ], [  ...  ], [  ...  ], [  Andere Variablen ],
-  [  75  ], [  6  ], [  2. Wert  ], [  ...  ], [  ...  ], [  Andere Variablen ],
+  columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+  inset: 0.2em,
+  stroke: 1pt+black,
+  [*Wert*], [12.5], [11.9], [13.5], [13.2], [11.9], [8.5], [5.8],
+  [*Index*], [0], [1], [2], [3], [4], [5], [6],
 )
 
+== Eindimensionale Arrays
 
-== Heap und Stack
+  #codly(
+    annotation-format: none,
+    annotations: (
+      (start: 1, end: 1, content: [#text(col_declaration)[Array-Deklaration]]),
+      (start: 2, end: 2, content: [#text(col_assignment)[Array-Initialisierung]]),
+      (start: 3, end: 3, content: [#text(col_assignment)[Wertzuweisung über Index]]),
+      (start: 4, end: 5, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 6, end: 6, content: [Wertzugriff über Index]),
+    ),
+  )
+```java
+double[] temperatures;
+temperatures = new double[7];
+temperatures[0] = 12.5;
+String[] days = {"Mo", "Di", "Mi", "Do", 
+                 "Fr", "Sa", "So"};
+System.out.println("3. Tag: " + days[2]);
+```
 
-...Aber passt das alles auf den Stack?
+Array ist eine *Referenz-Variable*:
+- Enthält nicht die Werte, sondern *Speicheradresse* wo die Werte sind
+- Eigentliche Werte sind auf dem *Heap* Gespeichert
+- Deklaration: Setzt Wert auf `null` (ungültige Adresse)
+- Initialisierung:
+  - Reserviert benötigten Speicherplatz auf *Heap*
+  - Schreibt Heap-Adresse in Variablenwert auf *Stack*
+- Wertzugriff: Adresse in Variable #sym.arrow Wert auf Heap
 
-#sourcecode[```java
-  public static void doSomething(int[] values) {
-    for(int i=0; i<values.length; i++) {
-      System.out.println(values[i]);
-    }
-  }
-  public static void main(String[] args) {   
-    int[] lotsaValues = new int[10000];
-    doSomething(lotsaValues);
-  }
+== Beispiel Speicherorganisation
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    #only(1)[
+```java
+public static void main() {
+  int x = 6;
+  int[] vals = {1, x, 5, 3};
+}
 ```]
+    #only(2)[
+```java
+public static void main() {
+  int x = 6;
+  int[] vals = {1, x, 5, 3};
+  f(vals);
+}
+```]
+  ],
+  [
+    #only(2)[
+```java
+public static void f(int[] v) {
+  System.out.println(v[1]);
+  v[1]=1;
+}
+```]
+  ]
+)
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [*Stack* (Adressen 0-100)
+    #only(1)[
+      #table(
+        columns: 3,
+        table.header(
+         [  Adresse  ], [  Wert  ], [  Kommentar  ], 
+        ),
+        [  ...  ], [  ...  ], [  Andere Variablen ],
+        [  12  ], [  ...  ], [  Rücksprungadresse  ],
+        [  13  ], [  6  ], [  x  ],
+        [  14  ], [  173  ], [  vals  ],
+      )
+    ]
+    #only(2)[
+      #table(
+        columns: 3,
+        table.header(
+         [  Adresse  ], [  Wert  ], [  Kommentar  ], 
+        ),
+        [  ...  ], [  ...  ], [  Andere Variablen ],
+        [  12  ], [  ...  ], [  Rücksprungadresse  ],
+        [  13  ], [  6  ], [  x  ],
+        [  14  ], [  173  ], [  vals  ],
+        [  15  ], [  ...  ], [  Rücksprungadresse  ],
+        [  16  ], [  173  ], [  v  ],
+      )
+    ]
+  ],
+  [*Heap* (Adressen ab 100)
+    #table(
+      columns: 3,
+      table.header(
+       [  Adresse  ], [  Wert  ], [  Kommentar  ], 
+      ),
+      [  ...  ], [  ...  ], [  Andere Variablen ],
+      [  173  ], [  4  ], [  Länge (metadata)  ],
+      [  174  ], [  1  ], [  1. Wert  ], 
+      [  175  ], [  6  ], [ 2. Wert  ],
+      [  176  ], [  5  ], [  3. Wert  ],
+      [  177  ], [  3  ], [  Letzter Wert ],
+      [  ...  ], [...], [  Andere Variablen ],
+    )
+  ]
+)
 
-Das wäre viel zu kopieren! #sym.arrow Daten in Heap, Adresse auf Stack
+== Beispiel Array-Verwendung
 
-== Folgen für Scoping
+Idee:
+- Array mit Temperaturen: `double[] temps`
+- Array-Länge: `temps.length`
+- Durchschnittswert aller Temperaturen: Flussdiagramm (Tafel)
 
-Was ist jetzt mit Scoping?
-
-#sourcecode[```java
-  public static void doSomethingElse(int[] values) {
-    values[0] = 5;
+#only(2)[
+```java
+public static double getAverageTemp(double[] temps) {
+  double sum = 0;
+  for(int i=0; i<temps.length; i++) {
+    sum += temps[i];
   }
-  public static void main(String[] args) {
+  return sum/temps.length;
+}
+public static void main() {
+  double[] temps = {12.5, 11.9, 13.5, 13.2, 11.9, 8.7, 5.8};
+  double weekAverage = getAverageTemp(temps);
+  System.out.println("Durchschnittstemperatur diese Woche: " + weekAverage);
+}
+```
+]
+
+== Beispiel Array-Verwendung
+
+Häufige Schleife: "Für jedes Element des Arrays, tue..."
+
+#sym.arrow Kurzschreibweise: `for(<datatype> x : array) {...}`
+
+#codly(
+  highlighted-lines: (
+        (3, blue.lighten(60%)),
+        (4, blue.lighten(60%)),
+        (5, blue.lighten(60%)),
+      )
+)
+#only(2)[
+```java
+public static double getAverageTemp(double[] temps) {
+  double sum = 0;
+  for(double temp : temps) {
+    sum += temp;
+  }
+  return sum/temps.length;
+}
+public static void main() {
+  double[] temps = {12.5, 11.9, 13.5, 13.2, 11.9, 8.7, 5.8};
+  double weekAverage = getAverageTemp(temps);
+  System.out.println("Durchschnittstemperatur diese Woche: " + weekAverage);
+}
+```
+]
+== Referenzvariablen und Scoping
+
+```java
+  public static void swapValues(int[] values, int x) {
+    values[0] = x;
+    x = values[1];
+  }
+  public static void main() {
     int[] vals = new int[] {0, 1, 2, 3};
-    System.out.println(vals[0]); // Was steht hier?
+    int x = 12;
+    System.out.println(vals[0] + ", " + x); 
     doSomethingElse(vals);
-    System.out.println(vals[0]); // Was steht hier?
+    System.out.println(vals[0] + ", " + x); 
   }
-```]
+```
 
-== Folgen für Scoping
-#sourcecode[```java
-  public static void doSomethingElse(int[] values) {
-    values = new int[2];
-    values[0] = 5;
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    Was passiert:
+    - Auf dem Stack?
+    - Auf dem Heap?
+    - In Zeile 8?
+    - In Zeile 10?
+  ],
+  [
+    #only(2)[
+      Merke:
+      - *Primitive Variable*: Wert direkt auf *Stack*
+      - *Referenz-Variable*: 
+        - Adresse in *Stack*
+        - Werte auf *Heap*
+    ]
+  ]
+)
+
+== Referenzvariablen und Scoping
+
+#codly(
+  highlighted-lines: (
+        (2, blue.lighten(60%)),
+        (3, blue.lighten(60%)),
+      )
+)
+```java
+  public static void swapValues(int[] values, int x) {
+    values = new int[4];
+    values[0] = x;
+    x = values[1];
   }
-  public static void main(String[] args) {
+  public static void main() {
     int[] vals = new int[] {0, 1, 2, 3};
-    System.out.println(vals[0]); // Was steht hier?
+    int x = 12;
+    System.out.println(vals[0] + ", " + x); 
     doSomethingElse(vals);
-    System.out.println(vals[0]); // Was steht hier?
+    System.out.println(vals[0] + ", " + x); 
   }
-```]
+```
 
-Der Scope gilt immer noch - aber nur für die Adresse! #sym.arrow Immer beachten, was übergeben wird!
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    Was passiert:
+    - Auf dem Stack?
+    - Auf dem Heap?
+    - In Zeile 9?
+    - In Zeile 11?
+  ],
+  [
+    #only(2)[
+      Gilt für *Primitive Variablen* und *Referenz-Variablen*:
+
+      What happens on the stack stays on the stack!
+    ]
+  ]
+)
 
