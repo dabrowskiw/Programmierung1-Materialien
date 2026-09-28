@@ -235,11 +235,6 @@ Was bedeutet `01001000 01101001`?
 
 == Grundvokabular: Java-Programm
 
-#let col_declaration=rgb("#8A7420")
-#let col_assignment=rgb("#BA06A8")
-#let col_jump=rgb("#004FE0")
-#let col_control=rgb("#969696")
-
 #only("2-")[
   #codly(
     annotation-format: none,
@@ -630,7 +625,7 @@ public class StackBeispiel {
       System.out.println(from);
     }
   }
-  public static void main(String[] args) {
+  public static void main() {
     from = 0;
     pn(from, 100, 2);
     System.out.println("From: " + from);
@@ -653,7 +648,7 @@ public class StackBeispiel {
       System.out.println(from);
     }
   }
-  public static void main(String[] args) {
+  public static void main() {
     from = 0;
     pn(from, 100, 2);
     System.out.println("From: " + from);
@@ -670,7 +665,7 @@ for(; from<to; from += by) {
 System.out.println(from);
 }
 }
-public static void main(String[] args) {
+public static void main() {
 from = 0;
 pn(from, 100, 2);
 System.out.println("From: " + from); // 0 oder 100?
@@ -687,7 +682,7 @@ public class StackBeispiel {
       System.out.println(from);
       }
       }
-      public static void main(String[] args) {
+      public static void main() {
         from = 0;
         pn(from, 100, 2);
           System.out.println("From: " + from); // 0 oder 100?
@@ -704,7 +699,7 @@ for(; from<to; from += by) {
 System.out.println(from);
 }
 }
-public static void main(String[] args) {
+public static void main() {
 from = 0;
 pn(from, 100, 2);
 System.out.println("From: " + from); // 0 oder 100?

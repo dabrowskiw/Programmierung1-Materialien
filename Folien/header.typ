@@ -27,6 +27,11 @@
 
 #let colorsTertiary = rgb("#FF5F00")
 
+#let col_declaration=rgb("#8A7420")
+#let col_assignment=rgb("#BA06A8")
+#let col_jump=rgb("#004FE0")
+#let col_control=rgb("#969696")
+
 
 #let htwslides(body) = {
   show: codly-init
