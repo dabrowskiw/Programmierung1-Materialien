@@ -83,8 +83,8 @@ Beispiel für ein `double`-Array mit Temperaturen:
   #codly(
     annotation-format: none,
     annotations: (
-      (start: 1, end: 1, content: [#text(col_declaration)[Array-Deklaration]]),
-      (start: 2, end: 2, content: [#text(col_assignment)[Array-Initialisierung]]),
+      (start: 1, end: 1, content: [#text(col_declaration)[Deklaration]]),
+      (start: 2, end: 2, content: [#text(col_assignment)[Initialisierung]]),
       (start: 3, end: 3, content: [#text(col_assignment)[Wertzuweisung über Index]]),
       (start: 4, end: 5, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
       (start: 6, end: 6, content: [Wertzugriff über Index]),
@@ -319,6 +319,95 @@ public static void main() {
     ]
   ]
 )
+
+== Vergleiche von Arrays
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    #only(1)[
+```java
+static void main() {
+  int[] arr1 = {1, 2, 3};
+  int[] arr2 = {1, 2, 3};
+  if(arr1 == arr2) {
+    System.out.println("arr1 = arr2");
+  } else {
+    System.out.println("arr1 != arr2");
+  }
+}
+```
+    ]
+    #only(2)[
+#codly(
+  highlighted-lines: (
+        (4, blue.lighten(60%)),
+      )
+)
+```java
+static void main() {
+  int[] arr1 = {1, 2, 3};
+  int[] arr2 = {1, 2, 3};
+  if(compareArr(arr1, arr2)) {
+    System.out.println("arr1 = arr2");
+  } else {
+    System.out.println("arr1 != arr2");
+  }
+}
+```
+    ]
+  ],
+  [
+    #only(2)[
+      ```java
+static boolean compareArr(
+      int[] a1, int[] a2) {
+  if(a1.length != a2.length) {
+    return false;
+  }
+  for(int i=0; i<a1.length; i++) {
+    if(a1[i] != a2[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+      ```
+    ]
+  ]
+)
+
+Was gibt dieser Code aus? Warum?
+
+#only(2)[
+  Und jetzt? Was ist anders?
+]
+
+== Ausgabe von Arrays
+
+```java
+static void main() {
+  int[] values = {1, 7, 12, 0};
+  System.out.println(values);
+}
+```
+
+Was wird ausgegeben? #pause Etwas wie `[I@1affbebc`:
+- Was könnte das sein?
+- Wie gibt man die Werte aus? #pause
+
+```java
+static void main() {
+  int[] values = {1, 7, 12, 0};
+  for(int val : values) {
+    System.out.print(val + " ");
+  }
+}
+```
+
+Was passiert hier? Warum so?
+
 == Mehrdimensionale Arrays
 
 Deklaration eines Arrays: #text(colorsPrimary)[Datentyp]#text(colorsSecondary)[`[]`] #sym.arrow #text(colorsSecondary)[Array] von #text(colorsPrimary)[Datentyp].
@@ -329,24 +418,27 @@ Deklaration eines Arrays: #text(colorsPrimary)[Datentyp]#text(colorsSecondary)[`
   - Jedes Element ist wieder ein Array (`int[]`)
   - Jedes Element davon ist ein `int`
   - Beliebig viele Dimensionen möglich, z.B. `int[][][]`
-- Ideen für Anwendungsfälle?
+- Ideen für Anwendungsfälle für mehr als 2 Dimensionen?
 
 == Mehrdimensionale Arrays: Syntax
 
   #codly(
     annotation-format: none,
     annotations: (
-      (start: 1, end: 1, content: [#text(col_declaration)[Array-Deklaration] mit #text(col_assignment)[Initialisierung]]),
-      (start: 2, end: 2, content: [#text(col_declaration)[Array-Deklaration]]),
-      (start: 3, end: 5, content: [#text(col_assignment)[Initialisierung]]),
-      (start: 6, end: 10, content: [#text(col_declaration)[Array-Deklaration] mit #text(col_assignment)[Initialisierung]]),
-      (start: 11, end: 13, content: [Wertzugriff über Index]),
+      (start: 1, end: 1, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 2, end: 2, content: [#text(col_declaration)[Deklaration]]),
+      (start: 3, end: 3, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 4, end: 4, content: [#text(col_assignment)[Initialisierung] (Länge=Variablenwert)]),
+      (start: 5, end: 6, content: [#text(col_assignment)[Initialisierung] von unter-Arrays]),
+      (start: 7, end: 11, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
+      (start: 12, end: 14, content: [Wertzugriff über Index]),
     ),
   )
 ```java
 int[][] pixels = new int[1024][1024];
 int[][] groups;
-groups = new int[2][];
+int numGroups = 2;
+groups = new int[numGroups][];
 groups[0] = new int[3];
 groups[1] = new int[5];
 int[][] tictactoe = { 
