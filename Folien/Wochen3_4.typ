@@ -233,10 +233,6 @@ Was bedeutet `01001000 01101001`?
 
 -> Datentypen müssen in Java deklariert werden und *ändern die Bedeutung* von Variablen - z. B. `00110111` kann die Zahl 55 oder das Zeichen "7" sein (aber niemals die Zahl 7)! 
 
-== Casting
-
-*TODO*
-
 == Grundvokabular: Java-Programm
 
 #only("2-")[
@@ -313,6 +309,132 @@ Warum ist das wichtig? Korrektes Fachvokabular ist nötig für:
 - Unterstützung bei Übungsaufgaben
 - Prüfung
 ]
+
+== Casting
+
+Java ist explizit und statisch typisiert:
+- Explizit: Man muss explizit den Typ für jede Variable hinschreiben
+- Statisch: Der Typ einer Variable kann sich nicht ändern
+
+#codly(
+  annotations: (
+    (start: 1, end: 1, content: [Explizit `void`]),
+    (start: 2, end: 2, content: [Explizit `int`]),
+    (start: 3, end: 3, content: [Fehler: x muss `int` bleiben!]),
+    (start: 4, end: 5, content: [...?]),
+  )
+)
+```java
+static void myMethod() {
+  int x = 5;
+  x = "Text";
+  double y = 0.5 + x;
+  System.out.println("x ist " + x);
+}
+```#pause
+#v(-0.5cm)
+
+Kombination von Datentypen erfordert Umwandlung (casting):
++ Ermitteln des Datentyps des Gesamtausdrucks
++ Kompatible Umwandlung aller Datentypen im Ausdruck
+
+Casting geschieht automatisch (wenn ohne Datenverlust) oder explizit (wenn mit Datenverlust).
+
+== Casting
+
+Casting mit Datenverlust: Größerer Datentyp (z.B. long) #sym.arrow kleinerer Datentyp (z.B. int), explizit mit `(Zieldatentyp)`: 
+#v(-0.6cm)
+#codly(
+  annotations: (
+    (start: 1, end: 1, content: ["l" am Ende: long]),
+    (start: 2, end: 2, content: [Expliziter cast `long` #sym.arrow `int`]),
+    (start: 3, end: 3, content: [$9223372036854775$]),
+    (start: 4, end: 5, content: [$-1511828489$]),
+  )
+)
+```java
+long x = 9223372036854775l;
+int y = (int)x;
+System.out.println(x);
+System.out.println(y);
+```
+#pause
+
+Casting ohne Datenverlust: Automatisch
+#v(-0.6cm)
+#codly(
+  annotations: (
+    (start: 2, end: 2, content: [Impliziter cast `int` #sym.arrow `long`]),
+    (start: 3, end: 3, content: [$2936152$]),
+    (start: 4, end: 5, content: [$2936152$]),
+  )
+)
+```java
+int x = 2936152;
+long y = x;
+System.out.println(x);
+System.out.println(y);
+```
+#pause
+
+Sonderfall: Addition mit `String` fügt Text-Repräsentation hinzu
+#v(-0.6cm)
+#codly(
+  annotations: (
+    (start: 3, end: 3, content: [Impliziter cast `int` #sym.arrow `String` und Konkatenation]),
+  )
+)
+```java
+int x = 3;
+String y = "Der Wert von x ist ";
+System.out.println(y + x);
+```
+
+== Casting-Kompatibilität
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    #show table.cell.where(y: 0): it => rotate(-90deg, reflow: true, box(inset: (x: 12pt, y: 8pt), it.body))
+    #table(
+      columns: 9,
+      inset: 0.3cm,
+      [], [byte], [short], [int], [long], [float], [double], [boolean], [char], 
+      [byte],    [ ], [e], [e], [e], [e], [e], [x], [e],
+      [short],   [i], [ ], [e], [e], [e], [e], [x], [e],
+      [int],     [i], [i], [ ], [e], [e], [e], [x], [e],
+      [long],    [i], [i], [i], [ ], [e], [e], [x], [e],
+      [float],   [i], [i], [i], [i], [ ], [e], [x], [e],
+      [double],  [i], [i], [i], [i], [i], [ ], [x], [e],
+      [boolean], [x], [x], [x], [x], [x], [x], [ ], [x],
+      [char],    [i], [i], [i], [i], [i], [i], [x], [ ],
+    )
+  ],
+  [
+    Tabelleneinträge:
+    - e: Explizit
+    - i: Implizit
+    - x: Inkompabibel
+
+    Vorsicht bei Ganzzahl #sym.arrow Gleitkommazahl: Eventuell Rundungsfehler!
+    #codly(
+      annotations: (
+        (start: 2, end: 2, content: [1234567890]),
+        (start: 4, end: 4, content: [1.234568E9]),
+        (start: 6, end: 6, content: [-46]),
+      )
+    )
+    ```java
+int i = 1234567890;
+System.out.println(i);
+float f = i;
+System.out.println(f);
+int diff = i - (int)f;
+System.out.println(diff);
+    ```
+  ]
+)
 
 == Bedingungen in Java
 
