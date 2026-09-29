@@ -376,7 +376,57 @@ class Circle {
 - `final` garantiert, dass Wert so bleibt
 - Konvention: Großbuchstaben/Unterstriche
 
+== Überladen von Methoden
 
+Recap Typisierung: Java ist *explizit* und *statisch* typisiert.
+
+Aber: Oft ähnliche Operationen sinnvoll, z.B. $x = a^b$ für `int` a oder `double` a #sym.arrow `powerInt()`, `powerDouble()` etc.?
+#pause
+
+Lösung: Überladen von Methoden
+- Identischer Name #sym.arrow bessere Lesbarkeit von Code
+- Unterschiede in Argumenten:
+  - Unterschiedliche Datentypen und/oder
+  - Unterschiedliche Anzahl
+- Rückgabedatentyp ist irrelevant!
+
+#sym.arrow Compiler kann bei Aufruf anhand der Argumente entscheiden, welche der Methoden gemeint ist. Formal: *Statischer Polymorphismus*
+
+== Überladen von Methoden
+
+#codly(
+  annotations: (
+    (start: 2, end: 8, content: [Variante 1: `int`, `int`]),
+    (start: 10, end: 16, content: [Variante 2: `double`, `int`]),
+    (start: 19, end: 19, content: [`int`, `int` #sym.arrow Verwendung Variante 1]),
+    (start: 20, end: 20, content: [`double`, `int` #sym.arrow Verwendung Variante 2]),
+  )
+)
+```java
+class Power {
+  static int power(int base, int exp) {
+    int res = 1;
+    for(; exp > 0; exp--) {
+      res *= base;
+    }
+    return res;
+  }
+
+  static double power(double base, int exp) {
+    double res = 1;
+    for(; exp > 0; exp--) {
+      res *= base;
+    }
+    return res;
+  }
+
+  static void main() {
+    System.out.println(power(2, 4));
+    System.out.println(power(2.5, 4));
+  }
+}
+
+```
 
 == break
 
