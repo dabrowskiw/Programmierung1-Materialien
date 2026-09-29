@@ -11,12 +11,12 @@
 == Recap
 
 ```java
-public static void doSomething(int value, boolean change) {
+static void doSomething(int value, boolean change) {
   if(change) {
     value = value - 2;
   }
 }
-public static void main() {
+static void main() {
   int value = 3;
   doSomething(value, 1==(2-1));
   System.out.println(value);
@@ -42,11 +42,11 @@ public static void main() {
 Beispiel: Mittelwert von Tagestemperaturen in der Woche
 
 ```java
-public static double getAverageTemp(double t1, double t2, double t3, double t4, double t5, double t6, double t7) {
+static double getAverageTemp(double t1, double t2, double t3, double t4, double t5, double t6, double t7) {
   double sum = t1+t2+t3+t4+t5+t6+t7;
   return sum/7;
 }
-public static void main() {
+static void main() {
   double weekAverage = getAverageTemp(12.5, 11.9, 13.5, 13.2, 11.9, 8.7, 5.8);
   System.out.println("Durchschnittstemperatur diese Woche: " + weekAverage);
 }
@@ -116,14 +116,14 @@ Array ist eine *Referenz-Variable*:
   [
     #only(1)[
 ```java
-public static void main() {
+static void main() {
   int x = 6;
   int[] vals = {1, x, 5, 3};
 }
 ```]
     #only(2)[
 ```java
-public static void main() {
+static void main() {
   int x = 6;
   int[] vals = {1, x, 5, 3};
   f(vals);
@@ -133,7 +133,7 @@ public static void main() {
   [
     #only(2)[
 ```java
-public static void f(int[] v) {
+static void f(int[] v) {
   System.out.println(v[1]);
   v[1]=1;
 }
@@ -197,14 +197,14 @@ Idee:
 
 #only(2)[
 ```java
-public static double getAverageTemp(double[] temps) {
+static double getAverageTemp(double[] temps) {
   double sum = 0;
   for(int i=0; i<temps.length; i++) {
     sum += temps[i];
   }
   return sum/temps.length;
 }
-public static void main() {
+static void main() {
   double[] temps = {12.5, 11.9, 13.5, 13.2, 11.9, 8.7, 5.8};
   double weekAverage = getAverageTemp(temps);
   System.out.println("Durchschnittstemperatur diese Woche: " + weekAverage);
@@ -227,14 +227,14 @@ Häufige Schleife: "Für jedes Element des Arrays, tue..."
 )
 #only(2)[
 ```java
-public static double getAverageTemp(double[] temps) {
+static double getAverageTemp(double[] temps) {
   double sum = 0;
   for(double temp : temps) {
     sum += temp;
   }
   return sum/temps.length;
 }
-public static void main() {
+static void main() {
   double[] temps = {12.5, 11.9, 13.5, 13.2, 11.9, 8.7, 5.8};
   double weekAverage = getAverageTemp(temps);
   System.out.println("Durchschnittstemperatur diese Woche: " + weekAverage);
@@ -244,11 +244,11 @@ public static void main() {
 == Referenzvariablen und Scoping
 
 ```java
-  public static void swapValues(int[] values, int x) {
+  static void swapValues(int[] values, int x) {
     values[0] = x;
     x = values[1];
   }
-  public static void main() {
+  static void main() {
     int[] vals = new int[] {0, 1, 2, 3};
     int x = 12;
     System.out.println(vals[0] + ", " + x); 
@@ -287,12 +287,12 @@ public static void main() {
       )
 )
 ```java
-  public static void swapValues(int[] values, int x) {
+  static void swapValues(int[] values, int x) {
     values = new int[4];
     values[0] = x;
     x = values[1];
   }
-  public static void main() {
+  static void main() {
     int[] vals = new int[] {0, 1, 2, 3};
     int x = 12;
     System.out.println(vals[0] + ", " + x); 
@@ -463,7 +463,7 @@ Zusammen an der Tafel:
   gutter: 1em,
   [
 ```java
-public static void main() {
+static void main() {
   Scanner s = new Scanner(System.in);
   char[][] tictactoe = new char[3][3];
   char player = 'X';
@@ -481,7 +481,7 @@ public static void main() {
   ],
   [
     ```java
-public static void showBoard(
+static void showBoard(
                 char[][] b) {
   for(char[] row : b) {
     for(char player : row) {

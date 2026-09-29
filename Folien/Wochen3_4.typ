@@ -54,11 +54,11 @@ Was tut dieser Code? Ideen, ohne Python/C++ zu können?
 ```java
 // Jede Klasse muss in gleichnamiger Datei stehen
 // Jeder Java-Code muss in einem Klassen-Block stehen: {}
-public class HelloWorld {
+class HelloWorld { // Immer "class" vor Name
   // Code ist in Methoden unterteilt. Anweisungen in 
   // Methoden-Blöcken
   // Spezielle Methode main: Startpunkt eines Programms
-  public static void main() {
+  static void main() { // Immer exakt so
     // System.out.println: Bildschirmausgabe    
     System.out.println("Hello, world!");
     // Jede Zeile muss mit einem       ; enden
@@ -87,21 +87,21 @@ HelloWorld.main() (Klassenname.Methodenname):\
   gutter: 0.5em,
   [
     ```java
-    public class Klassenname {
-      public static void methode1() {
+    class Klassenname {
+      static void methode1() {
         anweisung1;
         anweisung2;
         //...
         anweisungN1;
       }
-      public static void methode2() {
+      static void methode2() {
         anweisung1;
         anweisung2;
         //...
         anweisungN2;
       }
       //...
-      public static void methodeM() {
+      static void methodeM() {
         anweisung1;
         anweisung2;
         //...
@@ -112,8 +112,8 @@ HelloWorld.main() (Klassenname.Methodenname):\
   ],
   [
     Hierarchisch aufgebaut: 
-    - Klasse 
-      - Methode 
+    - Klasse (`class`) 
+      - Methode (`static xxx`) 
         - Anweisungen
 
     Anweisungen:
@@ -149,8 +149,8 @@ HelloWorld.main():\
   node((6,0), [Ende], radius: 1.3em),
 )
 ```java
-public class HelloWorld {
-  public static void main() {
+class HelloWorld {
+  static void main() {
     // Variablen (hier: Zahlen) erstellen: deklarieren und initialisieren
     int i = 0;
     int k = 3;
@@ -194,11 +194,11 @@ public class HelloWorld {
   ],
   [
     ```java
-    public class HelloWorld {
-      public static void printNumber(int n) {
+    class HelloWorld {
+      static void printNumber(int n) {
         System.out.println(n);
       }
-      public static void main() {
+      static void main() {
         printNumber(10);
       }
     }
@@ -206,6 +206,7 @@ public class HelloWorld {
     Java: Explizite Datentypen
     - `int n` = "n: Zahl"
     - `void printNumber` = "Ende" ohne Rückgabe
+    - Methodendefinition: `static` Datentyp oder `void` Name(Argumente) 
   ]
 )
 
@@ -232,6 +233,9 @@ Was bedeutet `01001000 01101001`?
 
 -> Datentypen müssen in Java deklariert werden und *ändern die Bedeutung* von Variablen - z. B. `00110111` kann die Zahl 55 oder das Zeichen "7" sein (aber niemals die Zahl 7)! 
 
+== Casting
+
+*TODO*
 
 == Grundvokabular: Java-Programm
 
@@ -241,14 +245,14 @@ Was bedeutet `01001000 01101001`?
     annotations: (
       (start: 1, end: 1, content: [Klassendefinition]),
       (start: 2, end: 2, content: [Beginn Codeblock (Klasse)]),
-      (start: 3, end: 3, content: [Methodendefinition]),
+      (start: 3, end: 3, content: [Methodendefinition, Rückgabe: `int`]),
       (start: 4, end: 4, content: [Beginn Codeblock (Methode)]),
       (start: 5, end: 5, content: [#text(col_declaration)[Variablen-Deklaration]]),
       (start: 6, end: 6, content: [#text(col_assignment)[Zuweisung Variable=Ausdruck]]),
       (start: 7, end: 7, content: [#text(col_declaration)[Deklaration] mit #text(col_assignment)[Initialisierung]]),
       (start: 8, end: 8, content: [#text(col_assignment)[Compound assignment]]),
       (start: 9, end: 9, content: [#text(col_jump)[Methodenaufruf]]),
-      (start: 10, end: 10, content: [#text(col_jump)[Rückgabe]]),
+      (start: 10, end: 10, content: [#text(col_jump)[Rückgabe]: `int` wegen Definition!]),
       (start: 11, end: 11, content: [Ende Codeblock (Methode)]),
       (start: 12, end: 12, content: [Ende Codeblock (Klasse)]),
 
@@ -263,9 +267,9 @@ Was bedeutet `01001000 01101001`?
 ]
 
 ```java
-public class HelloWorld 
+class HelloWorld 
 {
-  public static int triple(int n) 
+  static int triple(int n) 
   {
     int res;
     res = n*3;
@@ -297,6 +301,13 @@ public class HelloWorld
 ]
 
 #only(3)[
+  Namenskonventionen:
+  - Klassenname: Groß geschrieben
+  - Methoden- und Variablennamen: Klein geschrieben
+  - Beides: CamelCase (z.B. `berechneWert`, nicht `berechne_wert`)
+]
+
+#only(4)[
 Warum ist das wichtig? Korrektes Fachvokabular ist nötig für:
 - Gemeinsame Sprache in Informatik
 - Unterstützung bei Übungsaufgaben
@@ -348,8 +359,8 @@ ja/nein #sym.arrow `if-else`, `{}` definieren Codeblock
       )
     )
     ```java
-public class Main {
-  public static String bmi(double w, double h) {
+class Main {
+  static String bmi(double w, double h) {
     double BMI = w/(h*h);
     if(BMI < 20) 
     {
@@ -399,8 +410,8 @@ public class Main {
 ]
 
 ```java
-public class Main {
-  public static String bmi(double w, double h) {
+class Main {
+  static String bmi(double w, double h) {
     double BMI = w/(h*h);
     if(BMI < 20) {
       return "Untergewicht";
@@ -463,8 +474,8 @@ public class Main {
         )
       )
       ```java
-public class Main {
-  public static void pn(int out) {
+class Main {
+  static void pn(int out) {
     int n = out;
     while(n >= 0) {
       System.out.println(out);
@@ -484,8 +495,8 @@ public class Main {
         )
       )
       ```java
-public class Main {
-  public static void pn(int out) {
+class Main {
+  static void pn(int out) {
     for(int n=out; n >= 0; n-=1) {
       System.out.println(out);
     }
@@ -566,8 +577,8 @@ Wo kommen die Werte her? Spezialisierte Methoden, z.B. für:
   ],
   [
     ```java
-public class Main {
-  public static void main() {
+class Main {
+  static void main() {
     Scanner s = new Scanner(System.in);
     System.out.print("Höhe?");
     int h = s.nextInt();
@@ -619,13 +630,13 @@ Scope ergibt sich aus Stack:
 
 #only(2)[
   ```java
-public class StackBeispiel {
-  public static void pn(int from, int to, int by) {
+class StackBeispiel {
+  static void pn(int from, int to, int by) {
     for(; from<to; from += by) {
       System.out.println(from);
     }
   }
-  public static void main() {
+  static void main() {
     from = 0;
     pn(from, 100, 2);
     System.out.println("From: " + from);
@@ -642,13 +653,13 @@ public class StackBeispiel {
 #only(1)[
   Korrekt eingerückter Code: Codeblöcke erkennbar
   ```java
-public class StackBeispiel {
-  public static void pn(int from, int to, int by) {
+class StackBeispiel {
+  static void pn(int from, int to, int by) {
     for(; from<to; from += by) {
       System.out.println(from);
     }
   }
-  public static void main() {
+  static void main() {
     from = 0;
     pn(from, 100, 2);
     System.out.println("From: " + from);
@@ -659,13 +670,13 @@ public class StackBeispiel {
 #only(2)[
   Nicht eingerückt: Ist das lesbar?
 ```java
-public class StackBeispiel {
-public static void pn(int from, int to, int by) {
+class StackBeispiel {
+static void pn(int from, int to, int by) {
 for(; from<to; from += by) {
 System.out.println(from);
 }
 }
-public static void main() {
+static void main() {
 from = 0;
 pn(from, 100, 2);
 System.out.println("From: " + from); // 0 oder 100?
@@ -676,13 +687,13 @@ System.out.println("From: " + from); // 0 oder 100?
 #only(3)[
   Falsch eingerückt: Ist das lesbar?
 ```java
-public class StackBeispiel {
-  public static void pn(int from, int to, int by) {
+class StackBeispiel {
+  static void pn(int from, int to, int by) {
     for(; from<to; from += by) {
       System.out.println(from);
       }
       }
-      public static void main() {
+      static void main() {
         from = 0;
         pn(from, 100, 2);
           System.out.println("From: " + from); // 0 oder 100?
@@ -693,13 +704,13 @@ public class StackBeispiel {
 #only(4)[
 Ganz schlimm: Nicht eingerückt, kein highlighting.
 ```
-public class StackBeispiel {
-public static void pn(int from, int to, int by) {
+class StackBeispiel {
+static void pn(int from, int to, int by) {
 for(; from<to; from += by) {
 System.out.println(from);
 }
 }
-public static void main() {
+static void main() {
 from = 0;
 pn(from, 100, 2);
 System.out.println("From: " + from); // 0 oder 100?
@@ -707,59 +718,3 @@ System.out.println("From: " + from); // 0 oder 100?
 }
 ```
 ]
-
-= Exkurs: Bytecode
-
-== Programmcode im Speicher
-
-Der Computer kann aber keinen Code, nur Zahlen...?
-
-#table(
-columns: 4,
-[Befehl ], [ Wert ], [ Argumente ], [ Kommentar ], 
-[ print ], [ 1 ], [ 1 ], [ Auszugebende Adresse ], 
-[ jeq ], [ 2 ], [ 3 ], [ 2 Adressen verlgeichen, 3: Sprungziel ], 
-[ add ], [ 3 ], [ 2 ], [ 1: Adresse, 2: Zu addierender Wert ], 
-[ jmp ], [ 4 ], [ 1 ], [ Sprung-Adresse ], 
-[ put ], [ 5 ], [ 2 ], [ 1: Adresse, 2: Wert ], 
-
-)
-
-
-== Programmcode #sym.arrow Bytecode
-
-  ```java
-for(int i=0; i<10; i++) {
-  System.out.print(i);
-}
-```
-
-```asm
-90: put 69 0          
-93: put 68 10
-96: jeq 69 68 107
-100: print i
-102: add i 1
-105: jmp 96
-107: Programmende (0)
-```
-
-#v(-0.5cm)
-Programm: 90: 5 69 0 5 68 10 2 69 68 107 1 69 3 69 1 4 96 0
-
-
-== Verständnisübung
-
-#table(
-columns: 4,
-[Befehl ], [ Wert ], [ Argumente ], [ Kommentar ], 
-[ print ], [ 1 ], [ 1 ], [ Auszugebende Adresse ], 
-[ jeq ], [ 2 ], [ 3 ], [ 2 Adressen verlgeichen, 3: Sprungziel ], 
-[ add ], [ 3 ], [ 2 ], [ 1: Adresse, 2: Zu addierender Wert ], 
-[ jmp ], [ 4 ], [ 1 ], [ Sprung-Adresse ], 
-[ put ], [ 5 ], [ 2 ], [ 1: Adresse, 2: Wert ], 
-
-)
-
-
-90: 5 60 0 5 59 2 5 58 100 2 60 58 120 1 60 5 57 0 2 57 59 99 3 60 1 3 57 1 4 108 0
