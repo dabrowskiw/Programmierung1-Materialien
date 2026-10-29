@@ -386,19 +386,257 @@ public class Main {
 == Auflösung von Variablen/Attributen
 
 Wenn auf etwas mit dem Namen `varname` zugegriffen wird:
-- Falls es Varialbe `varname` gibt, die verwenden
+- Falls es Variable `varname` gibt, die verwenden
 - Falls nein, schauen ob es Attribut `varname` gibt
+- Variablenname = Attributname: "shadowing"
+- Expliziter Zugriff auf Attribut: Implizites Argument `this` in jeder Methode (außer `static`)
 
 ```java
 public class Mob {
     public int x;
     public int y;
-    public Mob(int newx, int y) {
+    public void move(int newx, int y) {
         x = newx;
         this.y = y; // shadowing - Variable y "überschattet" Attribut y
     }
 }
 ```
+
+== `static`
+
+- Bei Methoden: Kein implizites `this`-Argument 
+- Bei Attributen: Kein eigener Wert pro Objekt, nur für ganze Klasse
+
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+```java
+public class Mob {
+  public int x;
+  public static int y;
+  public static void move(int nx, int ny) {
+    y = ny;
+    x = nx; // geht nicht!
+    this.x = nx; // geht nicht!
+    this.y = ny; // geht nicht!
+  }
+}
+```],[
+```java
+public class Mob {
+  public int x;
+  public static int y;
+  public void move(int newx, int y) {
+    x = newx;
+    this.y = y;
+  }
+}
+public class Main {
+  public static void main() {
+    Mob m1 = new Mob();
+    Mob m2 = new Mob();
+    m1.move(5, 5);
+    m2.move(20, 20);
+  }
+}
+```
+Attributwerte jetzt?
+]
+)
+
+== Initialisierung von Variablen/Attributen
+
+- Primitive Datentypen: Keine Verwendung vor Initialisierung
+- Klassen: Automatische Initialisierung von Attributen!
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+```java
+public class Mob {
+    public int x;
+    public boolean happy;;
+    public Mob friend;
+}
+public class Main {
+    public static void main() {
+        Mob m = new Mob();
+        System.out.print("Mob " + m.x + " is ");
+        if(!m.happy) {
+            System.out.print("un");
+        } 
+        System.out.print("happy and has ");
+        if(mob.friend == null) {
+            System.out.print("no ");
+        }
+        System.out.println("friends.");
+    }
+}
+```
+  ],[
+    Standard-Werte:
+    - `boolean`: `false`
+    - Referenzdatentyp: `null`
+    - Alles andere: 0
+
+    Was wird hier ausgegeben?
+  ]
+)
+
+== Default-Constructor
+
+Initialisierung von Werten: Default Constructor
+- Setzt alle Attribute auf ihre Standard-Werte
+- Nur vorhanden, solange es keinen eigenen Constructor gibt
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+Geht: 
+```java
+public class Mob {
+  public int x;
+  public boolean happy;
+  public Mob friend;
+}
+public class Main {
+  public static void main() {
+    Mob m = new Mob();
+  }
+}
+```
+  ],[
+Geht nicht: 
+#codly(
+  highlighted-lines: (5, 6, 7, 11),
+)
+```java
+public class Mob {
+  public int x;
+  public boolean happy;
+  public Mob friend;
+  public Mob(boolean friendly) {
+    this.friendly = friendly;
+  }
+}
+public class Main {
+  public static void main() {
+    Mob m = new Mob();
+  }
+}
+```
+  ]
+)
+
+== Überladen von Constructoren
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+Einfaches Überladen:
+#codly(
+  highlighted-lines: (6, 7, 8, 9, 13, 14, 15, 16),
+)
+```java
+public class Mob {
+  public int x;
+  public boolean happy;
+  public Mob friend;
+  public Mob(Mob newfriend) {
+    friend = newfriend;
+    if(friend != null) {
+      happy = true;
+    }
+  }
+  public Mob(int x, Mob friend) {
+    this.x = x;
+    this.friend = friend;
+    if(friend != null) {
+      happy = true;
+    }
+  }
+}
+```
+  ],[
+Gegenseitiger Aufruf:
+```java
+public class Mob {
+  public int x;
+  public boolean happy;
+  public Mob friend;
+  public Mob(Mob newfriend) {
+    friend = newfriend;
+    if(friend != null) {
+      happy = true;
+    }
+  }
+  public Mob(int x, Mob friend) {
+    this(friend);
+    this.x = x;
+  }
+}
+```
+  ]
+)
+
+== Zuständigkeit von Klassen
+
+Randnotiz: Es ist schöner, wenn Mob sich selber ausgeben kann
+
+#grid(
+  columns: (1.5fr, 1fr),
+  gutter: 1em,
+  [
+```java
+public class Mob {
+  public int x;
+  public boolean happy;
+  public Mob friend;
+
+  public void printSelf() {
+    System.out.print("Mob " + m.x + " is ");
+    if(!m.happy) {
+      System.out.print("un");
+    } 
+    System.out.print("happy and has ");
+    if(mob.friend == null) {
+      System.out.print("no ");
+    }
+    System.out.println("friends.");
+  }
+}
+```
+  ],[
+```java
+public class Main {
+  public static void main() {
+    Mob m = new Mob();
+    m.printSelf();
+  }
+}
+```
+  ]
+)
+
+#examslide(title: "Objektorientierung")[
+  - Klasse: Allgemeine Beschreibung eines Konzepts (oft aus realer Welt)
+    - Welche Attribute (Eigenschaften) hat es?
+    - Welche Dinge kann es tun (Methoden)?
+  - Objekt: Konkrete Ausprägung
+    - Eigener Speicherbereich für Attribute (außer `static`)
+    - Methoden: 
+      - Alle in der Klasse, keine Kopien des Codes! 
+      - Implizit: Argument `this` mit Speicheradresse (außer `static`)
+    - Spezielle Initialisierungs-Methode: Constructor, Aufruf bei `new`:
+      - Überladbar, gegenseitiger Aufruf mit `this()`
+      - Default-Constructor nur, wenn kein eigener definiert
+  - Objekt = Instanz von Klasse, `new` = Instanziierung der Klasse 
+]
 
 == Zugriff: Access modifiers
 
@@ -483,8 +721,6 @@ public class Main {
 ```
 
 == Vergleiche von Objekten
-
-
 
 #grid(
   columns: (3fr, 3fr),
@@ -655,4 +891,19 @@ public class Main {
     - Vorsicht: Import!
   ]
 )
+
+#examslide[
+  - Zugriffsmodifikatoren:
+    - `public` vs. `private`
+    - Getter und Setter:
+      - Zugriff auf `private`-Attribute
+      - Sicherstellung von konsistenter Logik
+      - Transparenz bei Verwendung/Klare Schnittstellen
+  - Klassen als selber definierter Referenzdatentyp 
+    - Adresse auf Stack, Inhalt auf Heap
+    - Beliebig tief verschachtelbar:
+      - Können andere Objekte/Arrays enthalten
+      - Können in Objekten/Arrays enthalten sein
+    - Komplexität unbegrenzt #sym.arrow Abbildung von Dateitypen
+]
 

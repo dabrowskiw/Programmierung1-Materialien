@@ -320,6 +320,17 @@ static void main() {
   ]
 )
 
+#examslide[
+  - Arrays
+    - Grundidee: Liste von Werten mit definierter Länge und gleichem Datentyp
+    - Zugriff auf einzelne Werte über Index, Beginn: 0
+    - Spezielle for-Schleife für Iteration
+  - Variablen
+    - Primitive Variablen vs. Referenzvariablen
+    - Datenablage auf Stack und Heap
+    - Folgen für Scoping
+]
+
 == Vergleiche von Arrays
 
 #grid(
@@ -501,3 +512,10 @@ static void showBoard(
   - Format: Bedingung ? Wert, wenn `true` : wert wenn `false`
   - Bedingung ist selber Ausdruck, der `true` oder `false` sein muss
 
+#examslide[
+    - Praktische Details von Arrays:
+      - Vergleich von Werten ("ist es das gleiche Array") vs. Vergleich von Speicheradressen ("ist es das selbe Array")
+      - Ausgabe von Werten
+      - Mehrdimensionale Arrays: Identisch, wie eindimensionale, nur mit Array als Datentyp
+    - Neuer Ausdruck (nicht Kontrollflussanweisung!): Ternary if
+]

@@ -1,4 +1,4 @@
-#import "@preview/touying:0.6.1": *
+#import "@preview/touying:0.8.0": *
 #import "@preview/colorful-boxes:1.3.1": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #import fletcher.shapes: diamond, ellipse
@@ -11,6 +11,11 @@
 #let diagram = touying-reducer.with(
   reduce: fletcher.diagram,
   cover: fletcher.hide,
+)
+
+#let doclink(url) = box(
+  height: 0.7em,
+  link(url)[#image("docs.svg")]
 )
 
 #let hlnode(enc, col: blue.lighten(90%)) = node(
@@ -32,6 +37,27 @@
 #let col_jump=rgb("#004FE0")
 #let col_control=rgb("#969696")
 
+#let examslide(title: "Zusammenfassung", body) = [
+    == #title
+
+    #slide(
+    config: config-page(
+      // 1. Set the background color
+      fill: colorsSecondary.lighten(85%), 
+      
+      // 2. Set a border around the entire slide canvas
+      background: place(
+        rect(
+          width: 100%, 
+          height: 97%, 
+          stroke: 4pt + colorsTertiary 
+        )
+      )
+    )
+  )[
+    #body
+  ]
+]
 
 #let htwslides(body) = {
   show: codly-init
@@ -57,7 +83,8 @@
       tertiary: colorsTertiary,
       neutral-lightest: rgb("#ffffff"),
       neutral-darkest: rgb("#000000"),
-    )
+    ),
+    config-page(margin: (bottom: 0.5em))
   )
 
   show link: underline

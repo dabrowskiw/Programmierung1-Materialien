@@ -297,17 +297,38 @@ class HelloWorld
 ]
 
 #only(3)[
+  Methodensignatur: 
+  - Name + Reihenfolge und Datentypen der Argumente
+  - Nicht Teil der Signatur: Return-Datentyp, Argumentnamen
+  - Dient der Auflösung (z.B. was ist gemeint mit `triple(5)`)
+
+]
+
+#only(4)[
   Namenskonventionen:
   - Klassenname: Groß geschrieben
   - Methoden- und Variablennamen: Klein geschrieben
   - Beides: CamelCase (z.B. `berechneWert`, nicht `berechne_wert`)
 ]
 
-#only(4)[
+#only(5)[
 Warum ist das wichtig? Korrektes Fachvokabular ist nötig für:
 - Gemeinsame Sprache in Informatik
 - Unterstützung bei Übungsaufgaben
 - Prüfung
+]
+
+#examslide[
+  - Programmstruktur
+    - Hierarchie: 
+      - Klasse #sym.arrow Methode #sym.arrow Anweisungen
+      - Anweisungen in Methoden in Klassen
+    - Anweisungen: Deklaration, Zuweisung, Sprung, Kontrollfluss
+    - Ausdruck immer im Zusammenhang mit Anweisung (compound = Anweisung + Ausdruck)
+    - Methodensignatur: Name + Argument-Datentypen, für Auflösung
+  - Datentypen
+    - Daten im Speicher immer binär, Bits und Bytes
+    - Datentyp: Anzahl an Byte + ihre Interpretation für eine Variable
 ]
 
 == Casting
@@ -577,7 +598,7 @@ class Main {
       node((0,1), [Ausgabe: out], name: <n1>),
       edge("-|>"),
       node((0,2), [n=n-1], name: <n2>),
-      edge((0,2), (0,1), "-|>"),
+      edge((0,2), (1,1), "-|>"),
       node((1,3), shape: ellipse, [Ende]),
       edge((1,1), (0,1), "-|>", [ja]),
       edge((1,1), (1,3), "-|>", [nein]),
@@ -718,6 +739,18 @@ class Main {
   ]
 )
 
+#examslide[
+  - Kontrollfluss-Anweisungen
+    - Bedingungen vs. Schleifen
+    - Ausdrücke in Kontrollfluss-Anweisungen
+    - Darstellung im Flussdiagramm
+  - Datentypen
+    - Explizite und statische Typisierung
+    - Casting:
+      - Genauigkeitsverlust
+      - Wann explizit, wann implizit
+]
+
 = Speicherorganisation
 
 == Stack
@@ -839,4 +872,11 @@ System.out.println("From: " + from); // 0 oder 100?
 }
 }
 ```
+]
+
+#examslide[
+  Stack und scope:
+  - Wie werden Variablenwerte beim Funktionsaufruf übergeben?
+  - Warum ist der Scope einer Variable auf eine Methode begrenzt?
+  - Wo passieren im Speicher Veränderungen, wenn ein Variablenwert geändert wird (am Codebeispiel erkennen)?
 ]

@@ -265,6 +265,19 @@ Gemeinsam: Von Hand bearbeiten, mehr/andere Töne?
   number-format: numbering.with("1")
 )
 
+#examslide[
+  Datencodierung:
+  - Dateien wie Variablen: Nur binäre Zahlen
+  - Interpretation der Zahlen: Abhängig vom Algorithmus
+    - Wie "komplexer Datentyp"
+    - Dateiformat-Spezifikation beschreibt Interpretation
+  - Typische Aufgabe der Informatik:
+    - Daten entsprechend Spezifikation einlesen
+    - Berechnungen durchführen
+    - Daten entsprechend Spezifikation speichern
+  - Keine Beschränkung bezüglich Komplexität der Spezifikation eines Dateiformats
+]
+
 = Nützliche Sprachfeatures 
 
 == Konstanten
@@ -677,4 +690,15 @@ static void showUneven(
   ]
 )
 
-
+#examslide[
+  - Konstanten und Vermeiden von Magic Numbers
+  - Auflösen von Methoden:
+    - Auflösung über Signatur
+    - Signatur muss sich unterscheiden, sonst Fehler, da nicht auflösbar!
+    - Rückgabewert, Variablennamen irrelevant (#sym.arrow Definition Signatur)
+    - Gleicher Name, unterschiedliche Argumente: Überladen = Statischer Polymorphismus
+  - Sprunganweisungen: `break` und `continue`
+  - Kontrollflussanweisung `switch`:
+    - Unterschied zu `if`-`else if`-`else`-Kette
+    - Sinnvoller Einsatz: Teilmengen von Anweisungen vs. disjunkte Mengen von Anweisungen
+]

@@ -82,7 +82,7 @@ Probleme bei "ChatGPT kann das doch auch":
 - Studie Leistungsverlust/Durchhaltevermögen: Es macht dümmer!
 - Arbeitsmarkt: 3 Jahre studieren vs. "prompt to product in 3 days"?
 
-Ausnahme KI-Tutor (siehe Moodle): Denkhilfen, keine Lösungen!
+Ausnahme KI-Tutor (Moodle, Deadline!): Denkhilfen, keine Lösungen!
 
 = Algorithmen
 
